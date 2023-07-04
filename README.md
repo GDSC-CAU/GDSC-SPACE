@@ -105,14 +105,57 @@
 -   [Next.js](https://nextjs.org/) `v13.x`
 -   [TypeScript](https://www.typescriptlang.org/) `v5.x`
 -   [Tailwind CSS](https://tailwindcss.com/) `v3.x.x`
+    ...and more!
 
-...and more!
+<br />
+
+## Run Tests 🛡️
+
+1.  Unit test: `Jest` + `React testing library`
+2.  e2e test: `Playwright`
+
+### Test categories
+
+1. `unit` test 🔩
+
+Write test code using watch mode.
+
+```bash
+pnpm test
+```
+
+Run CI tests
+
+```bash
+pnpm test:ci
+```
+
+2. `e2e` test ⛰️
+
+First, setup `Playwright` with this command.
+
+```bash
+npx playwright install
+```
+
+And then run `e2e` test.
+
+```bash
+pnpm e2e:ci
+```
+
+If you want inspect full ci test process, run this command.
+
+```bash
+pnpm e2e:inspect
+```
 
 <br />
 
 ## Project Structure Overview 📖
 
 ```
+
 [src] - project root
  ┃
  ┣ <app> - Next.js app
