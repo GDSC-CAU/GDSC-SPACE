@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            "~/src/*": ["/src/*"],
+            "~/utils/*": ["src/utils/*"],
+            "~/styles/*": ["src/styles/*"],
+            "~/hooks/*": ["src/hooks/*"],
+            "~/components/*": ["src/components/*"],
+            "~/interface/*": ["src/interface/*"],
+            "~/constants/*": ["src/constants/*"]
+        },
+        "importHelpers": true,
+        "forceConsistentCasingInFileNames": true
+    }
+}
