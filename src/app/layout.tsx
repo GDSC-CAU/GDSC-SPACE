@@ -1,5 +1,6 @@
 import '../styles/tailwind.css'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,9 +11,12 @@ export const metadata = {
 
 const Links = () => {
     return (
-        <>
-            <p>Links</p>
-        </>
+        <div className="flex flex-row items-center justify-center gap-32">
+            <Link href="/blog">Blog</Link>
+            <Link href="/events">Events</Link>
+            <Link href="/members">Members</Link>
+            <Link href="/projects">Projects</Link>
+        </div>
     )
 }
 
