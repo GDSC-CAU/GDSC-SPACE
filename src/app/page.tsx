@@ -20,10 +20,19 @@ const Logo = () => {
     )
 }
 
+const Links = () => {
+    return (
+        <>
+            <p>Links</p>
+        </>
+    )
+}
+
 export default function Home() {
     return (
         <main className="flex h-full w-full flex-col items-center justify-between p-24">
             <Logo />
+            <Links />
         </main>
     )
 }
