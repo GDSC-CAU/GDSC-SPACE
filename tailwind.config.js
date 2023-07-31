@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                eng: ['var(--google-sans)'],
+                eng: ['var(--poppins)'],
                 kor: ['var(--pretendard)'],
             },
             fontSize: {
@@ -17,7 +17,10 @@ module.exports = {
                 xl: '1.25rem',
             },
             colors: {
-                background: '#18181B',
+                theme: {
+                    background: '#18181B',
+                    font: '#D9D9D9',
+                },
                 primary: {
                     yellow: '#FFE247',
                     hotpink: '#FF3C76',
