@@ -1,7 +1,8 @@
 import '../styles/tailwind.css'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
-import Link from 'next/link'
+import { Gdsc } from '~/components/icons'
+import { Link$, type LinkPath } from '../components'
 
 const pretendard = localFont({
     src: [
@@ -30,23 +31,47 @@ export const metadata = {
     description: 'welcome to space',
 }
 
-const Links = () => {
+const NavButton = ({
+    href,
+    children,
+    disableUnderline = false,
+}: {
+    href: LinkPath
+    children: React.ReactNode
+    disableUnderline?: boolean
+}) => {
     return (
-        <div className="flex flex-row items-center justify-center gap-32">
-            <Link href="/blog">Blog</Link>
-            <Link href="/events">Events</Link>
-            <Link href="/members">Members</Link>
-            <Link href="/projects">Projects</Link>
-        </div>
+        <Link$ className="group select-none text-xs md:text-sm" href={href}>
+            <p className="transition-opacity group-hover:opacity-90">{children}</p>
+            {!disableUnderline && (
+                <div className="h-[0.75px] w-full scale-x-0 rounded bg-gray-200 transition-all duration-200 group-hover:scale-x-100 group-hover:opacity-90" />
+            )}
+        </Link$>
+    )
+}
+
+const NavBar = () => {
+    const iconSize = 55
+
+    return (
+        <nav className="sticky top-0 flex h-14 flex-row items-center justify-center gap-10 bg-neutral-600/5 py-4 backdrop-blur-2xl md:h-20 md:gap-28">
+            <NavButton href="/" disableUnderline>
+                <Gdsc width={iconSize} height={iconSize} className="scale-75 md:scale-100" />
+            </NavButton>
+            <NavButton href="/blog">Blog</NavButton>
+            <NavButton href="/events">Events</NavButton>
+            <NavButton href="/members">Members</NavButton>
+        </nav>
     )
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="kr" className={`${googleSans.variable} ${pretendard.variable}`}>
-            <body className="h-screen max-h-screen min-h-screen bg-background font-kor">
-                <Links />
-                <>{children}</>
+            <body className="relative h-screen max-h-screen min-h-screen bg-background font-kor text-white">
+                <NavBar />
+
+                <main className="mx-auto h-full w-2/3">{children}</main>
             </body>
         </html>
     )
