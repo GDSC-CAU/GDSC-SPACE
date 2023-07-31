@@ -2,22 +2,7 @@
 
 ## Rules 🤝
 
-### Commit
-
-| **Type**    | **Usage**                                          |
-| ----------- | -------------------------------------------------- |
-| `feat`      | add feature                                        |
-| `fix`       | fix bug                                            |
-| `docs`      | update document                                    |
-| `style`     | node code change ex) code formatting, missing semi |
-| `refactor`  | refactoring code                                   |
-| `test`      | add test code ex) unit test, storybook             |
-| `chore`     | update etc, ex) update dependencies                |
-| `design`    | update design                                      |
-| `rename`    | rename or move file/folder                         |
-| `remove`    | remove file/folder                                 |
-| `!BREAKING` | critical API changes                               |
-| `!HOTFIX`   | hotfix critical bug                                |
+**All Rules are [here](./Rules.md).** Check it out carefully :)
 
 ## Setup ⚙️
 
