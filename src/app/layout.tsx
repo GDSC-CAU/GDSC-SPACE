@@ -1,5 +1,5 @@
 import '../styles/tailwind.css'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Gdsc } from '~/components/icons'
 import { Link$, type LinkPath } from '../components'
@@ -19,11 +19,11 @@ const pretendard = localFont({
     variable: '--pretendard',
 })
 
-//TODO: 영어 font 저녁에 바뀝니다
-const googleSans = Inter({
+const poppins = Poppins({
     subsets: ['latin'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
     display: 'swap',
-    variable: '--google-sans',
+    variable: '--poppins',
 })
 
 export const metadata = {
@@ -44,7 +44,7 @@ const NavButton = ({
         <Link$ className="group select-none text-xs md:text-sm" href={href}>
             <p className="transition-opacity group-hover:opacity-90">{children}</p>
             {!disableUnderline && (
-                <div className="h-[0.75px] w-full scale-x-0 rounded bg-gray-200 transition-all duration-200 group-hover:scale-x-100 group-hover:opacity-90" />
+                <div className="h-[0.75px] w-full scale-x-0 rounded bg-gray-300 transition-all duration-200 group-hover:scale-x-100 group-hover:opacity-90" />
             )}
         </Link$>
     )
@@ -67,10 +67,9 @@ const NavBar = () => {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="kr" className={`${googleSans.variable} ${pretendard.variable}`}>
-            <body className="relative h-screen max-h-screen min-h-screen bg-background font-kor text-white">
+        <html lang="kr" className={`${poppins.variable} ${pretendard.variable}`}>
+            <body className="relative h-screen max-h-screen min-h-screen bg-theme-background font-kor text-theme-font">
                 <NavBar />
-
                 <main className="mx-auto h-full w-2/3">{children}</main>
             </body>
         </html>
