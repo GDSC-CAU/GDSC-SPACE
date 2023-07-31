@@ -15,15 +15,19 @@ const Logo = () => {
                     C
                 </h1>
             </div>
-            Space
+            가상 Banner 영역입니다
         </div>
     )
 }
 
 export default function Home() {
     return (
-        <main className="flex h-full w-full flex-col items-center justify-between p-24">
-            <Logo />
-        </main>
+        <>
+            <div className="flex h-full w-full flex-col items-center justify-between">
+                <div className="py-40">
+                    <Logo />
+                </div>
+            </div>
+        </>
     )
 }
