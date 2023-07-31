@@ -10,6 +10,7 @@
         "lint:fix": "next lint --fix",
         "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
         "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+        "svg": "npx @svgr/cli src/components/icons --out-dir src/components/icons --typescript",
         "test": "jest --watch",
         "test:ci": "jest --ci",
         "e2e:ci": "playwright test",
