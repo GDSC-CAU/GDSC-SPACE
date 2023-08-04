@@ -7,7 +7,9 @@ export default function EventList() {
             <p>This is Event List</p>
             <Link href="/events/1">Event 1</Link>
             <Link href="/events/2">Event 2</Link>
-            <EventCard />
+            <Link href="/events/3">
+                <EventCard />
+            </Link>
         </main>
     )
 }
