@@ -16,5 +16,4 @@ const nextConfig = {
         nextScriptWorkers: true,
     },
 }
-
 module.exports = nextConfig
