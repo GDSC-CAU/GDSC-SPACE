@@ -68,7 +68,8 @@ const NavBar = () => {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="kr" className={`${poppins.variable} ${pretendard.variable}`}>
-            <body className="relative h-screen max-h-screen min-h-screen bg-theme-background font-kor text-theme-font">
+            <body className="relative h-screen max-h-screen bg-theme-background font-kor text-theme-font">
+                <div id="modal-root" />
                 <NavBar />
                 <main className="mx-auto h-full w-2/3">{children}</main>
             </body>
