@@ -1,3 +1,5 @@
+import { ProjectCard } from './_components/ProjectCard'
+
 const BulkBanner = () => {
     return (
         <div className="flex h-72 w-full flex-col items-center justify-center gap-32 rounded-3xl border border-neutral-800 bg-theme-background py-40 text-sm">
@@ -24,6 +26,7 @@ export default function Home() {
     return (
         <div className="h-full w-full">
             <BulkBanner />
+            <ProjectCard />
         </div>
     )
 }
