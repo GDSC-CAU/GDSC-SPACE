@@ -1,19 +1,33 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
-const EventCard = ({ id }: { id: string }) => {
+type eventcard = {
+    id: string
+    category: string
+    date: string
+    title: string
+    content: string
+    image: string
+}
+
+const imageStyle = {
+    borderRadius: '5% 5% 0% 0%',
+}
+
+const EventCard = ({ id, category, date, title, content, image }: eventcard) => {
     return (
         <Link href={`/events/${id}`}>
-            <div className="group h-32 w-32 rounded-xl">
-                <div className="flex h-1/5 w-full items-center justify-end rounded-t-xl bg-black px-1.5 group-hover:h-0">
-                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-black group-hover:invisible">
-                        {'>'}
-                    </div>
+            <div className="group relative h-80 w-60">
+                <div className="relative flex h-1/2 w-full items-center justify-end rounded-t-xl">
+                    <Image fill src={image} alt="picture" style={imageStyle}></Image>
                 </div>
-                <div className="relative h-full w-full">
-                    <div className="absolute h-4/5 w-full rounded-b-xl bg-orange-400 group-hover:h-32 group-hover:rounded-xl"></div>
-                    <div className="invisible absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-black group-hover:visible">
-                        {'>'}
+                <div className="absolute h-1/2 w-full rounded-b-xl bg-black ">
+                    <div className="px-4 pb-2 pt-4 text-xs">
+                        {' '}
+                        {category} ﹒ {date}
                     </div>
+                    <div className="px-4 text-xl"> {title} </div>
+                    <div className="p-4 text-sm"> {content} </div>
                 </div>
             </div>
         </Link>
