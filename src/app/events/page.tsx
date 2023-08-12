@@ -13,9 +13,7 @@ export default function EventList() {
                 content={'by 대한민국 인공지능위크 2023'}
                 date={'Jul 15, 2023'}
                 category={'Association'}
-                image={
-                    'https://fastly.picsum.photos/id/13/2500/1667.jpg?hmac=SoX9UoHhN8HyklRA4A3vcCWJMVtiBXUg0W4ljWTor7s'
-                }
+                image={'/events/cardtest.png'}
             />
         </main>
     )

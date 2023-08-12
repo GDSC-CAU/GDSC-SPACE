@@ -22,12 +22,12 @@ const EventCard = ({ id, category, date, title, content, image }: eventcard) => 
                     <Image fill src={image} alt="picture" style={imageStyle}></Image>
                 </div>
                 <div className="absolute h-1/2 w-full rounded-b-xl bg-black ">
-                    <div className="px-4 pb-2 pt-4 text-xs">
+                    <div className="px-4 pb-2 pt-4 font-kor text-xs">
                         {' '}
                         {category} ﹒ {date}
                     </div>
-                    <div className="px-4 text-xl"> {title} </div>
-                    <div className="p-4 text-sm"> {content} </div>
+                    <div className="px-4 font-eng text-xl"> {title} </div>
+                    <div className="p-4 font-kor text-sm"> {content} </div>
                 </div>
             </div>
         </Link>
