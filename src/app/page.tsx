@@ -1,4 +1,4 @@
-import { ProjectCard } from './_components/ProjectCard'
+import ProjectCard from './_components/ProjectCard'
 
 const BulkBanner = () => {
     return (
@@ -23,10 +23,15 @@ const BulkBanner = () => {
 }
 
 export default function Home() {
+    const p1 = '/d.png'
+    const p2 = '/f.png'
     return (
         <div className="h-full w-full">
             <BulkBanner />
-            <ProjectCard />
+            <div className="flex flex-col items-center justify-center gap-5 p-5">
+                <ProjectCard picture={p1} name="Project Wiro" d1="작업 기간 / 개발자" d2="(두줄 소개)" bool={true} />
+                <ProjectCard picture={p2} name="Carbon Hero" d1=":Save The Earth" d2="asfdghjfhdgsf" bool={true} />
+            </div>
         </div>
     )
 }
