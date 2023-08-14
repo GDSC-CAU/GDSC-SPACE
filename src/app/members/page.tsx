@@ -1,25 +1,35 @@
-//import Link from 'next/link'
+'use client'
+import { useEffect, useState } from 'react'
 import { MemberCard } from './_components/Membercard'
 
-export type memberData = {
-    id: string
+export type MemberData = {
     name: string
-    role: string
+    nickname?: string
+    role: 'lead' | 'core' | 'member'
     image: string
+    position: string
+    introduction: string
 }
 
 export default function MemberList() {
-    const members: memberData = {
-        id: '1',
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    const members: MemberData = {
         name: '유용민',
-        role: 'Leader/Developer',
-        image: '/yymin1022.png',
+        nickname: 'YYMIN',
+        role: 'lead',
+        image: '/GDSC_logo.png',
+        position: 'Cloud Server / flutter',
+        introduction: '안녕하세요, GDSC 3기 리더 유용민입니다. 잘 부탁드립니다:)',
     }
 
     return (
         <main className="flex h-full w-full flex-col items-center justify-between p-24">
-            <p>Member List</p>
-            <MemberCard member={members} />
+            {isClient && <MemberCard member={members} />}
         </main>
     )
 }
