@@ -20,11 +20,22 @@ export default function EventList() {
         image: '/events/cardtest.png',
     }
     return (
-        <main className="flex h-full w-full flex-col items-center p-24">
-            <p>This is Event List</p>
-            <Link href="/events/1">Event 1</Link>
-            <Link href="/events/2">Event 2</Link>
-            <EventCard event={eventData} />
+        <main className="flex min-w-[50%] flex-col items-center justify-center">
+            <div className="flex h-full w-full flex-col items-center">
+                <h1 className="mt-40 text-5xl font-bold">Event</h1>
+                <span className="text-xs">GDSC Chung-ang이 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
+            </div>
+            <hr className="mx-auto mb-8 mt-12 w-full bg-gray-100" />
+            {/* <Link href="/events/1">Event 1</Link>
+            <Link href="/events/2">Event 2</Link> */}
+            {/* grid grid-cols-3 gap-7 items-center justify-center */}
+            <div className="space-envely grid grid-cols-3 items-center justify-center gap-5 ">
+                <EventCard event={eventData} />
+                <EventCard event={eventData} />
+                <EventCard event={eventData} />
+                <EventCard event={eventData} />
+                <EventCard event={eventData} />
+            </div>
         </main>
     )
 }
