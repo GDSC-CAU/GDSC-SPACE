@@ -5,7 +5,7 @@ export type Member = {
     gender: 'Male' | 'Female'
     nickname?: string
     role: 'Lead' | 'Core' | 'Member'
-    imagesrc?: string
+    imageSrc?: string
     year: '1기' | '2기' | '3기'
     position: string
     introduction: string
@@ -21,7 +21,7 @@ export default function MemberList() {
             gender: 'Male',
             nickname: 'DEV.LR',
             role: 'Lead',
-            imagesrc: '/GDSC_logo.png',
+            imageSrc: '/GDSC_logo.png',
             year: '2기',
             position: 'Cloud Server / flutter',
             introduction: '안녕하세요, GDSC 3기 리더 유용민입니다. 잘 부탁드립니다:)',

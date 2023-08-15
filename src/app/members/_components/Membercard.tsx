@@ -11,23 +11,23 @@ const MemberCard = ({ member }: { member: Member }) => {
 
     const toggleIntroduction = () => {
         setShowIntroduction((showIntroduction) => !showIntroduction)
-    } //이전 상태 조회할 때, 함수 넣기
+    }
 
     const getImgSrc = () => {
-        if (!member.imagesrc) {
+        if (!member.imageSrc) {
             return member.gender === 'Female' ? '/female.png' : '/male.png'
         }
-        return member.imagesrc
+        return member.imageSrc
     }
 
     return (
         <div
-            className="group relative h-[250px] w-40 cursor-pointer transition-transform transform-gpu hover:scale-105"
+            className="group relative h-[250px] w-40 transform-gpu cursor-pointer transition-transform hover:scale-105"
             onClick={toggleIntroduction}
         >
             <div className="preserve-3d group-hover:my-rotate-y-180 duration-5000 relative h-full w-full">
                 {/* Front Content */}
-                <div className="absolute h-full w-full backface-hidden">
+                <div className="backface-hidden absolute h-full w-full">
                     <Link href={`/members/${member.name}`}>
                         <Image
                             fill
@@ -43,30 +43,30 @@ const MemberCard = ({ member }: { member: Member }) => {
                             <div className="flex justify-end px-1">
                                 <Gdsc width={40} height={40} />
                             </div>
-                            <div className="mt-3 text-right font-kor text-lg text-black">{member.name}</div>
-                            <div className="text-right font-eng text-xs text-black">{member.position}</div>
+                            <div className="font-kor mt-3 text-right text-lg text-black">{member.name}</div>
+                            <div className="font-eng text-right text-xs text-black">{member.position}</div>
                         </div>
                     </Link>
                 </div>
 
                 {/* Back Content */}
                 <div
-                    className={`my-rotate-y-180 absolute h-full w-full overflow-hidden backface-hidden ${
+                    className={`my-rotate-y-180 backface-hidden absolute h-full w-full overflow-hidden ${
                         showIntroduction ? '' : 'hidden'
                     }`}
                 >
                     <div className="group relative h-[250px] w-40 bg-white" style={{ borderRadius: '5% 5% 5% 5%' }}>
                         <div className="mx-2" style={{ padding: '10px' }}>
-                            <div className="text-left font-kor text-lg text-black" style={{ fontWeight: 500 }}>
+                            <div className="font-kor text-left text-lg text-black" style={{ fontWeight: 500 }}>
                                 {member.nickname}
                             </div>
-                            <div className="text-left font-eng text-xs text-primary-purple">{member.position}</div>
-                            <hr className="my-2 border-primary-whitegray" />
-                            <div className="text-left font-kor text-xs text-black">{member.introduction}</div>
+                            <div className="font-eng text-primary-purple text-left text-xs">{member.position}</div>
+                            <hr className="border-primary-whitegray my-2" />
+                            <div className="font-kor text-left text-xs text-black">{member.introduction}</div>
                             <div className="absolute bottom-0 my-2">
-                                <div className="text-left font-kor text-xs text-black">{member.github}</div>
-                                <div className="text-left font-kor text-xs text-black">{member.email}</div>
-                                <div className="text-left font-kor text-xs text-black">{member.instagram}</div>
+                                <div className="font-kor text-left text-xs text-black">{member.github}</div>
+                                <div className="font-kor text-left text-xs text-black">{member.email}</div>
+                                <div className="font-kor text-left text-xs text-black">{member.instagram}</div>
                             </div>
                         </div>
                     </div>
