@@ -1,73 +1,89 @@
-import Image from 'next/image'
-import Link from 'next/link'
+'use client'
+
 import { useState } from 'react'
-import { Gdsc } from '~/components/icons'
-import { MemberData } from '../page'
+import { Email, Gdsc, Instagram, Link as LinkIcon } from '~/components/icons'
+import { Link$ } from '~/components/index'
+import { Member } from '../page'
+import { MemberAvatar } from './MemberAvatar'
+import { MemberContact, MemberContactProps } from './MemberContact'
+import { MemberRoleIcon } from './MemberRoleIcon'
 
-const imageStyle = {
-    borderRadius: '5% 5% 5% 5%',
+interface MemberCardProps {
+    member: Member
+    disableFlip?: boolean
 }
+const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
+    const [isFrontViewActive, setIsFrontViewActive] = useState(false)
 
-const infoStyle = {
-    borderRadius: '50% 0% 5% 5%',
-}
-
-const MemberCard = ({ member }: { member: MemberData }) => {
-    const [showIntroduction, setShowIntroduction] = useState(false)
-    const [isHovered, setIsHovered] = useState(false)
-
-    const toggleIntroduction = () => {
-        setShowIntroduction(!showIntroduction)
+    const toggleCardView = () => {
+        setIsFrontViewActive((isFrontViewActive) => !isFrontViewActive)
     }
 
     return (
         <div
-            className={`perspective group relative h-[250px] w-40 cursor-pointer`}
-            onClick={toggleIntroduction}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onClick={toggleCardView}
+            className={`relative h-[20rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu hover:scale-105`}
+        >
+            <MemberCardFront member={member} isFrontViewActive={isFrontViewActive} />
+            {disableFlip === false && <MemberCardBack member={member} isFrontViewActive={isFrontViewActive} />}
+        </div>
+    )
+}
+
+interface MemberCardFrontBackViewProps extends Omit<MemberCardProps, 'disableFlip'> {
+    isFrontViewActive: boolean
+}
+const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => (
+    <section
+        className={`absolute inset-0 z-10 h-full w-full transition duration-300 ease-in-out ${
+            isFrontViewActive ? 'opacity-0 -rotate-y-180' : 'opacity-100 rotate-y-0'
+        }`}
+    >
+        <MemberAvatar gender={member.gender} imageSrc={member.imageSrc} />
+        <MemberRoleIcon role={member.role} />
+
+        <div
+            className="absolute bottom-0 left-0 flex h-28 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3.5"
             style={{
-                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-                transition: 'transform 0.3s ease-in-out',
+                boxShadow: '-1px -1px 10px rgba(32, 32, 32, 0.2)',
             }}
         >
-            <div className="preserve-3d group-hover:my-rotate-y-180 relative h-full w-full duration-1000">
-                {/* Front Content */}
-                <div className="backface-hidden absolute h-full w-full">
-                    <Link href={`/members/${member.name}`}>
-                        <Image fill src={member.image} alt="mem_image" objectFit="cover" style={imageStyle} />
-                        <div
-                            className="absolute bottom-0 left-0 h-[110px] w-full rounded-b-xl bg-white p-2"
-                            style={{ ...infoStyle, boxShadow: '-1px -2px 6px rgba(0, 0, 0, 0.3)' }}
-                        >
-                            <div className="flex justify-end px-1">
-                                <Gdsc width={40} height={40} />
-                            </div>
-                            <div className="mt-3 text-right font-kor text-lg text-black">{member.name}</div>
-                            <div className="text-right font-eng text-xs text-black">{member.position}</div>
-                        </div>
-                    </Link>
-                </div>
-
-                {/* Back Content */}
-                <div
-                    className={`my-rotate-y-180 backface-hidden absolute h-full w-full overflow-hidden ${
-                        showIntroduction ? '' : 'hidden'
-                    }`}
-                >
-                    <div className="group relative h-[250px] w-40 bg-white" style={{ ...imageStyle }}>
-                        <div className="margin" style={{ padding: '10px' }}>
-                            <div className="text-left font-kor text-lg text-black" style={{ fontWeight: 500 }}>
-                                {member.nickname}
-                            </div>
-                            <div className="text-left font-eng text-xs text-primary-purple">{member.position}</div>
-                            <hr className="my-2 border-primary-whitegray" />
-                            <div className="text-left font-kor text-xs text-black">{member.introduction}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Gdsc width={40} height={40} className="scale-125" />
+            <h1 className="mt-3 font-kor text-lg text-black">{member.name}</h1>
+            <p className="font-eng text-xs font-light text-black">{member.position}</p>
         </div>
+    </section>
+)
+
+const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => {
+    const contacts: MemberContactProps[] = [
+        { contact: member.email, icon: <Email className="-ml-0.5 scale-75" /> },
+        { contact: member.github, icon: <LinkIcon className="-ml-0.5 scale-75" /> },
+        { contact: member.instagram, icon: <Instagram className="-ml-0.5 scale-75" /> },
+    ]
+
+    return (
+        <Link$
+            href={`/members/${member.name}`}
+            className={`group absolute inset-0 z-0 flex h-full w-full flex-col items-start justify-between rounded-xl bg-[#EBEBEB] px-4 py-5 font-light transition duration-300 ease-in-out ${
+                isFrontViewActive === false ? 'opacity-0 rotate-y-180' : 'z-10 opacity-100 rotate-y-0'
+            }`}
+        >
+            <MemberRoleIcon role={member.role} />
+
+            <section className="flex w-full flex-col items-start justify-between">
+                <h1 className="font-kor text-lg text-black">{member.nickname}</h1>
+                <div className="font-eng text-xs text-primary-purple">{member.position}</div>
+                <hr className="mb-2 mt-1 h-1 w-full border-primary-whitegray" />
+                <div className="font-kor text-xs text-black">{member.introduction}</div>
+            </section>
+
+            <section className="flex flex-col items-start justify-between gap-0.5">
+                {contacts.map((contactProps) => (
+                    <MemberContact {...contactProps} key={contactProps.contact}></MemberContact>
+                ))}
+            </section>
+        </Link$>
     )
 }
 
