@@ -27,6 +27,8 @@ module.exports = {
                     teal: '#00ECC1',
                     blue: '#1753F1',
                     purple: '#946AFE',
+                    darkgray: '#18181B',
+                    whitegray: '#D9D9D9',
                 },
             },
         },
