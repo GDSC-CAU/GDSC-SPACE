@@ -4,7 +4,6 @@ import { eventData } from '../page'
 
 const imageStyle = {
     borderRadius: '5% 5% 0% 0%',
-    //borderRadius: 'rounded-tl-full rounded-tr-none rounded-br rounded-bl',
 }
 
 const EventCard = ({ event }: { event: eventData }) => {

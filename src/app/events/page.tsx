@@ -11,7 +11,7 @@ export type eventData = {
 }
 
 export default function EventList() {
-    const eventData: eventData = {
+    const Event: eventData = {
         id: '3',
         title: 'GDSC Job Fair 2023',
         content: 'by 대한민국 인공지능위크 2023',
@@ -26,15 +26,12 @@ export default function EventList() {
                 <span className="text-xs">GDSC Chung-ang이 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
             </div>
             <hr className="mx-auto mb-8 mt-12 w-full bg-gray-100" />
-            {/* <Link href="/events/1">Event 1</Link>
-            <Link href="/events/2">Event 2</Link> */}
-            {/* grid grid-cols-3 gap-7 items-center justify-center */}
             <div className="space-envely grid grid-cols-3 items-center justify-center gap-5 ">
-                <EventCard event={eventData} />
-                <EventCard event={eventData} />
-                <EventCard event={eventData} />
-                <EventCard event={eventData} />
-                <EventCard event={eventData} />
+                <EventCard event={Event} />
+                <EventCard event={Event} />
+                <EventCard event={Event} />
+                <EventCard event={Event} />
+                <EventCard event={Event} />
             </div>
         </main>
     )
