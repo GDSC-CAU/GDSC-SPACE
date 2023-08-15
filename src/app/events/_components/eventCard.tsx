@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { eventData } from '../page'
+import { Event } from '../page'
 
 const imageStyle = {
     borderRadius: '5% 5% 0% 0%',
 }
 
-const EventCard = ({ event }: { event: eventData }) => {
+const EventCard = ({ event }: { event: Event }) => {
     return (
         <Link href={`/events/${event.id}`}>
             <div className="group relative h-80 w-60">
