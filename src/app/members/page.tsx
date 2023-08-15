@@ -1,5 +1,6 @@
-import { MemberCard } from './_components/Membercard'
+import { MemberCard } from './_components'
 
+//!TODO: 임시 interface
 export type Member = {
     name: string
     gender: 'Male' | 'Female'
@@ -15,13 +16,12 @@ export type Member = {
 }
 
 export default function MemberList() {
-    const members: Member[] = [
+    const bulkMembers: Member[] = [
         {
             name: '유용민',
             gender: 'Male',
             nickname: 'DEV.LR',
             role: 'Lead',
-            imageSrc: '/GDSC_logo.png',
             year: '2기',
             position: 'Cloud Server / flutter',
             introduction: '안녕하세요, GDSC 3기 리더 유용민입니다. 잘 부탁드립니다:)',
@@ -37,7 +37,7 @@ export default function MemberList() {
             year: '2기',
             position: 'Front-End',
             introduction: '안녕하세요~!~!',
-            github: 'github.com/danpacho',
+            github: 'github.com/danpachodanpachodanpacho',
             email: 'danpa725@cau.ac.kr',
         },
         {
@@ -45,6 +45,7 @@ export default function MemberList() {
             gender: 'Female',
             role: 'Member',
             year: '3기',
+            nickname: 'Jiwoo',
             position: 'Front-End',
             introduction: '안녕하세용!!',
             github: 'github.com/jujuredt',
@@ -53,8 +54,8 @@ export default function MemberList() {
     ]
 
     return (
-        <main className="flex-raw flex h-full w-full items-center justify-between p-24">
-            {members.map((member) => (
+        <main className="flex h-full w-full flex-row items-center justify-between gap-10">
+            {bulkMembers.map((member) => (
                 <MemberCard member={member} key={`${member.name}-${member.position}`} />
             ))}
         </main>
