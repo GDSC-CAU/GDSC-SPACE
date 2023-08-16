@@ -6,38 +6,18 @@ export default function EventView({ params }: { params: { id: string } }) {
     const title = 'PRO, GRAMMING' // 노션에서의 이벤트 글 제목
 
     return (
-        <main>
-            {/* <div className="abosolute " >
+        <main className="h-full w-full">
+            <div className="relative ml-[-13rem] h-[35rem] w-[calc(100%+26rem)]">
                 <Image
-                    src="https://cdn.pixabay.com/photo/2023/07/27/03/27/fireworks-8152353_1280.jpg"
-                    alt="pixabay picture1"
-                    priority
-                    // width={1000}
-                    // height={600}
-                    //fill
-                    //sizes="200vw "
-                    // style={{
-                    //     width : '100%',
-                    //     height: 'auto',
-                    // }}
-                    
-                />
-            </div> */}
-            <div className="absolute mb-32 h-80 w-full  ">
-                <Image
-                    src="https://cdn.pixabay.com/photo/2023/07/27/03/27/fireworks-8152353_1280.jpg"
-                    alt="pixabay picture1"
-                    priority
-                    // width={500}
-                    // height={500}
                     fill
-                    objectFit="contatin"
-                    objectPosition="top center"
+                    style={{ objectFit: 'cover' }}
+                    alt="pixabay picture1"
+                    src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
+                    priority
                 />
             </div>
 
-            {/* pt-72 */}
-            <div className="space-envely mb-12 flex flex-row items-center justify-between pt-96 ">
+            <div className="mb-12 flex flex-row items-center justify-between pt-96 ">
                 <div className="text-theme-background">이렇게 해도 되나 </div>
                 <button className="h-8 w-28 cursor-pointer rounded-full border-4 border-blue-600 bg-blue-600 duration-500 hover:border-red-700 hover:bg-blue-700 ">
                     Join
