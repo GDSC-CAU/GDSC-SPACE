@@ -8,7 +8,7 @@ const SvgLink = (props: SVGProps<SVGSVGElement>) => (
             height={8.735}
             rx={2.62}
             transform="rotate(45 4.852 15.507)"
-            stroke="#000"
+            stroke="#FFF"
             strokeWidth={1.167}
         />
         <rect
@@ -17,7 +17,7 @@ const SvgLink = (props: SVGProps<SVGSVGElement>) => (
             height={8.735}
             rx={2.62}
             transform="rotate(45 -2.884 12.3)"
-            stroke="#000"
+            stroke="#FFF"
             strokeWidth={1.167}
         />
     </svg>
