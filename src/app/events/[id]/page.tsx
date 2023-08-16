@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Instagram } from '~/components/icons'
 import { Email } from '~/components/icons'
-import { Share } from '~/components/icons'
+import { Link as LinkIcon } from '~/components/icons'
 export default function EventView({ params }: { params: { id: string } }) {
     const eventID = params.id //{evenID}
     const title = 'PRO, GRAMMING' // 노션에서의 이벤트 글 제목
@@ -26,7 +26,7 @@ export default function EventView({ params }: { params: { id: string } }) {
                 </button>
                 <div className="flex flex-row gap-2">
                     <Link href={'/blog'}>
-                        <Share />
+                        <LinkIcon />
                     </Link>
                     <Link href={'/members'}>
                         <Instagram />
