@@ -15,5 +15,8 @@ const nextConfig = {
         // Enable Google Analytics
         nextScriptWorkers: true,
     },
+    images: {
+        domains: ['cdn.pixabay.com'],
+    },
 }
 module.exports = nextConfig
