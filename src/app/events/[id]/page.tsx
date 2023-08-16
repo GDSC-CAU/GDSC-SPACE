@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function EventView({ params }: { params: { id: string } }) {
     const eventID = params.id //{evenID}
@@ -6,62 +7,94 @@ export default function EventView({ params }: { params: { id: string } }) {
 
     return (
         <main>
-            <div className="mb-96">
+            {/* <div className="abosolute " >
                 <Image
                     src="https://cdn.pixabay.com/photo/2023/07/27/03/27/fireworks-8152353_1280.jpg"
                     alt="pixabay picture1"
-                    // priority
+                    priority
+                    // width={1000}
+                    // height={600}
+                    //fill
+                    //sizes="200vw "
+                    // style={{
+                    //     width : '100%',
+                    //     height: 'auto',
+                    // }}
+                    
+                />
+            </div> */}
+            <div className="absolute mb-32 h-80 w-full  ">
+                <Image
+                    src="https://cdn.pixabay.com/photo/2023/07/27/03/27/fireworks-8152353_1280.jpg"
+                    alt="pixabay picture1"
+                    priority
                     // width={500}
                     // height={500}
-                    layout="fill"
-                    objectFit="cover"
-                    style={{
-                        maxHeight: '700px',
-                    }}
+                    fill
+                    objectFit="contatin"
+                    objectPosition="top center"
                 />
             </div>
 
-            <div className="mb-12 flex flex-row items-center justify-center pt-72">
-                <button className=" h-8 w-28 cursor-pointer rounded-full border-4 border-blue-600 bg-blue-600 duration-500 hover:border-blue-700 hover:bg-blue-700">
+            {/* pt-72 */}
+            <div className="space-envely mb-12 flex flex-row items-center justify-between pt-96 ">
+                <div className="text-theme-background">이렇게 해도 되나 </div>
+                <button className="h-8 w-28 cursor-pointer rounded-full border-4 border-blue-600 bg-blue-600 duration-500 hover:border-red-700 hover:bg-blue-700 ">
                     Join
                 </button>
-                <div className="flex-end flex flex-row gap-2">
-                    <Image
-                        //fill
-                        src="/events/share.png"
-                        alt="share icon"
-                        width={25}
-                        height={25}
-                    />
-                    <Image
-                        //fill
-                        src="/events/insta.png"
-                        alt="instagram icon"
-                        width={25}
-                        height={25}
-                    />
-                    <Image
-                        //fill
-                        src="/events/email.png"
-                        alt="email icon"
-                        width={25}
-                        height={25}
-                    />
+                <div className="flex flex-row gap-2">
+                    <Link href={'/blog'}>
+                        <Image
+                            //fill
+                            src="/events/share.png"
+                            alt="share icon"
+                            width={25}
+                            height={25}
+                            priority
+                        />
+                    </Link>
+                    <Link href={'/members'}>
+                        <Image
+                            //fill
+                            src="/events/insta.png"
+                            alt="instagram icon"
+                            width={25}
+                            height={25}
+                            priority
+                        />
+                    </Link>
+                    <Link href={'/projects'}>
+                        <Image
+                            //fill
+                            src="/events/email.png"
+                            alt="email icon"
+                            width={25}
+                            height={25}
+                            priority
+                        />
+                    </Link>
                 </div>
             </div>
 
             <div className="flex h-full w-full flex-col items-center justify-between ">
                 <hr className="mx-auto  w-full bg-gray-100" />
                 <h1 className="p-16 text-5xl">{title}</h1>
-                <div className="flex w-full items-center justify-center bg-black">
-                    <Image
-                        src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
-                        alt="pixabay picture2"
-                        priority
-                        width={500}
-                        height={700}
-                    />
+                <div className=" flex h-96 w-full items-center justify-center bg-black">
+                    <div className="flex h-full justify-center">
+                        <Image
+                            src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
+                            alt="pixabay picture2"
+                            width={500}
+                            height={700}
+                            style={{
+                                width: '70%',
+                                height: 'auto',
+                            }}
+                            priority
+                        />
+                    </div>
                 </div>
+
                 <div className="text-center">▴ GDSC 잡 페어 행사</div>
                 <p className="mb-28 mt-12">
                     Google Developer Student Clubs (GDSC) 프로그램은 학생들이 개발/리더십 능력을 키울 수 있도록 지원하는
@@ -74,8 +107,8 @@ export default function EventView({ params }: { params: { id: string } }) {
                         src="https://cdn.pixabay.com/photo/2023/07/19/04/56/european-shorthair-8136065_1280.jpg"
                         alt="pixabay picture3"
                         priority
-                        width={500}
-                        height={500}
+                        width={600}
+                        height={800}
                     />
                 </div>
             </div>
