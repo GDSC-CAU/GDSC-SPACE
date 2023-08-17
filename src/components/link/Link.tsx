@@ -3,7 +3,7 @@ import Link, { type LinkProps } from 'next/link'
 /**
  * Project link path
  */
-export type LinkPath = '/' | `/members/${string}` | '/blog' | '/events'
+export type LinkPath = '/' | `/members` | '/blog' | `/blog/${string}` | '/events' | `/events/${string}`
 
 interface Link$Props extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>, LinkProps {
     href: LinkPath
