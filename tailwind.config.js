@@ -31,6 +31,15 @@ module.exports = {
                     whitegray: '#D9D9D9',
                 },
             },
+            keyframes: {
+                rise: {
+                    '0%': { top: 40 },
+                    '100%': { top: 0 },
+                },
+            },
+            animation: {
+                rise: 'rise 1s',
+            },
         },
     },
     plugins: [],

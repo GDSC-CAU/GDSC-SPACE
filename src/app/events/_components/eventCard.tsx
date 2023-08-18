@@ -5,7 +5,7 @@ import { Event } from '../page'
 const EventCard = ({ event }: { event: Event }) => {
     return (
         <Link href={`/events/${event.id}`}>
-            <div className="group relative h-80 w-60">
+            <div className="group relative h-80 w-60 animate-rise">
                 <div className="relative flex h-1/2 w-full items-center justify-end overflow-hidden rounded-t-xl">
                     <Image
                         fill
