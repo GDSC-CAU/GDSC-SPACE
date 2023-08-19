@@ -1,22 +1,8 @@
+import { Member } from '../../interfaces/common'
 import { MemberCard } from './_components'
 
-//!TODO: 임시 interface
-export type Member = {
-    name: string
-    gender: 'Male' | 'Female'
-    nickname?: string
-    role: 'Lead' | 'Core' | 'Member'
-    imageSrc?: string
-    year: '1기' | '2기' | '3기'
-    position: string
-    introduction: string
-    github?: string
-    email?: string
-    instagram?: string
-}
-
 export default function MemberList() {
-    const bulkMembers: Member[] = [
+    const bulkMembers: Array<Member> = [
         {
             name: '유용민',
             gender: 'Male',
