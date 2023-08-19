@@ -99,3 +99,15 @@ export interface MAIN_PROJECT_DATA {
     PROJECT_SUBTITLE: string
     PROJECT_TITLE: string
 }
+
+export interface API_MAIN_TIMELINES {
+    MAIN_TIMELINE_CNT: number
+    MAIN_TIMELINE_LIST: Array<MAIN_TIMELINE_DATA>
+}
+
+export interface MAIN_TIMELINE_DATA {
+    TIMELINE_CARD_TITLE: string
+    TIMELINE_DATE: string
+    TIMELINE_DESCRIPTION: string
+    TIMELINE_TITLE: string
+}
