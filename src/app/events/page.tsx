@@ -1,13 +1,5 @@
+import { Event } from '../../interfaces/common'
 import { EventCard } from './_components/eventCard'
-
-export type Event = {
-    id: string
-    category: string
-    date: string
-    title: string
-    content: string
-    image: string
-}
 
 export default function EventList() {
     const Event: Event = {
