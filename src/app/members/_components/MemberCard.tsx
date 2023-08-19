@@ -39,8 +39,8 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
             isFrontViewActive ? 'opacity-0 -rotate-y-180' : 'opacity-100 rotate-y-0'
         }`}
     >
-        <MemberAvatar gender={member.MEMBER_GENDER} imageSrc={member.MEMBER_IMAGE} />
-        <MemberRoleIcon role={member.MEMBER_ROLE} />
+        <MemberAvatar MEMBER_GENDER={member.MEMBER_GENDER} MEMBER_IMAGE={member.MEMBER_IMAGE} />
+        <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
         <div
             className="absolute bottom-0 left-0 flex h-28 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3.5"
@@ -69,7 +69,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
                 isFrontViewActive === false ? 'opacity-0 rotate-y-180' : 'z-10 opacity-100 rotate-y-0'
             }`}
         >
-            <MemberRoleIcon role={member.MEMBER_ROLE} />
+            <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
             <section className="flex w-full flex-col items-start justify-between">
                 <h1 className="font-kor text-lg text-black">{member.MEMBER_NICKNAME}</h1>
