@@ -60,3 +60,16 @@ export interface BLOG_META {
     BLOG_THUMBNAIL: string
     BLOG_TITLE: string
 }
+
+export interface API_EVENT_DETAIL {
+    EVENT_BANNER: string
+    EVENT_CONTENT: Array<EVENT_CONTENT_ITEM>
+    EVENT_DATE: string
+    EVENT_LINK: string
+    EVENT_TITLE: string
+}
+
+export interface EVENT_CONTENT_ITEM {
+    CONTENT_TYPE: 'codeblock' | 'h1' | 'h2' | 'h3' | 'image' | 'text'
+    CONTENT_DATA: string
+}
