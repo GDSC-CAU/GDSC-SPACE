@@ -1,3 +1,5 @@
+import SvgIntro from '~/components/icons/IntroIcon'
+
 const BulkBanner = () => {
     return (
         <div className="flex h-72 w-full flex-col items-center justify-center gap-32 rounded-3xl border border-neutral-800 bg-theme-background py-40 text-sm">
@@ -22,7 +24,7 @@ const BulkBanner = () => {
 
 const Intro = () => {
     return (
-        <div className="relative mt-10 flex h-96 flex-col items-center justify-center">
+        <div className="relative mt-10 flex h-[500px] flex-col items-center justify-center">
             <div className="absolute left-1/2 top-1/3 h-60 w-60 rounded-full bg-primary-blue blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <h1 className="relative mb-4 flex bg-gradient-to-b from-primary-blue to-primary-whitegray bg-clip-text font-eng text-6xl font-bold text-transparent">
                 Who we are?
@@ -48,6 +50,9 @@ const Intro = () => {
                         있도록 돕습니다.
                     </p>
                 </div>
+            </div>
+            <div className="mt-10 flex h-20 w-20 items-center justify-center">
+                <SvgIntro />
             </div>
         </div>
     )
