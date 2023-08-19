@@ -73,3 +73,16 @@ export interface EVENT_CONTENT_ITEM {
     CONTENT_TYPE: 'codeblock' | 'h1' | 'h2' | 'h3' | 'image' | 'text'
     CONTENT_DATA: string
 }
+
+export interface API_EVENT_LIST {
+    EVENT_CNT: number
+    EVENT_LIST: Array<EVENT_META>
+}
+
+export interface EVENT_META {
+    EVENT_DATE: string
+    EVENT_DESCRIPTION: string
+    EVENT_THUMBNAIL: string
+    EVENT_TITLE: string
+    EVENT_TYPE: string
+}
