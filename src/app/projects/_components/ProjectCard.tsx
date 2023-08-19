@@ -2,14 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-
-interface MAIN_PROJECT_DATA {
-    PROJECT_DESCRIPTION: string
-    PROJECT_IMAGE: string
-    PROJECT_IMAGE_SUB: string
-    PROJECT_SUBTITLE: string
-    PROJECT_TITLE: string
-}
+import { MAIN_PROJECT_DATA } from '../../../interfaces/common'
 
 export default function ProjectCard({
     PROJECT_TITLE,
@@ -21,6 +14,7 @@ export default function ProjectCard({
 }: any | MAIN_PROJECT_DATA) {
     const project: MAIN_PROJECT_DATA = {
         PROJECT_TITLE: 'Wiro',
+        PROJECT_ID: 'PROJECT_ID',
         PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
         PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/05/15/15/waves-8171279_1280.jpg',
         PROJECT_DESCRIPTION: '파이팅....',
