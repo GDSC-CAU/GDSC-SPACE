@@ -3,13 +3,13 @@
 import { useState } from 'react'
 import { Email, Gdsc, Instagram, Link as LinkIcon } from '~/components/icons'
 import { Link$ } from '~/components/index'
-import { Member } from '../../../interfaces/common'
+import { MEMBER_DATA } from '../../../interfaces/common'
 import { MemberAvatar } from './MemberAvatar'
 import { MemberContact, MemberContactProps } from './MemberContact'
 import { MemberRoleIcon } from './MemberRoleIcon'
 
 interface MemberCardProps {
-    member: Member
+    member: MEMBER_DATA
     disableFlip?: boolean
 }
 const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
@@ -39,8 +39,8 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
             isFrontViewActive ? 'opacity-0 -rotate-y-180' : 'opacity-100 rotate-y-0'
         }`}
     >
-        <MemberAvatar gender={member.gender} imageSrc={member.imageSrc} />
-        <MemberRoleIcon role={member.role} />
+        <MemberAvatar gender={member.MEMBER_GENDER} imageSrc={member.MEMBER_IMAGE} />
+        <MemberRoleIcon role={member.MEMBER_ROLE} />
 
         <div
             className="absolute bottom-0 left-0 flex h-28 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3.5"
@@ -49,17 +49,17 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
             }}
         >
             <Gdsc width={40} height={40} className="scale-125" />
-            <h1 className="mt-3 font-kor text-lg text-black">{member.name}</h1>
-            <p className="font-eng text-xs font-light text-black">{member.position}</p>
+            <h1 className="mt-3 font-kor text-lg text-black">{member.MEMBER_NAME}</h1>
+            <p className="font-eng text-xs font-light text-black">{member.MEMBER_POSITION}</p>
         </div>
     </section>
 )
 
 const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => {
     const contacts: MemberContactProps[] = [
-        { contact: member.email, icon: <Email className="-ml-0.5 scale-75" /> },
-        { contact: member.github, icon: <LinkIcon className="-ml-0.5 scale-75" /> },
-        { contact: member.instagram, icon: <Instagram className="-ml-0.5 scale-75" /> },
+        { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5 scale-75" /> },
+        { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5 scale-75" /> },
+        { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 scale-75" /> },
     ]
 
     return (
@@ -69,13 +69,13 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
                 isFrontViewActive === false ? 'opacity-0 rotate-y-180' : 'z-10 opacity-100 rotate-y-0'
             }`}
         >
-            <MemberRoleIcon role={member.role} />
+            <MemberRoleIcon role={member.MEMBER_ROLE} />
 
             <section className="flex w-full flex-col items-start justify-between">
-                <h1 className="font-kor text-lg text-black">{member.nickname}</h1>
-                <div className="font-eng text-xs text-primary-purple">{member.position}</div>
+                <h1 className="font-kor text-lg text-black">{member.MEMBER_NICKNAME}</h1>
+                <div className="font-eng text-xs text-primary-purple">{member.MEMBER_POSITION}</div>
                 <hr className="mb-2 mt-1 h-1 w-full border-primary-whitegray" />
-                <div className="font-kor text-xs text-black">{member.introduction}</div>
+                <div className="font-kor text-xs text-black">{member.MEMBER_COMMENT}</div>
             </section>
 
             <section className="flex flex-col items-start justify-between gap-0.5">

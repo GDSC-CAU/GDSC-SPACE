@@ -7,20 +7,6 @@ export interface Event {
     image: string
 }
 
-export interface Member {
-    name: string
-    gender: 'Male' | 'Female'
-    nickname?: string
-    role: 'Lead' | 'Core' | 'Member'
-    imageSrc?: string
-    year: '1기' | '2기' | '3기'
-    position: string
-    introduction: string
-    github?: string
-    email?: string
-    instagram?: string
-}
-
 export interface API_RESPONSE {
     RESULT_CODE: number
     RESULT_MSG: string
@@ -120,10 +106,14 @@ export interface API_MEMBER_LIST {
 export interface MEMBER_DATA {
     MEMBER_COMMENT: string
     MEMBER_EMAIL: string
+    MEMBER_GENDER: 'Male' | 'Female'
     MEMBER_IMAGE: string
     MEMBER_INSTAGRAM: string
-    MEMBER_LINK: string
+    MEMBER_LINK_BEHANCE: string
+    MEMBER_LINK_GITHUB: string
     MEMBER_NAME: string
     MEMBER_NICKNAME: string
-    MEMBER_ROLE: string
+    MEMBER_POSITION: string
+    MEMBER_ROLE: 'Lead' | 'Core' | 'Member'
+    MEMBER_YEAR: '1기' | '2기' | '3기'
 }
