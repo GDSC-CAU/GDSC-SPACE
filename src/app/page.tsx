@@ -20,10 +20,43 @@ const BulkBanner = () => {
     )
 }
 
+const Intro = () => {
+    return (
+        <div className="mt-10 flex flex-col items-center justify-center">
+            <h1 className="mb-4 flex bg-gradient-to-b from-primary-blue to-primary-whitegray bg-clip-text font-eng text-6xl font-bold text-transparent">
+                Who we are?
+            </h1>
+            <div className="flex flex-row">
+                <div className="mr-20 flex w-100 flex-col">
+                    <p className="mb-5 flex font-eng text-xl">Developer/ Designer/ Leader</p>
+                    <p className="flex font-eng text-sm leading-loose">
+                        Google Developer Student Clubs are university based community groups for students interested in
+                        Google developer technologies. Students from all undergraduate or graduate programs with an
+                        interest in growing as a developer or designer are welcome. By joining a GDSC, students grow
+                        their knowledge in a peer-to-peer learning environment and build solutions for local businesses
+                        and their community.
+                    </p>
+                </div>
+                <div className="flex w-100 flex-col">
+                    <p className="mb-5 flex font-kor text-xl">여러 작은 픽셀들이 하나의 큰 이미지로</p>
+                    <p className="flex font-kor text-sm leading-loose">
+                        Google Developer Student Clubs (GDSC) 프로그램은 학생들이 개발/디자인/리더십 능력을 키울 수
+                        있도록 지원하는 프로그램입니다. 기술적 성장을 위한 교육자료를 제공하고 리더십 개발을 위한 다양한
+                        활동들을 지원합니다. 학생이 성장할 수 있도록 전세계의 학생 Lead들과의 교류 기회, Google의 이벤트
+                        참여, 현업 엔지니어와의 만남 등 다양한 기회를 제공하고 쇼케이스와 워크샵을 통해 역량을 높일 수
+                        있도록 돕습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export default function Home() {
     return (
         <div className="h-full w-full">
             <BulkBanner />
+            <Intro />
         </div>
     )
 }
