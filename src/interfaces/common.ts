@@ -86,3 +86,16 @@ export interface EVENT_META {
     EVENT_TITLE: string
     EVENT_TYPE: string
 }
+
+export interface API_MAIN_PROJECTS {
+    MAIN_PROJECT_CNT: number
+    MAIN_PROJECT_LIST: Array<MAIN_PROJECT_DATA>
+}
+
+export interface MAIN_PROJECT_DATA {
+    PROJECT_DESCRIPTION: string
+    PROJECT_IMAGE: string
+    PROJECT_IMAGE_SUB: string
+    PROJECT_SUBTITLE: string
+    PROJECT_TITLE: string
+}
