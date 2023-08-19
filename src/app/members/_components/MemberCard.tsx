@@ -22,7 +22,7 @@ const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
     return (
         <div
             onClick={toggleCardView}
-            className={`relative h-[20rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu hover:scale-105`}
+            className={`perspective-300 relative h-[18rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 transform-style-3d transform-gpu hover:scale-105`}
         >
             <MemberCardFront member={member} isFrontViewActive={isFrontViewActive} />
             {disableFlip === false && <MemberCardBack member={member} isFrontViewActive={isFrontViewActive} />}
@@ -35,11 +35,11 @@ interface MemberCardFrontBackViewProps extends Omit<MemberCardProps, 'disableFli
 }
 const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => (
     <section
-        className={`absolute inset-0 z-10 h-full w-full transition duration-300 ease-in-out ${
+        className={`absolute inset-0 z-10 h-full w-full transition duration-500 ease-in-out ${
             isFrontViewActive ? 'opacity-0 -rotate-y-180' : 'opacity-100 rotate-y-0'
         }`}
     >
-        <MemberAvatar gender={member.gender} imageSrc={member.imageSrc} />
+        <MemberAvatar gender={member.gender} imageSrc={member.imagesrc} />
         <MemberRoleIcon role={member.role} />
 
         <div
