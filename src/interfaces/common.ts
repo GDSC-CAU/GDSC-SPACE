@@ -20,3 +20,16 @@ export interface Member {
     email?: string
     instagram?: string
 }
+
+export interface API_RESPONSE {
+    RESULT_CODE: number
+    RESULT_MSG: string
+    RESULT_DATA:
+        | API_BLOG_DETAIL
+        | API_BLOG_LIST
+        | API_EVENT_DETAIL
+        | API_EVENT_LIST
+        | API_MAIN_PROJECTS
+        | API_MAIN_TIMELINES
+        | API_MEMBER_LIST
+}
