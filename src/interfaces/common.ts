@@ -1,12 +1,3 @@
-export interface Event {
-    id: string
-    category: string
-    date: string
-    title: string
-    content: string
-    image: string
-}
-
 export interface API_RESPONSE {
     RESULT_CODE: number
     RESULT_MSG: string
