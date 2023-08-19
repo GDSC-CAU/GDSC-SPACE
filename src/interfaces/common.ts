@@ -33,3 +33,16 @@ export interface API_RESPONSE {
         | API_MAIN_TIMELINES
         | API_MEMBER_LIST
 }
+
+export interface API_BLOG_DETAIL {
+    BLOG_AUTHOR: string
+    BLOG_CONTENT: Array<BLOG_CONTENT_ITEM>
+    BLOG_DATE: string
+    BLOG_TAG: Array<string>
+    BLOG_TITLE: string
+}
+
+export interface BLOG_CONTENT_ITEM {
+    CONTENT_TYPE: 'codeblock' | 'h1' | 'h2' | 'h3' | 'image' | 'text'
+    CONTENT_DATA: string
+}
