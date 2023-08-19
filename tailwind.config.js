@@ -16,6 +16,10 @@ module.exports = {
                 '2xl': '1.5rem',
                 xl: '1.25rem',
             },
+            width: {
+                88: '23rem',
+                100: '28rem',
+            },
             colors: {
                 theme: {
                     background: '#18181B',
