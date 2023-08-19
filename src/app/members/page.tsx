@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { MemberCard } from './_components/Membercard'
 
 export type Member = {
@@ -181,6 +181,26 @@ export default function MemberList() {
         },
         {
             name: '박지우',
+            gender: 'Female',
+            role: 'Core',
+            year: '2nd',
+            position: 'Front-End',
+            introduction: '안녕하세용!!',
+            github: 'github.com/jujuredt',
+            email: 'juju.0_0._',
+        },
+        {
+            name: '박지우',
+            gender: 'Male',
+            role: 'Lead',
+            year: '2nd',
+            position: 'Front-End',
+            introduction: '안녕하세용!!',
+            github: 'github.com/jujuredt',
+            email: 'juju.0_0._',
+        },
+        {
+            name: '박지우',
             gender: 'Male',
             role: 'Member',
             year: '3rd',
@@ -209,7 +229,7 @@ export default function MemberList() {
         return chunkedMembers.map((chunk, rowIndex) => (
             <div
                 key={rowIndex}
-                className="mb-10"
+                className="mb-10 pb-9 pl-2 pt-2"
                 style={{
                     display: 'flex',
                     overflowX: 'auto',
@@ -226,15 +246,6 @@ export default function MemberList() {
                         }}
                     >
                         <MemberCard member={member} key={`${member.name}-${member.position}`} />
-                        {/* 마지막 카드에 그라데이션 */}
-                        {index === chunk.length - 1 && (
-                            <div
-                                style={{
-                                    flex: '0 0 3rem',
-                                    background: 'linear-gradient(to right 50%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))',
-                                }}
-                            />
-                        )}
                     </div>
                 ))}
             </div>
@@ -247,6 +258,16 @@ export default function MemberList() {
             chunkedArray.push(arr.slice(i, i + size))
         }
         return chunkedArray
+    }
+
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null)
+
+    const handleScroll = (event: React.WheelEvent<HTMLDivElement>) => {
+        if (scrollContainerRef.current) {
+            const delta = event.deltaY
+            scrollContainerRef.current.scrollLeft += delta
+            event.preventDefault()
+        }
     }
 
     return (
@@ -272,7 +293,14 @@ export default function MemberList() {
                         3rd
                     </button>
                 </div>
-                {renderMembersByYear(selectedYear)}
+                <div
+                    ref={scrollContainerRef}
+                    className="overflow-x-auto overflow-y-hidden"
+                    onWheel={handleScroll}
+                    style={{ display: 'flex', flexDirection: 'column' }}
+                >
+                    {renderMembersByYear(selectedYear)}
+                </div>
             </div>
         </main>
     )
