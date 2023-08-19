@@ -22,9 +22,16 @@ const BulkBanner = () => {
 
 const Intro = () => {
     return (
-        <div className="mt-10 flex flex-col items-center justify-center">
-            <h1 className="mb-4 flex bg-gradient-to-b from-primary-blue to-primary-whitegray bg-clip-text font-eng text-6xl font-bold text-transparent">
+        <div className="mt-10 flex h-96 flex-col items-center justify-center">
+            <h1 className="relative mb-4 flex bg-gradient-to-b from-primary-blue to-primary-whitegray bg-clip-text font-eng text-6xl font-bold text-transparent">
                 Who we are?
+                <div
+                    className="absolute left-1/2 top-1/2 h-20 w-20 rounded-full -translate-x-1/2 -translate-y-1/2"
+                    style={{
+                        background: 'radial-gradient(circle, rgba(24, 90, 219, 0.8), rgba(24, 90, 219, 0.3))',
+                        filter: 'blur(8px)',
+                    }}
+                ></div>
             </h1>
             <div className="flex flex-row">
                 <div className="mr-20 flex w-100 flex-col">
