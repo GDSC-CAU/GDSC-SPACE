@@ -46,3 +46,17 @@ export interface BLOG_CONTENT_ITEM {
     CONTENT_TYPE: 'codeblock' | 'h1' | 'h2' | 'h3' | 'image' | 'text'
     CONTENT_DATA: string
 }
+
+export interface API_BLOG_LIST {
+    BLOG_CNT: number
+    BLOG_LIST: Array<BLOG_META>
+}
+
+export interface BLOG_META {
+    BLOG_AUTHOR: string
+    BLOG_DATE: string
+    BLOG_DESCRIPTION: string
+    BLOG_TAG: Array<string>
+    BLOG_THUMBNAIL: string
+    BLOG_TITLE: string
+}
