@@ -111,3 +111,19 @@ export interface MAIN_TIMELINE_DATA {
     TIMELINE_DESCRIPTION: string
     TIMELINE_TITLE: string
 }
+
+export interface API_MEMBER_LIST {
+    MEMBER_CNT: number
+    MEMBER_LIST: Array<MEMBER_DATA>
+}
+
+export interface MEMBER_DATA {
+    MEMBER_COMMENT: string
+    MEMBER_EMAIL: string
+    MEMBER_IMAGE: string
+    MEMBER_INSTAGRAM: string
+    MEMBER_LINK: string
+    MEMBER_NAME: string
+    MEMBER_NICKNAME: string
+    MEMBER_ROLE: string
+}
