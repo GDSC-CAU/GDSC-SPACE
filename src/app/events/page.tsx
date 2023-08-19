@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { EventCard } from './_components/eventCard'
 
 export type Event = {
