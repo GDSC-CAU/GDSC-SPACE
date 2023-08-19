@@ -62,6 +62,54 @@ const Intro = () => {
     )
 }
 
+const TimeLineCard = () => {
+    return (
+        <div className="relative m-6 h-60 w-5/6">
+            <div className="absolute top-0 flex h-3/5 w-full items-start rounded-3xl bg-primary-hotpink px-5 py-4 text-2xl text-black">
+                {' '}
+                Onboarding{' '}
+            </div>
+            <div className="absolute bottom-0 h-3/4 w-full rounded-t-3xl rounded-bl-lg rounded-br-3xl bg-black p-6">
+                <div className="text-xl text-primary-hotpink">title</div>
+                <div className="text-xl text-white">date</div>
+                <div className="text-xl text-white">content</div>
+            </div>
+        </div>
+    )
+}
+const TimeLine = () => {
+    return (
+        <>
+            <div className="flex h-[60rem] w-full flex-row">
+                <div className="flex w-1/2 items-center justify-center">
+                    <h1 className="w-full bg-gradient-to-b from-primary-blue to-white bg-clip-text text-7xl font-bold leading-[6rem] text-transparent">
+                        Here we go. <br /> What you will <br />
+                        experience.
+                    </h1>
+                </div>
+                <div className="mx-2 h-full w-[0.08rem] border-0 bg-gradient-to-b from-primary-blue to-white" />
+                <div className="mt-32 flex h-4/5 w-1/2 flex-col items-center justify-end gap-7 overflow-auto">
+                    <div className="h-60 w-full snap-center">
+                        <TimeLineCard />
+                    </div>
+                    <div className="h-60 w-full snap-center">
+                        <TimeLineCard />
+                    </div>
+                    <div className="h-60 w-full snap-center">
+                        <TimeLineCard />
+                    </div>
+                    <div className="h-60 w-full snap-center">
+                        <TimeLineCard />
+                    </div>
+                    <div className="h-60 w-full snap-center">
+                        <TimeLineCard />
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
 const Projects = () => {
     const project: MAIN_PROJECT_DATA = {
         PROJECT_TITLE: 'Wiro',
@@ -95,6 +143,7 @@ export default function Home() {
         <div className="h-full w-full">
             <BulkBanner />
             <Intro />
+            <TimeLine />
             <Benefits />
             <Projects />
         </div>
