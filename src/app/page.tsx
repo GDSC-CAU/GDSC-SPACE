@@ -33,22 +33,10 @@ export default function Home() {
                 <div className="mb-12">우리는 이러한 문제점들을 읽어내고, 해결책을 탐구합니다!</div>
             </div>
             <div className="flex flex-col items-center justify-center gap-10 ">
-                {/* <ProjectCard name="Wiro" d1="작업기간 / 개발자" d2="(두줄 소개)" isReverse={true} />
-                <ProjectCard name="Carbon Hero" d1=":Save The Earth" d2="asfdghjfhdgsf" isReverse={false} />
-                <ProjectCard name="Wiro" d1="작업기간 / 개발자" d2="(두줄 소개)" isReverse={true} />
-                <ProjectCard name="Carbon Hero" d1=":Save The Earth" d2="asfdghjfhdgsf" isReverse={false} />
-             */}
-                {API_MAIN_PROJECTS.MAIN_PROJECT_LIST.map((project, index) => (
-                    <ProjectCard
-                        key={index}
-                        title={project.PROJECT_TITLE}
-                        image={project.PROJECT_IMAGE}
-                        image_sub={project.PROJECT_IMAGE_SUB}
-                        description={project.PROJECT_DESCRIPTION}
-                        subtitle={project.PROJECT_SUBTITLE}
-                        isReverse={index % 2 === 0} // 홀수 인덱스일 때는 true, 짝수 인덱스일 때는 false
-                    />
-                ))}
+                <ProjectCard isReverse={true} />
+                <ProjectCard isReverse={false} />
+                <ProjectCard isReverse={true} />
+                <ProjectCard isReverse={false} />
             </div>
         </div>
     )
