@@ -229,7 +229,7 @@ export default function MemberList() {
         return chunkedMembers.map((chunk, rowIndex) => (
             <div
                 key={rowIndex}
-                className="mb-10 pb-9 pl-2 pt-2"
+                className="mb-10 pb-9 pl-2 pt-2 scrollbar-hide"
                 style={{
                     display: 'flex',
                     overflowX: 'auto',
