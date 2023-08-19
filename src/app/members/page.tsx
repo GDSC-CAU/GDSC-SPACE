@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useState } from 'react'
-import { MemberCard } from './_components/Membercard'
+import { MemberCard } from './_components/MemberCard'
 
 export type Member = {
     name: string
