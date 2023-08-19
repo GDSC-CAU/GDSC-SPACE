@@ -64,7 +64,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
 
     return (
         <Link$
-            href={`/members/${member.name}`}
+            href={`/members`}
             className={`group absolute inset-0 z-0 flex h-full w-full flex-col items-start justify-between rounded-xl bg-[#EBEBEB] px-4 py-5 font-light transition duration-300 ease-in-out ${
                 isFrontViewActive === false ? 'opacity-0 rotate-y-180' : 'z-10 opacity-100 rotate-y-0'
             }`}
