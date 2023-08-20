@@ -22,7 +22,7 @@ const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
     return (
         <div
             onClick={toggleCardView}
-            className={`relative h-[20rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu hover:scale-105`}
+            className={`relative h-[18rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu hover:scale-105`}
         >
             <MemberCardFront member={member} isFrontViewActive={isFrontViewActive} />
             {disableFlip === false && <MemberCardBack member={member} isFrontViewActive={isFrontViewActive} />}
@@ -57,9 +57,9 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
 
 const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => {
     const contacts: MemberContactProps[] = [
-        { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5 scale-75" /> },
-        { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5 scale-75" /> },
-        { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 scale-75" /> },
+        { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5  stroke-black scale-75" /> },
+        { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
+        { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 stroke-black scale-75" /> },
     ]
 
     return (
