@@ -24,12 +24,12 @@ const BulkBanner = () => {
 
 const Intro = () => {
     return (
-        <div className="relative mt-20 flex h-[500px] flex-col items-center justify-center">
+        <div className="relative mt-20 flex h-[600px] flex-col items-center justify-center">
             <div className="absolute left-1/2 top-1/4 h-60 w-60 rounded-full bg-primary-blue blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-            <h1 className="relative mb-5 flex bg-gradient-to-b from-primary-blue to-primary-whitegray bg-clip-text font-eng text-6xl font-bold text-transparent">
-                Who we are?
+            <h1 className="relative mb-10 flex bg-gradient-to-b from-primary-blue to-primary-whitegray bg-clip-text font-eng text-6xl font-bold text-transparent">
+                Who are we
             </h1>
-            <div className="z-10 flex flex-row">
+            <div className="z-10 flex w-[1000px] flex-row">
                 <div className="mr-20 flex w-100 flex-col">
                     <p className="mb-5 flex font-eng text-xl">Developer/ Designer/ Leader</p>
                     <p className="flex font-eng text-sm leading-loose">
@@ -40,7 +40,7 @@ const Intro = () => {
                         and their community.
                     </p>
                 </div>
-                <div className="flex w-100 flex-col">
+                <div className="ml-20 flex w-100 flex-col">
                     <p className="mb-5 flex font-kor text-xl">여러 작은 픽셀들이 하나의 큰 이미지로</p>
                     <p className="flex font-kor text-sm leading-loose">
                         Google Developer Student Clubs (GDSC) 프로그램은 학생들이 개발/디자인/리더십 능력을 키울 수
@@ -51,7 +51,7 @@ const Intro = () => {
                     </p>
                 </div>
             </div>
-            <div className="mt-5 flex h-32 w-32 items-center justify-center">
+            <div className="mb-10 mt-5 flex h-32 w-32 items-center justify-center">
                 <SvgIntro />
             </div>
         </div>
