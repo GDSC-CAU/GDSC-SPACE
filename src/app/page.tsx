@@ -51,7 +51,7 @@ const Intro = () => {
                     </p>
                 </div>
             </div>
-            <div className="mb-10 mt-5 flex h-32 w-32 items-center justify-center">
+            <div className="mb-10 mt-5 flex h-32 w-32 animate-[pulse_3s_infinite_100ms] items-center justify-center">
                 <SvgIntro />
             </div>
         </div>
