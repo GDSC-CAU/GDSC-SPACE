@@ -3,9 +3,9 @@
 import Image from 'next/image'
 import { useMemo } from 'react'
 import { Boy, Girl } from '~/components/icons'
-import { Member } from '../page'
+import { MEMBER_DATA } from '../../../interfaces/common'
 
-export const MemberAvatar = ({ gender, imageSrc }: Pick<Member, 'gender' | 'imageSrc'>) => {
+export const MemberAvatar = ({ MEMBER_GENDER, MEMBER_IMAGE }: Pick<MEMBER_DATA, 'MEMBER_GENDER' | 'MEMBER_IMAGE'>) => {
     const randomBackgroundColor = useMemo(() => {
         const colors = [
             'bg-primary-hotpink',
@@ -20,8 +20,10 @@ export const MemberAvatar = ({ gender, imageSrc }: Pick<Member, 'gender' | 'imag
         return colors[randomNumber]
     }, [])
 
-    if (imageSrc) {
-        return <Image fill style={{ objectFit: 'cover' }} alt="member_image" className="rounded-xl" src={imageSrc} />
+    if (MEMBER_IMAGE) {
+        return (
+            <Image fill style={{ objectFit: 'cover' }} alt="member_image" className="rounded-xl" src={MEMBER_IMAGE} />
+        )
     }
 
     return (
@@ -29,8 +31,8 @@ export const MemberAvatar = ({ gender, imageSrc }: Pick<Member, 'gender' | 'imag
             suppressHydrationWarning
             className={`flex h-full w-full items-center justify-center ${randomBackgroundColor} rounded-xl`}
         >
-            {gender === 'Male' && <Boy className="mb-20 scale-[1.4]" />}
-            {gender === 'Female' && <Girl className="mb-20 scale-[1.4]" />}
+            {MEMBER_GENDER === 'Male' && <Boy className="mb-20 scale-[1.4]" />}
+            {MEMBER_GENDER === 'Female' && <Girl className="mb-20 scale-[1.4]" />}
         </div>
     )
 }

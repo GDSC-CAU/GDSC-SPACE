@@ -1,223 +1,52 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
-import { MemberCard } from './_components/Membercard'
-
-export type Member = {
-    name: string
-    gender: 'Male' | 'Female'
-    nickname?: string
-    role: 'Lead' | 'Core' | 'Member'
-    imagesrc?: string
-    year: '1st' | '2nd' | '3rd'
-    position: string
-    introduction: string
-    github?: string
-    email?: string
-    instagram?: string
-}
+import { useRef, useState } from 'react'
+import type { MEMBER_DATA } from '../../interfaces/common'
+import { MemberCard } from './_components'
 
 export default function MemberList() {
-    const members: Member[] = [
+    const bulkMembers: Array<MEMBER_DATA> = [
         {
-            name: '김여진',
-            gender: 'Male',
-            nickname: 'DEV.LR',
-            role: 'Lead',
-            year: '1st',
-            position: 'Cloud Server / flutter',
-            introduction: '안녕하세요, GDSC 3rd 리더 유용민입니다. 잘 부탁드립니다:)',
-            github: 'github.com/yymin1022',
-            email: 'yymin1022@gmail.com',
-            instagram: '@useful_min',
+            MEMBER_INSTAGRAM: 'instagram',
+            MEMBER_IMAGE: '',
+            MEMBER_LINK_BEHANCE: '',
+            MEMBER_NAME: '유용민',
+            MEMBER_GENDER: 'Male',
+            MEMBER_NICKNAME: 'DEV.LR',
+            MEMBER_ROLE: 'Lead',
+            MEMBER_YEAR: '2기',
+            MEMBER_POSITION: 'Cloud Server / flutter',
+            MEMBER_COMMENT: '안녕하세요, GDSC 3기 리더 유용민입니다. 잘 부탁드립니다:)',
+            MEMBER_LINK_GITHUB: 'github.com/yymin1022',
+            MEMBER_EMAIL: 'yymin1022@gmail.com',
         },
         {
-            name: '김여진',
-            gender: 'Male',
-            nickname: 'DEV.LR',
-            role: 'Lead',
-            year: '2nd',
-            position: 'Cloud Server / flutter',
-            introduction: '안녕하세요, GDSC 3rd 리더 유용민입니다. 잘 부탁드립니다:)',
-            github: 'github.com/yymin1022',
-            email: 'yymin1022@gmail.com',
-            instagram: '@useful_min',
+            MEMBER_INSTAGRAM: 'instagram',
+            MEMBER_IMAGE: '',
+            MEMBER_LINK_BEHANCE: '',
+            MEMBER_NAME: '장준성',
+            MEMBER_GENDER: 'Male',
+            MEMBER_NICKNAME: '단팥초',
+            MEMBER_ROLE: 'Core',
+            MEMBER_YEAR: '2기',
+            MEMBER_POSITION: 'Front-End',
+            MEMBER_COMMENT: '안녕하세요~!~!',
+            MEMBER_LINK_GITHUB: 'github.com/danpachodanpachodanpacho',
+            MEMBER_EMAIL: 'danpa725@cau.ac.kr',
         },
         {
-            name: '유용민',
-            gender: 'Male',
-            nickname: 'DEV.LR',
-            role: 'Lead',
-            imagesrc: '/GDSC_logo.png',
-            year: '2nd',
-            position: 'Cloud Server / flutter',
-            introduction: '안녕하세요, GDSC 3rd 리더 유용민입니다. 잘 부탁드립니다:)',
-            github: 'github.com/yymin1022',
-            email: 'yymin1022@gmail.com',
-            instagram: '@useful_min',
-        },
-        {
-            name: '장준성',
-            gender: 'Male',
-            nickname: '단팥초',
-            role: 'Core',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세요~!~!',
-            github: 'github.com/danpacho',
-            email: 'danpa725@cau.ac.kr',
-        },
-        {
-            name: '장준성',
-            gender: 'Female',
-            nickname: '단팥초',
-            role: 'Core',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세요~!~!',
-            github: 'github.com/danpacho',
-            email: 'danpa725@cau.ac.kr',
-        },
-        {
-            name: '장준성',
-            gender: 'Male',
-            nickname: '단팥초',
-            role: 'Core',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세요~!~!',
-            github: 'github.com/danpacho',
-            email: 'danpa725@cau.ac.kr',
-        },
-        {
-            name: '장준성',
-            gender: 'Male',
-            nickname: '단팥초',
-            role: 'Core',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세요~!~!',
-            github: 'github.com/danpacho',
-            email: 'danpa725@cau.ac.kr',
-        },
-        {
-            name: '장준성',
-            gender: 'Female',
-            nickname: '단팥초',
-            role: 'Core',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세요~!~!',
-            github: 'github.com/danpacho',
-            email: 'danpa725@cau.ac.kr',
-        },
-        {
-            name: '유용민',
-            gender: 'Male',
-            nickname: 'DEV.LR',
-            role: 'Lead',
-            imagesrc: '/GDSC_logo.png',
-            year: '1st',
-            position: 'Cloud Server / flutter',
-            introduction: '안녕하세요, GDSC 3rd 리더 유용민입니다. 잘 부탁드립니다:)',
-            github: 'github.com/yymin1022',
-            email: 'yymin1022@gmail.com',
-            instagram: '@useful_min',
-        },
-        {
-            name: '유용민',
-            gender: 'Male',
-            nickname: 'DEV.LR',
-            role: 'Lead',
-            imagesrc: '/GDSC_logo.png',
-            year: '3rd',
-            position: 'Cloud Server / flutter',
-            introduction: '안녕하세요, GDSC 3rd 리더 유용민입니다. 잘 부탁드립니다:)',
-            github: 'github.com/yymin1022',
-            email: 'yymin1022@gmail.com',
-            instagram: '@useful_min',
-        },
-        {
-            name: '유용민',
-            gender: 'Male',
-            nickname: 'DEV.LR',
-            role: 'Lead',
-            year: '2nd',
-            position: 'Cloud Server / flutter',
-            introduction: '안녕하세요, GDSC 3rd 리더 유용민입니다. 잘 부탁드립니다:)',
-            github: 'github.com/yymin1022',
-            email: 'yymin1022@gmail.com',
-            instagram: '@useful_min',
-        },
-        {
-            name: '박지우',
-            gender: 'Female',
-            role: 'Member',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
-        },
-        {
-            name: '박지우',
-            gender: 'Female',
-            role: 'Member',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
-        },
-        {
-            name: '박지우',
-            gender: 'Female',
-            role: 'Member',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
-        },
-        {
-            name: '박지우',
-            gender: 'Female',
-            role: 'Core',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
-        },
-        {
-            name: '박지우',
-            gender: 'Male',
-            role: 'Lead',
-            year: '2nd',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
-        },
-        {
-            name: '박지우',
-            gender: 'Male',
-            role: 'Member',
-            year: '3rd',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
-        },
-        {
-            name: '박지우',
-            gender: 'Female',
-            role: 'Member',
-            year: '1st',
-            position: 'Front-End',
-            introduction: '안녕하세용!!',
-            github: 'github.com/jujuredt',
-            email: 'juju.0_0._',
+            MEMBER_INSTAGRAM: 'instagram',
+            MEMBER_IMAGE: '',
+            MEMBER_LINK_BEHANCE: '',
+            MEMBER_NAME: '박지우',
+            MEMBER_GENDER: 'Female',
+            MEMBER_ROLE: 'Member',
+            MEMBER_YEAR: '3기',
+            MEMBER_NICKNAME: 'Jiwoo',
+            MEMBER_POSITION: 'Front-End',
+            MEMBER_COMMENT: '안녕하세용!!',
+            MEMBER_LINK_GITHUB: 'github.com/jujuredt',
+            MEMBER_EMAIL: 'juju.0_0._',
         },
     ]
 
@@ -251,6 +80,13 @@ export default function MemberList() {
             </div>
         ))
     }
+    /**
+     <div className="flex h-full w-full flex-row items-center justify-between gap-10">
+        {bulkMembers.map((member) => (
+            <MemberCard member={member} key={`${member.MEMBER_NAME}-${member.MEMBER_POSITION}`} />
+        ))}
+    </div>
+    */
 
     const chunkArray = (arr: any[], size: number) => {
         const chunkedArray = []
@@ -272,35 +108,33 @@ export default function MemberList() {
 
     return (
         <main className="flex h-full w-full flex-col p-5">
-            <div>
-                <div className="mb-10 flex">
-                    <button
-                        onClick={() => setSelectedYear('1st')}
-                        className={`mr-10 h-10 w-16 rounded-full bg-primary-blue p-2 font-bold text-white hover:underline`}
-                    >
-                        1st
-                    </button>
-                    <button
-                        onClick={() => setSelectedYear('2nd')}
-                        className={`mr-10 h-10 w-16 rounded-full bg-primary-blue p-2 font-bold text-white hover:underline`}
-                    >
-                        2nd
-                    </button>
-                    <button
-                        onClick={() => setSelectedYear('3rd')}
-                        className={`h-10 w-16 rounded-full bg-primary-blue p-2 font-bold text-white hover:underline`}
-                    >
-                        3rd
-                    </button>
-                </div>
-                <div
-                    ref={scrollContainerRef}
-                    className="overflow-x-auto overflow-y-hidden"
-                    onWheel={handleScroll}
-                    style={{ display: 'flex', flexDirection: 'column' }}
+            <div className="mb-10 flex">
+                <button
+                    onClick={() => setSelectedYear('1st')}
+                    className={`mr-10 h-10 w-16 rounded-full bg-primary-blue p-2 font-bold text-white hover:underline`}
                 >
-                    {renderMembersByYear(selectedYear)}
-                </div>
+                    1st
+                </button>
+                <button
+                    onClick={() => setSelectedYear('2nd')}
+                    className={`mr-10 h-10 w-16 rounded-full bg-primary-blue p-2 font-bold text-white hover:underline`}
+                >
+                    2nd
+                </button>
+                <button
+                    onClick={() => setSelectedYear('3rd')}
+                    className={`h-10 w-16 rounded-full bg-primary-blue p-2 font-bold text-white hover:underline`}
+                >
+                    3rd
+                </button>
+            </div>
+            <div
+                ref={scrollContainerRef}
+                className="overflow-x-auto overflow-y-hidden"
+                onWheel={handleScroll}
+                style={{ display: 'flex', flexDirection: 'column' }}
+            >
+                {renderMembersByYear(selectedYear)}
             </div>
         </main>
     )
