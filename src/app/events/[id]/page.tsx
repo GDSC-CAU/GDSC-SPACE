@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { FillImage } from '~/components/common'
 import { Instagram } from '~/components/icons'
 import { Email } from '~/components/icons'
 import { Link as LinkIcon } from '~/components/icons'
@@ -9,15 +10,12 @@ export default function EventView({ params }: { params: { id: string } }) {
 
     return (
         <main className="h-full w-full">
-            <div className="relative ml-[-13rem] h-[35rem] w-[calc(100%+26rem)]">
-                <Image
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    alt="pixabay picture1"
-                    src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
-                    priority
-                />
-            </div>
+            <FillImage
+                containerClass="ml-[-13rem] h-[35rem] w-[calc(100%+26rem)]"
+                alt="pixabay picture1"
+                src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
+                priority
+            />
 
             <div className="my-12 flex flex-row items-center justify-between">
                 <div className="text-theme-background">이렇게 해도 되나 </div>
