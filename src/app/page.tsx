@@ -60,20 +60,20 @@ const Intro = () => {
 }
 
 const Projects = () => {
-  return (
-    <div className="mt-28 flex flex-col items-center justify-center gap-6">
-      <div className="bg-gradient-to-b from-blue-700 to-white bg-clip-text text-5xl font-extrabold text-transparent">
-          Project
-      </div>
-      <div className="mb-12">우리는 이러한 문제점들을 읽어내고, 해결책을 탐구합니다!</div>
-    </div>
-    <div className="flex flex-col items-center justify-center gap-10 ">
-        <ProjectCard isReverse={true} />
-        <ProjectCard isReverse={false} />
-        <ProjectCard isReverse={true} />
-        <ProjectCard isReverse={false} />
-    </div>
-  )
+    return (
+        <div className="mt-28 flex flex-col items-center justify-center gap-6">
+            <div className="bg-gradient-to-b from-blue-700 to-white bg-clip-text text-5xl font-extrabold text-transparent">
+                Project
+            </div>
+            <div className="mb-12">우리는 이러한 문제점들을 읽어내고, 해결책을 탐구합니다!</div>
+            <div className="flex flex-col items-center justify-center gap-10 ">
+                <ProjectCard isReverse={true} />
+                <ProjectCard isReverse={false} />
+                <ProjectCard isReverse={true} />
+                <ProjectCard isReverse={false} />
+            </div>
+        </div>
+    )
 }
 
 export default function Home() {
