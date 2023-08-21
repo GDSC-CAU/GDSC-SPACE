@@ -54,7 +54,7 @@ export const ModalView = ({
             } ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
         >
             <div
-                className={`flex h-full w-full transform-gpu items-center justify-center transition ${transitionDuration} ${
+                className={`flex h-full w-full items-center justify-center transition transform-gpu ${transitionDuration} ${
                     open ? `opacity-100 ${modalOpenClassName}` : `opacity-0 ${modalCloseClassName}`
                 }`}
                 onClick={handleOutsideClick}
