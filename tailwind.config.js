@@ -44,6 +44,10 @@ module.exports = {
             animation: {
                 rise: 'rise 1s',
             },
+            blur: {
+                '4xl': '5rem',
+                '5xl': '6rem',
+            },
         },
     },
     plugins: [require('tailwindcss-3d'), require('tailwind-scrollbar-hide')],
