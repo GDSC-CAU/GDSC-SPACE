@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import { Link$, type LinkPath } from '~/components/common'
 import { Gdsc } from '~/components/icons'
-import { Link$, type LinkPath } from '~/components/index'
 
 interface NavButtonProps<Props extends { type: 'link' | 'scroll' }> {
     type: 'link' | 'scroll'

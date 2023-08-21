@@ -33,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="kr" className={`${poppins.variable} ${pretendard.variable}`}>
-            <body className="relative h-fit min-h-screen bg-theme-background font-kor text-theme-font">
+            <body className="relative h-fit min-h-screen overflow-x-hidden bg-theme-background font-kor text-theme-font">
                 <NavBar />
                 <div id="modal-root" />
                 <main className="mx-auto h-full w-full px-52">{children}</main>

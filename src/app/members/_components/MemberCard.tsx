@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Email, Gdsc, Instagram, Link as LinkIcon } from '~/components/icons'
-import { Link$ } from '~/components/index'
 import { MEMBER_DATA } from '../../../interfaces/common'
 import { MemberAvatar } from './MemberAvatar'
 import { MemberContact, MemberContactProps } from './MemberContact'
@@ -35,7 +34,7 @@ interface MemberCardFrontBackViewProps extends Omit<MemberCardProps, 'disableFli
 }
 const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => (
     <section
-        className={`absolute inset-0 z-10 h-full w-full transition duration-300 ease-in-out ${
+        className={`relative inset-0 z-10 h-full w-full transition duration-300 ease-in-out ${
             isFrontViewActive ? 'opacity-0 -rotate-y-180' : 'opacity-100 rotate-y-0'
         }`}
     >
@@ -63,8 +62,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
     ]
 
     return (
-        <Link$
-            href={`/members`}
+        <section
             className={`group absolute inset-0 z-0 flex h-full w-full flex-col items-start justify-between rounded-xl bg-[#EBEBEB] px-4 py-5 font-light transition duration-300 ease-in-out ${
                 isFrontViewActive === false ? 'opacity-0 rotate-y-180' : 'z-10 opacity-100 rotate-y-0'
             }`}
@@ -83,7 +81,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
                     <MemberContact {...contactProps} key={contactProps.contact}></MemberContact>
                 ))}
             </section>
-        </Link$>
+        </section>
     )
 }
 

@@ -37,12 +37,16 @@ module.exports = {
             },
             keyframes: {
                 rise: {
-                    '0%': { top: 40 },
-                    '100%': { top: 0 },
+                    '0%': { transform: 'translateY(5rem)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' },
                 },
             },
             animation: {
                 rise: 'rise 1s',
+            },
+            blur: {
+                '4xl': '5rem',
+                '5xl': '6rem',
             },
         },
     },
