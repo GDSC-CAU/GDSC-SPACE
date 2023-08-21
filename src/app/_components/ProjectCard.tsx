@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-import { MAIN_PROJECT_DATA } from '../../../interfaces/common'
+import { MAIN_PROJECT_DATA } from '../../interfaces/common'
 
 export default function ProjectCard({
     PROJECT_TITLE,
