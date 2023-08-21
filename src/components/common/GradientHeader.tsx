@@ -1,6 +1,7 @@
-interface GradientHeaderProps {
+import { TailwindComponent } from './tailwind'
+
+interface GradientHeaderProps extends TailwindComponent {
     size?: 'text-6xl' | 'text-7xl' | 'text-8xl'
-    twClass?: string
 }
 export const GradientHeader = ({
     size = 'text-6xl',

@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { FillImage } from '~/components/common'
+import { TailwindComponent } from './tailwind'
 
-interface ThumbnailCardProps<ThumbnailMeta> {
+interface ThumbnailCardProps<ThumbnailMeta> extends TailwindComponent {
     href: string
     meta: ThumbnailMeta
-    twClass?: string
     style?: React.CSSProperties
     transformer: (originalMeta: ThumbnailMeta) => {
         title: string
