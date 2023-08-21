@@ -67,10 +67,10 @@ const Projects = () => {
             </div>
             <div className="mb-12">우리는 이러한 문제점들을 읽어내고, 해결책을 탐구합니다!</div>
             <div className="flex w-[1000px] flex-col items-center justify-center gap-10">
-                <ProjectCard isReverse={true} />
-                <ProjectCard isReverse={false} />
-                <ProjectCard isReverse={true} />
-                <ProjectCard isReverse={false} />
+                <ProjectCard isReverse={true} projectData={undefined} />
+                <ProjectCard isReverse={false} projectData={undefined} />
+                <ProjectCard isReverse={true} projectData={undefined} />
+                <ProjectCard isReverse={false} projectData={undefined} />
             </div>
         </div>
     )
