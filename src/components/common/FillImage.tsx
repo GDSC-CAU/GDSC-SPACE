@@ -13,7 +13,7 @@ interface FillImageProps extends Omit<ImageProps, 'style' | 'fill' | 'width' | '
 }
 
 export const FillImage = ({ containerClass, imageClass, ...nextImageProps }: FillImageProps) => (
-    <span className={`relative ${containerClass}`}>
+    <div className={`relative ${containerClass}`}>
         <Image
             fill
             className={`${imageClass} h-full w-full`}
@@ -22,5 +22,5 @@ export const FillImage = ({ containerClass, imageClass, ...nextImageProps }: Fil
             }}
             {...nextImageProps}
         />
-    </span>
+    </div>
 )
