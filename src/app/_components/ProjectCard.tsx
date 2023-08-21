@@ -54,23 +54,20 @@ export default function ProjectCard({
     }, [])
 
     return (
-        <main
-            className={`relative grid w-full  grid-cols-2 items-center justify-between gap-3`}
-            dir={isReverse ? '' : 'rtl'}
-        >
-            <div className="group relative">
-                <Link href="/blog/1">
+        <Link href="/blog/1">
+            <div className={`flex flex-row items-center justify-between gap-3`}>
+                <div
+                    ref={ImageRef}
+                    className={`h-full transition-all duration-1000 ease-in-out${
+                        isVisible ? 'translate-x-0' : LScrollDirection
+                    }`}
+                >
                     <div
-                        ref={ImageRef}
-                        className={`relative overflow-hidden transition-all duration-1000 ease-in-out${
-                            isVisible ? 'translate-x-0' : LScrollDirection
+                        className={`transition-all duration-1000 ease-in-out ${
+                            isVisible ? 'translate-x-0' : 'translate-x-full'
                         }`}
                     >
-                        <div
-                            className={` flex transition-all duration-1000 ease-in-out ${
-                                isVisible ? 'translate-x-0' : 'translate-x-full'
-                            }`}
-                        >
+                        <div>
                             <Image
                                 src={project.PROJECT_IMAGE}
                                 alt="pixabay picture3"
@@ -85,40 +82,32 @@ export default function ProjectCard({
                             />
                         </div>
                     </div>
-                </Link>
-            </div>
-            <div
-                ref={ImageRef}
-                className={`relative overflow-hidden transition-all duration-1000 ease-in-out ${
-                    isVisible ? 'translate-x-0' : RScrollDirection
-                }`}
-            >
+                </div>
                 <div
-                    className={`flex transition-all duration-1000 ease-in-out${
-                        isVisible ? 'translate-x-0' : 'translate-x-full'
+                    ref={ImageRef}
+                    className={`flex h-full flex-col transition-all duration-1000 ease-in-out ${
+                        isVisible ? 'translate-x-0' : RScrollDirection
                     }`}
                 >
-                    <div className="group relative grid grid-rows-2 ">
-                        <div className={`max-x-prose flex w-full flex-col items-end ${textDirection}`}>
-                            <h1 className="mb-5 text-4xl font-bold">{project.PROJECT_TITLE}</h1>
-                            <h2 className="text-xs">{project.PROJECT_SUBTITLE}</h2>
-                            <h3 className="text-xs">{project.PROJECT_DESCRIPTION}</h3>
-                        </div>
+                    <div className={`flex w-full flex-col items-end justify-start ${textDirection}`}>
+                        <h1 className="mb-5 text-4xl font-bold">{project.PROJECT_TITLE}</h1>
+                        <h2 className="text-xs">{project.PROJECT_SUBTITLE}</h2>
+                        <h3 className="text-xs">{project.PROJECT_DESCRIPTION}</h3>
+                    </div>
 
-                        <div className={`relative mt-5`}>
-                            <Image
-                                src={project.PROJECT_IMAGE_SUB}
-                                alt="pixabay picture3"
-                                priority
-                                layout="responsive"
-                                width={664}
-                                height={180}
-                                style={{ borderRadius: '15px' }}
-                            />
-                        </div>
+                    <div>
+                        <Image
+                            src={project.PROJECT_IMAGE_SUB}
+                            alt="pixabay picture3"
+                            priority
+                            layout="responsive"
+                            width={664}
+                            height={180}
+                            style={{ borderRadius: '15px' }}
+                        />
                     </div>
                 </div>
             </div>
-        </main>
+        </Link>
     )
 }
