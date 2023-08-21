@@ -5,13 +5,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import { MAIN_PROJECT_DATA } from '../../interfaces/common'
 
 export default function ProjectCard({
-    PROJECT_TITLE,
-    PROJECT_IMAGE,
-    PROJECT_IMAGE_SUB,
-    PROJECT_DESCRIPTION,
-    PROJECT_SUBTITLE,
     isReverse,
-}: any | MAIN_PROJECT_DATA) {
+    projectData,
+}: {
+    isReverse: boolean
+    projectData: MAIN_PROJECT_DATA | undefined
+}) {
     const project: MAIN_PROJECT_DATA = {
         PROJECT_TITLE: 'Wiro',
         PROJECT_ID: 'PROJECT_ID',
