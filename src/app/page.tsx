@@ -1,6 +1,7 @@
 import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
+import ProjectCard from './_components/ProjectCard'
 
 const BulkBanner = () => {
     return (
