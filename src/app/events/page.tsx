@@ -24,8 +24,8 @@ export default function Events() {
     return (
         <main className="flex min-w-[50%] flex-col items-center justify-center">
             <div className="flex h-full w-full flex-col items-center">
-                <h1 className="mt-40 text-5xl font-bold">Event</h1>
-                <span className="text-xs">GDSC Chung-ang이 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
+                <h1 className="mt-20 text-5xl font-bold">Event</h1>
+                <span className="text-xs">GDSC CAU가 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
             </div>
 
             <Divider />
