@@ -1,5 +1,5 @@
 import SvgIntro from '~/components/icons/IntroIcon'
-import ProjectCard from './projects/_components/ProjectCard'
+import ProjectCard from './_components/ProjectCard'
 
 const BulkBanner = () => {
     return (
