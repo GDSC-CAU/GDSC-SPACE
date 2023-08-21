@@ -20,8 +20,12 @@ export default function ProjectCard({
         PROJECT_SUBTITLE: '미안..',
     }
     const textDirection = isReverse ? 'items-end' : 'items-start'
-    const LScrollDirection = isReverse ? '-translate-x-full' : '-translate-x-0'
-    const RScrollDirection = isReverse ? '-translate-x-0' : '-translate-x-full'
+    const LCardMargin = isReverse ? 'mr-[10px]' : 'ml-[10px]'
+    const RCardMargin = isReverse ? 'ml-[10px]' : 'mr-[10px]'
+    const LScrollFrom = isReverse ? '-translate-x-full' : 'translate-x-[200%]'
+    const LScrollTo = isReverse ? '-translate-x-0' : 'translate-x-full'
+    const RScrollFrom = isReverse ? 'translate-x-full' : '-translate-x-[200%]'
+    const RScrollTo = isReverse ? 'translate-x-0' : '-translate-x-full'
 
     const [isVisible, setIsVisible] = useState(false)
     const ImageRef = useRef(null)
@@ -55,38 +59,30 @@ export default function ProjectCard({
 
     return (
         <Link href="/blog/1">
-            <div className={`flex flex-row items-center justify-between gap-3`}>
+            <div ref={ImageRef} className={`flex flex-row items-center`}>
                 <div
-                    ref={ImageRef}
-                    className={`h-full transition-all duration-1000 ease-in-out${
-                        isVisible ? 'translate-x-0' : LScrollDirection
+                    className={`${LCardMargin} transition-all duration-1000 ease-in-out ${
+                        isVisible ? LScrollTo : LScrollFrom
                     }`}
                 >
-                    <div
-                        className={`transition-all duration-1000 ease-in-out ${
-                            isVisible ? 'translate-x-0' : 'translate-x-full'
-                        }`}
-                    >
-                        <div>
-                            <Image
-                                src={project.PROJECT_IMAGE}
-                                alt="pixabay picture3"
-                                priority
-                                layout="responsive"
-                                width={663}
-                                height={718}
-                                style={{ borderRadius: '15px' }}
-                                className={`transition duration-300 ease-in-out${
-                                    isVisible ? 'group-hover:brightness-90' : ''
-                                }`}
-                            />
-                        </div>
+                    <div>
+                        <Image
+                            src={project.PROJECT_IMAGE}
+                            alt="pixabay picture3"
+                            priority
+                            layout="responsive"
+                            width={663}
+                            height={718}
+                            style={{ borderRadius: '15px' }}
+                            className={`transition duration-300 ease-in-out${
+                                isVisible ? 'group-hover:brightness-90' : ''
+                            }`}
+                        />
                     </div>
                 </div>
                 <div
-                    ref={ImageRef}
-                    className={`flex h-full flex-col transition-all duration-1000 ease-in-out ${
-                        isVisible ? 'translate-x-0' : RScrollDirection
+                    className={`${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
+                        isVisible ? RScrollTo : RScrollFrom
                     }`}
                 >
                     <div className={`flex w-full flex-col items-end justify-start ${textDirection}`}>
