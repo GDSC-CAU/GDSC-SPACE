@@ -17,7 +17,7 @@ export default function EventList() {
                 <span className="text-xs">GDSC Chung-ang이 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
             </div>
             <hr className="mx-auto mb-8 mt-12 w-full bg-gray-100" />
-            <div className="space-envely grid grid-cols-3 items-center justify-center gap-5 ">
+            <div className="grid grid-cols-3 items-center justify-evenly gap-5 ">
                 <EventCard event={Event} />
                 <EventCard event={Event} />
                 <EventCard event={Event} />
