@@ -72,13 +72,12 @@ const bulkProject: MAIN_PROJECT_DATA = {
 
 const Projects = () => {
     return (
-        <>
-            <div className="mt-28 flex flex-col items-center justify-center gap-6">
-                <GradientHeader>Project</GradientHeader>
-                <div className="mb-12">우리는 문제를 발견하고 함께 풀어나갑니다</div>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-10 ">{'프로젝트 카드 예시 4개'}</div>
-        </>
+        <div className="flex w-[1000px] flex-col items-center gap-10">
+            <ProjectCard isReverse={false} projectData={undefined} />
+            <ProjectCard isReverse={true} projectData={undefined} />
+            <ProjectCard isReverse={false} projectData={undefined} />
+            <ProjectCard isReverse={true} projectData={undefined} />
+        </div>
     )
 }
 
