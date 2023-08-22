@@ -85,9 +85,9 @@ export default function ProjectCard({
                     }`}
                 >
                     <div className={`flex h-full w-full flex-col items-end justify-start ${textDirection}`}>
-                        <h1 className="mb-5 text-4xl font-bold">{project.PROJECT_TITLE}</h1>
-                        <h2 className="text-xs">{project.PROJECT_SUBTITLE}</h2>
-                        <h3 className="text-xs">{project.PROJECT_DESCRIPTION}</h3>
+                        <p className={'text-6xl font-bold'}>{project.PROJECT_TITLE}</p>
+                        <p className={'mb-10 text-4xl'}>{project.PROJECT_SUBTITLE}</p>
+                        <p className={'text-base'}>{project.PROJECT_DESCRIPTION}</p>
                     </div>
 
                     <div className={'relative h-[280px] w-[420px]'}>
