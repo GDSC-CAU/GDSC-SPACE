@@ -20,8 +20,8 @@ export default function ProjectCard({
         PROJECT_SUBTITLE: '미안..',
     }
     const textDirection = isReverse ? 'items-end' : 'items-start'
-    const LCardMargin = isReverse ? 'mr-[10px]' : 'ml-[10px]'
-    const RCardMargin = isReverse ? 'ml-[10px]' : 'mr-[10px]'
+    const LCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
+    const RCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const LScrollFrom = isReverse ? '-translate-x-full' : 'translate-x-[200%]'
     const LScrollTo = isReverse ? '-translate-x-0' : 'translate-x-full'
     const RScrollFrom = isReverse ? 'translate-x-full' : '-translate-x-[200%]'
