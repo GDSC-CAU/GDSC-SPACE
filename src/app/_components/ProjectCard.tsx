@@ -75,9 +75,6 @@ export default function ProjectCard({
                             priority
                             layout="fixed"
                             style={{ borderRadius: '15px' }}
-                            className={`transition duration-300 ease-in-out${
-                                isVisible ? 'group-hover:brightness-90' : ''
-                            }`}
                         />
                     </div>
                 </div>
@@ -100,9 +97,6 @@ export default function ProjectCard({
                             priority
                             layout="fixed"
                             style={{ borderRadius: '15px' }}
-                            className={`transition duration-300 ease-in-out${
-                                isVisible ? 'group-hover:brightness-90' : ''
-                            }`}
                         />
                     </div>
                 </div>
