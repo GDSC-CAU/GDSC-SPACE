@@ -19,7 +19,7 @@ export default function ProjectCard({
         PROJECT_DESCRIPTION: '파이팅....',
         PROJECT_SUBTITLE: '미안..',
     }
-    const textDirection = isReverse ? 'items-end' : 'items-start'
+    const textDirection = isReverse ? 'items-start' : 'items-end'
     const LCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const RCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const LScrollFrom = isReverse ? '-translate-x-full' : 'translate-x-[200%]'
@@ -65,14 +65,13 @@ export default function ProjectCard({
                         isVisible ? LScrollTo : LScrollFrom
                     }`}
                 >
-                    <div>
+                    <div className={'relative h-[480px] w-[420px]'}>
                         <Image
                             src={project.PROJECT_IMAGE}
                             alt="pixabay picture3"
+                            fill
                             priority
-                            layout="responsive"
-                            width={663}
-                            height={718}
+                            layout="fixed"
                             style={{ borderRadius: '15px' }}
                             className={`transition duration-300 ease-in-out${
                                 isVisible ? 'group-hover:brightness-90' : ''
@@ -81,25 +80,27 @@ export default function ProjectCard({
                     </div>
                 </div>
                 <div
-                    className={`${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
+                    className={`h-[480px] ${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
                         isVisible ? RScrollTo : RScrollFrom
                     }`}
                 >
-                    <div className={`flex w-full flex-col items-end justify-start ${textDirection}`}>
+                    <div className={`flex h-full w-full flex-col items-end justify-start ${textDirection}`}>
                         <h1 className="mb-5 text-4xl font-bold">{project.PROJECT_TITLE}</h1>
                         <h2 className="text-xs">{project.PROJECT_SUBTITLE}</h2>
                         <h3 className="text-xs">{project.PROJECT_DESCRIPTION}</h3>
                     </div>
 
-                    <div>
+                    <div className={'relative h-[280px] w-[420px]'}>
                         <Image
-                            src={project.PROJECT_IMAGE_SUB}
+                            src={project.PROJECT_IMAGE}
                             alt="pixabay picture3"
+                            fill
                             priority
-                            layout="responsive"
-                            width={664}
-                            height={180}
+                            layout="fixed"
                             style={{ borderRadius: '15px' }}
+                            className={`transition duration-300 ease-in-out${
+                                isVisible ? 'group-hover:brightness-90' : ''
+                            }`}
                         />
                     </div>
                 </div>
