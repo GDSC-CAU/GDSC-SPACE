@@ -1,4 +1,3 @@
-import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
 import ProjectCard from './_components/ProjectCard'
@@ -59,16 +58,6 @@ const Intro = () => {
             </div>
         </div>
     )
-}
-
-const bulkProject: MAIN_PROJECT_DATA = {
-    PROJECT_TITLE: 'Carbon Hero',
-    PROJECT_ID: 'PROJECT_ID',
-    PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
-    PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/05/15/15/waves-8171279_1280.jpg',
-    PROJECT_DESCRIPTION:
-        "This is a Solution for the people who don't know what actions could be taken toreduce green house effect.This is an education game. By playing this game, the players are informedwhat could be done in real world to decrease the green house effect andwhat contributes to the global warming and green house effect.",
-    PROJECT_SUBTITLE: ': Save The Earth',
 }
 
 const Projects = () => {
