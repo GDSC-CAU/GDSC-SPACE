@@ -16,10 +16,12 @@ export default function ProjectCard({
         PROJECT_ID: 'PROJECT_ID',
         PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
         PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/05/15/15/waves-8171279_1280.jpg',
-        PROJECT_DESCRIPTION: '파이팅....',
-        PROJECT_SUBTITLE: '미안..',
+        PROJECT_DESCRIPTION:
+            'GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU ' +
+            'GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU GDSC CAU',
+        PROJECT_SUBTITLE: ': No more Lonely Death',
     }
-    const textDirection = isReverse ? 'items-start' : 'items-end'
+    const textAlign = isReverse ? 'text-end' : 'text-start'
     const LCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const RCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const LScrollFrom = isReverse ? '-translate-x-full' : 'translate-x-[200%]'
@@ -61,7 +63,7 @@ export default function ProjectCard({
         <Link href="/blog/1">
             <div ref={ImageRef} className={`flex flex-row items-center`}>
                 <div
-                    className={`${LCardMargin} transition-all duration-1000 ease-in-out ${
+                    className={`h-[480px] w-[420px] ${LCardMargin} transition-all duration-1000 ease-in-out ${
                         isVisible ? LScrollTo : LScrollFrom
                     }`}
                 >
@@ -80,14 +82,14 @@ export default function ProjectCard({
                     </div>
                 </div>
                 <div
-                    className={`h-[480px] ${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
+                    className={`h-[480px] w-[420px] ${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
                         isVisible ? RScrollTo : RScrollFrom
                     }`}
                 >
-                    <div className={`flex h-full w-full flex-col items-end justify-start ${textDirection}`}>
-                        <p className={'text-6xl font-bold'}>{project.PROJECT_TITLE}</p>
-                        <p className={'mb-10 text-4xl'}>{project.PROJECT_SUBTITLE}</p>
-                        <p className={'text-base'}>{project.PROJECT_DESCRIPTION}</p>
+                    <div className={`flex h-full w-full flex-col items-end justify-start`}>
+                        <p className={`w-full text-6xl font-bold ${textAlign}`}>{project.PROJECT_TITLE}</p>
+                        <p className={`mb-10 w-full text-4xl ${textAlign}`}>{project.PROJECT_SUBTITLE}</p>
+                        <p className={`w-full text-base ${textAlign}`}>{project.PROJECT_DESCRIPTION}</p>
                     </div>
 
                     <div className={'relative h-[280px] w-[420px]'}>
