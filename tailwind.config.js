@@ -50,9 +50,5 @@ module.exports = {
             },
         },
     },
-<<<<<<< HEAD
-    plugins: [require('tailwindcss-3d'), require('tailwind-scrollbar-hide')],
-=======
     // plugins: [require('tailwindcss-3d')],
->>>>>>> 27b23db (feat: main_timeline timeline card 제작)
 }

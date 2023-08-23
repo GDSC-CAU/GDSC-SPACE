@@ -1,8 +1,9 @@
-import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
+import { MAIN_PROJECT_DATA, MAIN_TIMELINE_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
 import { ProjectCard } from './_components'
 import { Benefits } from './_components/benefits'
+import { TimeLineCard } from './events/_components/TimeLineCard'
 
 const BulkBanner = () => {
     return (
@@ -29,7 +30,7 @@ const BulkBanner = () => {
 const Intro = () => {
     return (
         <div className="relative ml-[calc(-13rem)] flex w-screen flex-col items-center justify-center bg-gradient-to-b from-black to-primary-darkgray py-20">
-            <div className="absolute left-1/2 top-1/4 h-64 w-64 rounded-full bg-primary-blue blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute left-1/2 top-1/4 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue blur-3xl"></div>
             <GradientHeader twClass="mb-10 z-10">Who are we?</GradientHeader>
 
             <div className="z-10 flex flex-row items-start justify-center gap-20">
@@ -62,22 +63,40 @@ const Intro = () => {
     )
 }
 
-const TimeLineCard = () => {
-    return (
-        <div className="relative m-6 h-60 w-5/6">
-            <div className="absolute top-0 flex h-3/5 w-full items-start rounded-3xl bg-primary-hotpink px-5 py-4 text-2xl text-black">
-                {' '}
-                Onboarding{' '}
-            </div>
-            <div className="absolute bottom-0 h-3/4 w-full rounded-t-3xl rounded-bl-lg rounded-br-3xl bg-black p-6">
-                <div className="text-xl text-primary-hotpink">title</div>
-                <div className="text-xl text-white">date</div>
-                <div className="text-xl text-white">content</div>
-            </div>
-        </div>
+const generateBulkTimeLines = (count: number): Array<MAIN_TIMELINE_DATA> => {
+    const bulkTimeLines: Array<MAIN_TIMELINE_DATA> = Array.from(
+        {
+            length: count,
+        },
+        (_, i) =>
+            ({
+                TIMELINE_CARD_TITLE: 'Onboarding',
+                TIMELINE_DATE: 'Aug - Sep',
+                TIMELINE_DESCRIPTION: `${i}`,
+                TIMELINE_TITLE: 'title',
+            } as MAIN_TIMELINE_DATA)
     )
+    return bulkTimeLines
 }
+
+const bulkTimelines: Array<MAIN_TIMELINE_DATA> = generateBulkTimeLines(7)
+
 const TimeLine = () => {
+    const bg_colors = [
+        'bg-primary-hotpink',
+        'bg-primary-yellow',
+        'bg-primary-teal',
+        'bg-primary-blue',
+        'bg-primary-purple',
+    ] as const
+
+    const text_colors = [
+        'text-primary-hotpink',
+        'text-primary-yellow',
+        'text-primary-teal',
+        'text-primary-blue',
+        'text-primary-purple',
+    ] as const
     return (
         <>
             <div className="flex h-[60rem] w-full flex-row">
@@ -88,22 +107,15 @@ const TimeLine = () => {
                     </h1>
                 </div>
                 <div className="mx-2 h-full w-[0.08rem] border-0 bg-gradient-to-b from-primary-blue to-white" />
-                <div className="mt-32 flex h-4/5 w-1/2 flex-col items-center justify-end gap-7 overflow-auto">
-                    <div className="h-60 w-full snap-center">
-                        <TimeLineCard />
-                    </div>
-                    <div className="h-60 w-full snap-center">
-                        <TimeLineCard />
-                    </div>
-                    <div className="h-60 w-full snap-center">
-                        <TimeLineCard />
-                    </div>
-                    <div className="h-60 w-full snap-center">
-                        <TimeLineCard />
-                    </div>
-                    <div className="h-60 w-full snap-center">
-                        <TimeLineCard />
-                    </div>
+                <div className="flex h-full w-1/2 flex-col items-center justify-start gap-7 overflow-y-auto overflow-x-hidden p-3 pt-32">
+                    {bulkTimelines.map((timeline, i) => (
+                        <TimeLineCard
+                            key={timeline.TIMELINE_DESCRIPTION}
+                            timeLine={timeline}
+                            bg_color={bg_colors[i % 5]}
+                            text_color={text_colors[i % 5]}
+                        />
+                    ))}
                 </div>
             </div>
         </>
