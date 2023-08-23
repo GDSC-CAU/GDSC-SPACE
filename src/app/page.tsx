@@ -88,7 +88,7 @@ const TimeLine = () => {
                     </h1>
                 </div>
                 <div className="mx-2 h-full w-[0.08rem] border-0 bg-gradient-to-b from-primary-blue to-white" />
-                <div className="mt-32 flex h-4/5 w-1/2 flex-col items-center justify-end overflow-auto gap-7">
+                <div className="mt-32 flex h-4/5 w-1/2 flex-col items-center justify-end gap-7 overflow-auto">
                     <div className="h-60 w-full snap-center">
                         <TimeLineCard />
                     </div>
