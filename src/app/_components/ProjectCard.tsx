@@ -1,7 +1,7 @@
 'use client'
-import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { FillImage } from '~/components/common'
 import { MAIN_PROJECT_DATA } from '../../interfaces/common'
 
 export default function ProjectCard({
@@ -60,46 +60,37 @@ export default function ProjectCard({
     }, [])
 
     return (
-        <Link href="/blog/1">
-            <div ref={ImageRef} className={`flex flex-row items-center`}>
-                <div
-                    className={`h-[480px] w-[420px] ${LCardMargin} transition-all duration-1000 ease-in-out ${
-                        isVisible ? LScrollTo : LScrollFrom
-                    }`}
-                >
-                    <div className={'relative h-[480px] w-[420px]'}>
-                        <Image
-                            src={project.PROJECT_IMAGE}
-                            alt="pixabay picture3"
-                            fill
-                            priority
-                            layout="fixed"
-                            style={{ borderRadius: '15px' }}
-                        />
-                    </div>
-                </div>
-                <div
-                    className={`h-[480px] w-[420px] ${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
-                        isVisible ? RScrollTo : RScrollFrom
-                    }`}
-                >
-                    <div className={`flex h-full w-full flex-col items-end justify-start`}>
-                        <p className={`w-full text-6xl font-bold ${textAlign}`}>{project.PROJECT_TITLE}</p>
-                        <p className={`mb-10 w-full text-4xl ${textAlign}`}>{project.PROJECT_SUBTITLE}</p>
-                        <p className={`w-full text-base ${textAlign}`}>{project.PROJECT_DESCRIPTION}</p>
-                    </div>
+        <Link href={`/blog/${project.PROJECT_ID}`} className="group flex flex-row items-center" ref={ImageRef}>
+            <FillImage
+                src={project.PROJECT_IMAGE}
+                alt={project.PROJECT_TITLE}
+                containerClass={`h-[480px] w-[420px] overflow-hidden rounded-xl transition-all duration-1000 ease-in-out transform-gpu ${LCardMargin} ${
+                    isVisible ? LScrollTo : LScrollFrom
+                }`}
+                imageClass="rounded-xl group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
+            />
 
-                    <div className={'relative h-[280px] w-[420px]'}>
-                        <Image
-                            src={project.PROJECT_IMAGE}
-                            alt="pixabay picture3"
-                            fill
-                            priority
-                            layout="fixed"
-                            style={{ borderRadius: '15px' }}
-                        />
-                    </div>
-                </div>
+            <div
+                className={`h-[480px] w-[420px] ${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out transform-gpu ${
+                    isVisible ? RScrollTo : RScrollFrom
+                }`}
+            >
+                <section className={`flex h-full w-full flex-col items-end justify-start`}>
+                    <h1 className={`-mt-2 w-full text-6xl font-extrabold text-white ${textAlign}`}>
+                        {project.PROJECT_TITLE}
+                    </h1>
+                    <h2 className={`mb-10 w-full text-3xl font-bold text-white ${textAlign}`}>
+                        {project.PROJECT_SUBTITLE}
+                    </h2>
+                    <p className={`w-full text-sm ${textAlign}`}>{project.PROJECT_DESCRIPTION}</p>
+                </section>
+
+                <FillImage
+                    containerClass="h-[280px] w-[420px]"
+                    imageClass="rounded-xl"
+                    src={project.PROJECT_IMAGE}
+                    alt="pixabay picture3"
+                />
             </div>
         </Link>
     )
