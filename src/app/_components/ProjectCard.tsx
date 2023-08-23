@@ -2,7 +2,8 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
-import { FillImage } from '~/components/common'
+import { FillImage, IconButton } from '~/components/common'
+import { Arrow } from '~/components/icons'
 
 interface ProjectCardProps {
     isReverse: boolean
@@ -66,7 +67,14 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
                     isVisible ? LScrollTo : LScrollFrom
                 }`}
                 imageClass="rounded-xl group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
-            />
+            >
+                <IconButton
+                    ariaLabel={`move to ${projectData.PROJECT_IMAGE} project post`}
+                    twClass="absolute bottom-4 right-4"
+                >
+                    <Arrow className="scale-125" />
+                </IconButton>
+            </FillImage>
 
             <div
                 className={`flex h-[480px] w-[420px] flex-col transition-all duration-1000 ease-in-out transform-gpu ${RCardMargin} ${
