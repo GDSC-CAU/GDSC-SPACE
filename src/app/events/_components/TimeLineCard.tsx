@@ -17,7 +17,7 @@ export const TimeLineCard = ({
                 {timeLine.TIMELINE_CARD_TITLE}
             </div>
             <div className="absolute inset-x-0 bottom-0 flex h-[11rem] w-full flex-col items-start justify-start rounded-t-3xl rounded-bl-lg rounded-br-3xl bg-black p-6">
-                <div className={`text-xl ${text_color}`}>{timeLine.TIMELINE_TITLE}</div>
+                <div className={`text-xl ${text_color} mb-10`}>{timeLine.TIMELINE_TITLE}</div>
                 <div className="text-xl text-white">{timeLine.TIMELINE_DATE}</div>
                 <div className="text-xl text-white">{timeLine.TIMELINE_DESCRIPTION}</div>
             </div>
