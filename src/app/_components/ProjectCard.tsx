@@ -69,14 +69,16 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
                     isVisible ? RScrollTo : RScrollFrom
                 }`}
             >
-                <section className={`flex h-full w-full flex-col items-end justify-start`}>
-                    <h1 className={`w-full text-6xl font-extrabold text-white ${textAlign}`}>
+                <section className={`flex h-full w-full flex-col items-end justify-start pb-10`}>
+                    <h1 className={`w-full font-eng text-6xl font-bold text-white ${textAlign}`}>
                         {projectData.PROJECT_TITLE}
                     </h1>
-                    <h2 className={`mb-10 w-full text-3xl font-bold text-white ${textAlign}`}>
+                    <h2 className={`mb-10 w-full font-eng text-3xl font-normal text-white ${textAlign}`}>
                         {projectData.PROJECT_SUBTITLE}
                     </h2>
-                    <p className={`w-full text-sm ${textAlign}`}>{projectData.PROJECT_DESCRIPTION}</p>
+                    <p className={`w-full font-eng text-sm font-light ${textAlign}`}>
+                        {projectData.PROJECT_DESCRIPTION}
+                    </p>
                 </section>
 
                 <FillImage
