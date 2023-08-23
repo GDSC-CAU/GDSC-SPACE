@@ -49,7 +49,7 @@ export const ModalView = ({
     }
     return (
         <div
-            className={`fixed left-0 top-0 z-40 h-full w-full overflow-hidden bg-black/5 transition ${transitionDuration} ${
+            className={`fixed left-0 top-0 z-40 h-full w-full overflow-hidden bg-white/5 transition ${transitionDuration} ${
                 blurLevel[blur]
             } ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
         >
