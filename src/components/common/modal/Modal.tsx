@@ -49,12 +49,12 @@ export const ModalView = ({
     }
     return (
         <div
-            className={`fixed left-0 top-0 h-full w-full overflow-hidden bg-black/5 transition ${transitionDuration} ${
+            className={`fixed left-0 top-0 z-40 h-full w-full overflow-hidden bg-black/5 transition ${transitionDuration} ${
                 blurLevel[blur]
             } ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
         >
             <div
-                className={`flex h-full w-full items-center justify-center transition transform-gpu ${transitionDuration} ${
+                className={`flex h-full w-full items-center justify-center transition-all transform-gpu ${transitionDuration} ${
                     open ? `opacity-100 ${modalOpenClassName}` : `opacity-0 ${modalCloseClassName}`
                 }`}
                 onClick={handleOutsideClick}
