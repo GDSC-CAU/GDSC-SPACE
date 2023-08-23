@@ -55,26 +55,24 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
     }, [])
 
     return (
-        <Link
-            href={`/blog/${projectData.PROJECT_ID}`}
-            ref={projectCardRef}
-            className="group flex flex-row items-center"
-        >
-            <FillImage
-                src={projectData.PROJECT_IMAGE}
-                alt={projectData.PROJECT_TITLE}
-                containerClass={`transform-gpu h-[480px] w-[420px] overflow-hidden rounded-xl transition-all duration-1000 ease-in-out ${LCardMargin} ${
-                    isVisible ? LScrollTo : LScrollFrom
-                }`}
-                imageClass="rounded-xl group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
-            >
-                <IconButton
-                    ariaLabel={`move to ${projectData.PROJECT_IMAGE} project post`}
-                    twClass="absolute bottom-4 right-4"
+        <div className="group flex flex-row items-center">
+            <Link href={`/blog/${projectData.PROJECT_ID}`} ref={projectCardRef}>
+                <FillImage
+                    src={projectData.PROJECT_IMAGE}
+                    alt={projectData.PROJECT_TITLE}
+                    containerClass={`transform-gpu h-[480px] w-[420px] overflow-hidden rounded-xl transition-all duration-1000 ease-in-out ${LCardMargin} ${
+                        isVisible ? LScrollTo : LScrollFrom
+                    }`}
+                    imageClass="rounded-xl group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
                 >
-                    <Arrow className="scale-125" />
-                </IconButton>
-            </FillImage>
+                    <IconButton
+                        ariaLabel={`move to ${projectData.PROJECT_IMAGE} project post`}
+                        twClass="absolute bottom-4 right-4"
+                    >
+                        <Arrow className="scale-125" />
+                    </IconButton>
+                </FillImage>
+            </Link>
 
             <div
                 className={`flex h-[480px] w-[420px] flex-col transition-all duration-1000 ease-in-out transform-gpu ${RCardMargin} ${
@@ -100,6 +98,6 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
                     imageClass="rounded-xl"
                 />
             </div>
-        </Link>
+        </div>
     )
 }
