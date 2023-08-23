@@ -1,8 +1,8 @@
 import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
-import { Benefits } from './_components/benefits'
 import { ProjectCard } from './_components'
+import { Benefits } from './_components/benefits'
 
 const BulkBanner = () => {
     return (
@@ -95,8 +95,8 @@ export default function Home() {
         <div className="h-full w-full">
             <BulkBanner />
             <Intro />
-            <Projects />
             <Benefits />
+            <Projects />
         </div>
     )
 }
