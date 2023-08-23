@@ -12,10 +12,14 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
     const textAlign = isReverse ? 'text-end' : 'text-start'
     const LCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const RCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
-    const LScrollFrom = isReverse ? '-translate-x-full' : 'translate-x-[200%]'
-    const LScrollTo = isReverse ? '-translate-x-0' : 'translate-x-full'
-    const RScrollFrom = isReverse ? 'translate-x-full' : '-translate-x-[200%]'
-    const RScrollTo = isReverse ? 'translate-x-0' : '-translate-x-full'
+    const LScrollFrom = isReverse
+        ? 'translate-y-16 -translate-x-full opacity-0 scale-75'
+        : 'translate-y-16 translate-x-[200%] opacity-0 scale-75'
+    const LScrollTo = isReverse ? '-translate-x-0 opacity-100 scale-100' : 'translate-x-full opacity-100 scale-100'
+    const RScrollFrom = isReverse
+        ? 'translate-y-16 translate-x-full opacity-0 scale-75'
+        : 'translate-y-16 -translate-x-[200%] opacity-0 scale-75'
+    const RScrollTo = isReverse ? 'translate-x-0 opacity-100 scale-100' : '-translate-x-full opacity-100 scale-100'
 
     const [isVisible, setIsVisible] = useState(false)
     const projectCardRef = useRef<HTMLAnchorElement>(null)
@@ -58,14 +62,14 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
             <FillImage
                 src={projectData.PROJECT_IMAGE}
                 alt={projectData.PROJECT_TITLE}
-                containerClass={`h-[480px] w-[420px] overflow-hidden rounded-xl transition-all duration-1000 ease-in-out ${LCardMargin} ${
+                containerClass={`transform-gpu h-[480px] w-[420px] overflow-hidden rounded-xl transition-all duration-1000 ease-in-out ${LCardMargin} ${
                     isVisible ? LScrollTo : LScrollFrom
                 }`}
                 imageClass="rounded-xl group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
             />
 
             <div
-                className={`h-[480px] w-[420px] ${RCardMargin} flex flex-col transition-all duration-1000 ease-in-out ${
+                className={`flex h-[480px] w-[420px] flex-col transition-all duration-1000 ease-in-out transform-gpu ${RCardMargin} ${
                     isVisible ? RScrollTo : RScrollFrom
                 }`}
             >
