@@ -18,11 +18,7 @@ export const Benefits = () => {
                 <ModalHeader />
 
                 <BenefitCard twClass="col-start-2 col-end-4 row-auto">
-                    <FadeIn
-                        from="translate-y-1/2 opacity-0"
-                        to="translate-y-0 opacity-100"
-                        twClass="mt-5 font-semibold"
-                    >
+                    <FadeIn from="translate-y-1/2" to="translate-y-0" twClass="mt-5 font-semibold">
                         <BenefitCard.Header>
                             Make<br></br>Networking
                         </BenefitCard.Header>
@@ -41,13 +37,9 @@ export const Benefits = () => {
 
                 <Mentor />
 
-                <BenefitCard twClass="col-start-2 col-end-5 row-auto">
-                    <FadeIn
-                        from="translate-y-1/2 opacity-0"
-                        to="translate-y-0 opacity-100"
-                        twClass="text-4xl font-semibold"
-                    >
-                        <p className="text-center">open events.</p>
+                <BenefitCard twClass="col-start-2 col-end-5 row-auto" rowAlign="center" colAlign="center">
+                    <FadeIn from="translate-y-1/2" to="translate-y-0" twClass="text-4xl font-semibold">
+                        open events.
                     </FadeIn>
                     <Image
                         src="/un-logo.png"
@@ -85,14 +77,14 @@ export const Benefits = () => {
                     />
                 </BenefitCard>
 
-                <BenefitCard twClass="col-start-4 col-end-7 row-auto text-center">
-                    <FadeIn from="translate-y-1/2 opacity-0" to="translate-y-0 opacity-100">
+                <BenefitCard twClass="col-start-4 col-end-7 row-auto text-center" rowAlign="center" colAlign="center">
+                    <FadeIn from="translate-y-1/2" to="translate-y-0">
                         <BenefitCard.Header>
-                            <div className="text-6xl font-bold">32</div>
+                            <div className="text-6xl font-bold">36</div>
                             Universities
                         </BenefitCard.Header>
                     </FadeIn>
-                    <BenefitCard.Description twClass="leading-loose justify-center items-center">
+                    <BenefitCard.Description twClass="leading-loose">
                         <BenefitCard.Description.Eng>
                             Become a better developer by interacting with 32 universities in Korea through the Google
                             Developer Student Clubs network.
@@ -106,8 +98,8 @@ export const Benefits = () => {
                 </BenefitCard>
 
                 <BenefitCard twClass="col-start-2 col-end-4 row-auto">
-                    <BenefitCard.Description>
-                        <BenefitCard.Description.Eng twClass="leading-loose mt-5">
+                    <BenefitCard.Description twClass="leading-loose mt-10">
+                        <BenefitCard.Description.Eng>
                             Join the solution challenge with us! Develop solutions to solve social problems presented by
                             the UN and win prizes!
                         </BenefitCard.Description.Eng>
