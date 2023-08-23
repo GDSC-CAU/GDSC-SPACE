@@ -10,7 +10,7 @@ export const ModalHeader = () => {
     return (
         <>
             <BenefitModal>
-                <BenefitModal.MainContent twClass="group relative col-start-1 col-end-8 row-auto overflow-hidden">
+                <BenefitModal.MainContent twClass="group relative col-start-2 col-end-7 row-auto overflow-hidden">
                     <CircleGradientHeader
                         twClass="bg-transparent w-full h-[350px]"
                         fontSize={1.4}
@@ -53,7 +53,7 @@ export const ModalFooter = () => {
                 flexDirection="row"
                 rowAlign="center"
                 colAlign="around"
-                twClass="col-start-1 gap-8 col-end-8 row-auto"
+                twClass="col-start-2 gap-8 col-end-7 row-auto"
             >
                 <BenefitCard.Header>Take the opportunity to grow.</BenefitCard.Header>
 

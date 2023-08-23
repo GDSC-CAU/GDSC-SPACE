@@ -16,83 +16,88 @@ export const Benefits = () => {
             <section className="grid grid-flow-col grid-cols-7 grid-rows-6 gap-5">
                 <ModalHeader />
 
-                <BenefitCard twClass="col-start-1 col-end-4 row-auto">
+                <BenefitCard twClass="col-start-2 col-end-4 row-auto">
                     <BenefitCard.Header>
                         Make<br></br>Networking
                     </BenefitCard.Header>
                     <BenefitCard.Description>
-                        <BenefitCard.Description.Kor>
-                            GDSC의 이벤트와 개발자 커뮤니티를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고
-                            멘토링을 받을 수 있어요
-                        </BenefitCard.Description.Kor>
-
                         <BenefitCard.Description.Eng>
-                            Our events and developer community allow you to meet and mentor working professionals,
-                            including GDEs, Googlers, and working alumni.
+                            You can get mentoring from field experts such as GDE, a Googleer, and a senior.
                         </BenefitCard.Description.Eng>
+
+                        <BenefitCard.Description.Kor>
+                            GDSC에서 이루어지는 ???을 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고 멘토링을 받을
+                            수 있어요.
+                        </BenefitCard.Description.Kor>
                     </BenefitCard.Description>
                 </BenefitCard>
 
                 <Mentor />
 
-                <BenefitCard twClass="col-start-1 col-end-5 row-auto">
-                    <BenefitCard.Header>
-                        Make<br></br>Networking
-                    </BenefitCard.Header>
+                <BenefitCard twClass="col-start-2 col-end-5 row-auto">
+                    <BenefitCard.Header>open events.</BenefitCard.Header>
+                </BenefitCard>
 
+                <BenefitCard twClass="col-start-5 col-end-7 row-auto">
                     <BenefitCard.Description>
-                        <BenefitCard.Description.Kor>
-                            GDSC의 이벤트와 개발자 커뮤니티를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고
-                            멘토링을 받을 수 있어요
-                        </BenefitCard.Description.Kor>
-
                         <BenefitCard.Description.Eng>
-                            Our events and developer community allow you to meet and mentor working professionals,
-                            including GDEs, Googlers, and working alumni.
+                            We hold various events such as Hands on Workshop, Study Group, and Hackathon. Let’s learn
+                            new skills together and improve your expertise!
                         </BenefitCard.Description.Eng>
+
+                        <BenefitCard.Description.Kor>
+                            우리는 Hands on workshop, Study Group, Hackathon 등 다양한 이벤트를 진행합니다. 새로운
+                            기술을 함께 배우고 실습하면서 전문성을 길러보세요!
+                        </BenefitCard.Description.Kor>
                     </BenefitCard.Description>
                 </BenefitCard>
 
-                <BenefitCard twClass="col-start-5 col-end-8 row-auto">
+                <BenefitCard twClass="col-start-2 col-end-4 row-auto">
                     <BenefitCard.Header>
-                        Make<br></br>Networking
+                        Interact<br></br>with us.
                     </BenefitCard.Header>
-
-                    <BenefitCard.Description>
-                        <BenefitCard.Description.Kor>
-                            GDSC의 이벤트와 개발자 커뮤니티를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고
-                            멘토링을 받을 수 있어요
-                        </BenefitCard.Description.Kor>
-
-                        <BenefitCard.Description.Eng>
-                            Our events and developer community allow you to meet and mentor working professionals,
-                            including GDEs, Googlers, and working alumni.
-                        </BenefitCard.Description.Eng>
-                    </BenefitCard.Description>
                 </BenefitCard>
 
-                <BenefitCard twClass="col-start-1 col-end-4 row-auto">
-                    <BenefitCard.Header>
-                        Make<br></br>Networking
-                    </BenefitCard.Header>
+                <BenefitCard twClass="col-start-4 col-end-7 row-auto">
+                    <div className="absolute justify-center">
+                        <BenefitCard.Header>
+                            32
+                            <br />
+                            Universities
+                        </BenefitCard.Header>
 
+                        <BenefitCard.Description>
+                            <BenefitCard.Description.Eng>
+                                Become a better developer by interacting with 32 universities in Korea through the
+                                Google Developer Student Clubs network.
+                            </BenefitCard.Description.Eng>
+
+                            <BenefitCard.Description.Kor>
+                                국내 32개 대학의 Google Developer Student Clubs 네트워크를 통해 서로 교류하며 더욱 멋진
+                                개발자로 성장해보세요!
+                            </BenefitCard.Description.Kor>
+                        </BenefitCard.Description>
+                    </div>
+                </BenefitCard>
+
+                <BenefitCard twClass="col-start-2 col-end-5 row-auto">
                     <BenefitCard.Description>
-                        <BenefitCard.Description.Kor>
-                            GDSC의 이벤트와 개발자 커뮤니티를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고
-                            멘토링을 받을 수 있어요
-                        </BenefitCard.Description.Kor>
-
                         <BenefitCard.Description.Eng>
-                            Our events and developer community allow you to meet and mentor working professionals,
-                            including GDEs, Googlers, and working alumni.
+                            Join the solution challenge with us! Develop solutions to solve social problems presented by
+                            the UN and win prizes!
                         </BenefitCard.Description.Eng>
+
+                        <BenefitCard.Description.Kor>
+                            Solution Challenge에 GDSC 커뮤니티와 함께 참여하세요! UN이 제시한 사회적 문제를 해결하는
+                            솔루션을 개발하고 입상할 기회를 잡으세요!
+                        </BenefitCard.Description.Kor>
                     </BenefitCard.Description>
                 </BenefitCard>
 
                 <BenefitCard
                     colAlign="center"
                     rowAlign="center"
-                    twClass="relative col-start-4 col-end-8 row-auto gap-y-7 overflow-hidden"
+                    twClass="relative col-start-5 col-end-7 row-auto gap-y-7 overflow-hidden"
                 >
                     <div className="absolute left-1/2 top-1/3 h-48 w-48 select-none bg-white/30 blur-4xl transition-all duration-700 -translate-x-1/2 -translate-y-1/2" />
                     <Image
