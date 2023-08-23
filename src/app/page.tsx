@@ -2,6 +2,7 @@ import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
 import { Benefits } from './_components/benefits'
+import { ProjectCard } from './_components'
 
 const BulkBanner = () => {
     return (
@@ -61,25 +62,31 @@ const Intro = () => {
     )
 }
 
-const bulkProject: MAIN_PROJECT_DATA = {
-    PROJECT_TITLE: 'Carbon Hero',
-    PROJECT_ID: 'PROJECT_ID',
-    PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
-    PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/05/15/15/waves-8171279_1280.jpg',
-    PROJECT_DESCRIPTION:
-        "This is a Solution for the people who don't know what actions could be taken toreduce green house effect.This is an education game. By playing this game, the players are informedwhat could be done in real world to decrease the green house effect andwhat contributes to the global warming and green house effect.",
-    PROJECT_SUBTITLE: ': Save The Earth',
-}
-
 const Projects = () => {
+    const project: MAIN_PROJECT_DATA = {
+        PROJECT_TITLE: 'Wiro',
+        PROJECT_ID: 'PROJECT_ID',
+        PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
+        PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/05/15/15/waves-8171279_1280.jpg',
+        PROJECT_DESCRIPTION:
+            "This is a Solution for the people who don't know what actions could be taken toreduce green house effect.This is an education game. By playing this game, the players are informedwhat could be done in real world to decrease the green house effect andwhat contributes to the global warming and green house effect.",
+        PROJECT_SUBTITLE: ': No more Lonely Death',
+    }
+
     return (
-        <>
-            <div className="mt-28 flex flex-col items-center justify-center gap-6">
-                <GradientHeader>Project</GradientHeader>
-                <div className="mb-12">우리는 문제를 발견하고 함께 풀어나갑니다</div>
+        <div className="mt-28 flex flex-col items-center justify-center gap-6">
+            <div className="bg-gradient-to-b from-blue-700 to-white bg-clip-text text-5xl font-extrabold text-transparent">
+                Project
             </div>
-            <div className="flex flex-col items-center justify-center gap-10 ">{'프로젝트 카드 예시 4개'}</div>
-        </>
+            <div className="mb-12">우리는 이러한 문제점들을 읽어내고, 해결책을 탐구합니다!</div>
+
+            <div className="flex w-[1000px] flex-col items-center gap-10">
+                <ProjectCard isReverse={false} projectData={project} />
+                <ProjectCard isReverse={true} projectData={project} />
+                <ProjectCard isReverse={false} projectData={project} />
+                <ProjectCard isReverse={true} projectData={project} />
+            </div>
+        </div>
     )
 }
 

@@ -12,7 +12,12 @@ interface FillImageProps extends Omit<ImageProps, 'style' | 'fill' | 'width' | '
     imageClass?: string
 }
 
-export const FillImage = ({ containerClass, imageClass, ...nextImageProps }: FillImageProps) => (
+export const FillImage = ({
+    children,
+    containerClass,
+    imageClass,
+    ...nextImageProps
+}: React.PropsWithChildren<FillImageProps>) => (
     <div className={`relative ${containerClass}`}>
         <Image
             fill
@@ -22,5 +27,6 @@ export const FillImage = ({ containerClass, imageClass, ...nextImageProps }: Fil
             }}
             {...nextImageProps}
         />
+        {children}
     </div>
 )
