@@ -1,3 +1,5 @@
+'use client'
+
 import { TailwindComponent } from '../tailwind'
 import { useVisibility, UseVisibilityProps } from './useVisibility'
 
