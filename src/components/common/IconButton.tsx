@@ -15,7 +15,7 @@ export const IconButton = ({
     <div
         onClick={onClick}
         aria-label={ariaLabel}
-        className={`${twClass} flex items-center justify-center rounded-full bg-primary-whitegray stroke-black p-2 transition-opacity duration-300 scale-100 hover:opacity-75 ${
+        className={`${twClass} flex items-center justify-center rounded-full bg-primary-whitegray stroke-black p-1.5 transition-opacity duration-300 scale-100 hover:opacity-75 ${
             disableScaleOnActive === false && 'active:scale-95 group-active:scale-95'
         }`}
     >

@@ -1,7 +1,7 @@
 import { TailwindComponent } from './tailwind'
 
-interface GradientHeaderProps extends TailwindComponent {
-    size?: 'text-6xl' | 'text-7xl' | 'text-8xl'
+export interface GradientHeaderProps extends TailwindComponent {
+    size?: 'text-3xl' | 'text-4xl' | 'text-5xl' | 'text-6xl' | 'text-7xl' | 'text-8xl'
 }
 export const GradientHeader = ({
     size = 'text-6xl',
