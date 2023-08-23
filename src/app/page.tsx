@@ -1,6 +1,7 @@
 import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
+import { Benefits } from './_components/benefits'
 
 const BulkBanner = () => {
     return (
@@ -53,7 +54,7 @@ const Intro = () => {
                 </div>
             </div>
 
-            <div className="mt-5 flex h-32 w-32 items-center justify-center">
+            <div className="mt-5 flex h-32 w-32 animate-[pulse_3s_infinite_100ms] items-center justify-center">
                 <IntroIcon />
             </div>
         </div>
@@ -88,6 +89,7 @@ export default function Home() {
             <BulkBanner />
             <Intro />
             <Projects />
+            <Benefits />
         </div>
     )
 }
