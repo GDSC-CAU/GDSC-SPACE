@@ -18,7 +18,7 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
     const RScrollTo = isReverse ? 'translate-x-0' : '-translate-x-full'
 
     const [isVisible, setIsVisible] = useState(false)
-    const ImageRef = useRef(null)
+    const projectCardRef = useRef<HTMLAnchorElement>(null)
 
     useEffect(() => {
         const options = {
@@ -26,6 +26,8 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
             rootMargin: '0px',
             threshold: 0.5,
         }
+
+        const observeTarget = projectCardRef.current
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -36,19 +38,23 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
             })
         }, options)
 
-        if (ImageRef.current) {
-            observer.observe(ImageRef.current)
+        if (observeTarget) {
+            observer.observe(observeTarget)
         }
 
         return () => {
-            if (ImageRef.current) {
-                observer.unobserve(ImageRef.current)
+            if (observeTarget) {
+                observer.unobserve(observeTarget)
             }
         }
     }, [])
 
     return (
-        <Link href={`/blog/${projectData.PROJECT_ID}`} className="group flex flex-row items-center" ref={ImageRef}>
+        <Link
+            href={`/blog/${projectData.PROJECT_ID}`}
+            ref={projectCardRef}
+            className="group flex flex-row items-center"
+        >
             <FillImage
                 src={projectData.PROJECT_IMAGE}
                 alt={projectData.PROJECT_TITLE}
