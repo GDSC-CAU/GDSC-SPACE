@@ -30,7 +30,7 @@ const BulkBanner = () => {
 const Intro = () => {
     return (
         <div className="relative ml-[calc(-13rem)] flex w-screen flex-col items-center justify-center bg-gradient-to-b from-black to-primary-darkgray py-20">
-            <div className="absolute left-1/2 top-1/4 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue blur-3xl"></div>
+            <div className="absolute left-1/2 top-1/4 h-64 w-64 rounded-full bg-primary-blue blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <GradientHeader twClass="mb-10 z-10">Who are we?</GradientHeader>
 
             <div className="z-10 flex flex-row items-start justify-center gap-20">
@@ -107,7 +107,7 @@ const TimeLine = () => {
                     </h1>
                 </div>
                 <div className="mx-2 h-full w-[0.08rem] border-0 bg-gradient-to-b from-primary-blue to-white" />
-                <div className="flex h-full w-1/2 flex-col items-center justify-start gap-7 overflow-y-auto overflow-x-hidden p-3 pt-32">
+                <div className="flex h-full w-1/2 flex-col items-center justify-start gap-7 overflow-y-auto overflow-x-hidden p-3 pt-32 scrollbar-hide">
                     {bulkTimelines.map((timeline, i) => (
                         <TimeLineCard
                             key={timeline.TIMELINE_DESCRIPTION}
