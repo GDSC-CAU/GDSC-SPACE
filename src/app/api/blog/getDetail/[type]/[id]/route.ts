@@ -2,6 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { API_BLOG_DETAIL, API_RESPONSE } from '~/src/interfaces/common'
 
 export async function GET(request: NextRequest, { params }: { params: { id: string; type: string } }) {
+    if (params.type !== 'Design' && params.type !== 'Development' && params.type !== 'Project') {
+        const apiResultError: API_RESPONSE = {
+            RESULT_CODE: 100,
+            RESULT_MSG: 'Blog Type Error',
+            RESULT_DATA: undefined,
+        }
+
+        return NextResponse.json(apiResultError, { status: 200 })
+    }
+
     const dummyBlogDetail: API_BLOG_DETAIL = {
         BLOG_AUTHOR: 'Dev. LR',
         BLOG_CONTENT: [{ CONTENT_TYPE: 'text', CONTENT_DATA: 'Test Content' }],
@@ -15,16 +25,6 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyBlogDetail,
-    }
-
-    if (params.type !== 'Design' && params.type !== 'Development' && params.type !== 'Project') {
-        const apiResultError: API_RESPONSE = {
-            RESULT_CODE: 100,
-            RESULT_MSG: 'Blog Type Error',
-            RESULT_DATA: undefined,
-        }
-
-        return NextResponse.json(apiResultError, { status: 200 })
     }
 
     return NextResponse.json(apiResultSuccess, { status: 200 })
