@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-interface UseVisibilityProps {
+export interface UseVisibilityProps {
     observerOption?: IntersectionObserverInit
 }
 export const useVisibility = <TargetElement extends HTMLElement | SVGSVGElement>({
