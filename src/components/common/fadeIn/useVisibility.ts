@@ -9,7 +9,7 @@ export const useVisibility = <TargetElement extends HTMLElement | SVGSVGElement>
         rootMargin: '0px',
         threshold: 0.5,
     },
-}: UseVisibilityProps) => {
+}: UseVisibilityProps = {}) => {
     const visibilityRef = useRef<TargetElement>(null)
     const [isVisible, setIsVisible] = useState(false)
 
