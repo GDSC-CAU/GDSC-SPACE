@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { FillImage } from '~/components/common'
-import { MAIN_PROJECT_DATA } from '../../interfaces/common'
 
 export default function ProjectCard({
     isReverse,
