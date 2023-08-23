@@ -1,8 +1,9 @@
-import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
+import { MAIN_PROJECT_DATA, MAIN_TIMELINE_DATA } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
 import { ProjectCard } from './_components'
 import { Benefits } from './_components/benefits'
+import { TimeLineCard } from './events/_components/TimeLineCard'
 
 const BulkBanner = () => {
     return (
@@ -62,6 +63,65 @@ const Intro = () => {
     )
 }
 
+const generateBulkTimeLines = (count: number): Array<MAIN_TIMELINE_DATA> => {
+    const bulkTimeLines: Array<MAIN_TIMELINE_DATA> = Array.from(
+        {
+            length: count,
+        },
+        (_, i) =>
+            ({
+                TIMELINE_CARD_TITLE: 'Onboarding',
+                TIMELINE_DATE: 'Aug - Sep',
+                TIMELINE_DESCRIPTION: `${i}`,
+                TIMELINE_TITLE: 'title',
+            } as MAIN_TIMELINE_DATA)
+    )
+    return bulkTimeLines
+}
+
+const bulkTimelines: Array<MAIN_TIMELINE_DATA> = generateBulkTimeLines(7)
+
+const TimeLine = () => {
+    const bg_colors = [
+        'bg-primary-hotpink',
+        'bg-primary-yellow',
+        'bg-primary-teal',
+        'bg-primary-blue',
+        'bg-primary-purple',
+    ] as const
+
+    const text_colors = [
+        'text-primary-hotpink',
+        'text-primary-yellow',
+        'text-primary-teal',
+        'text-primary-blue',
+        'text-primary-purple',
+    ] as const
+    return (
+        <>
+            <div className="flex h-[60rem] w-full flex-row">
+                <div className="flex w-1/2 items-center justify-center">
+                    <h1 className="w-full bg-gradient-to-b from-primary-blue to-white bg-clip-text text-7xl font-bold leading-[6rem] text-transparent">
+                        Here we go. <br /> What you will <br />
+                        experience.
+                    </h1>
+                </div>
+                <div className="mx-2 h-full w-[0.08rem] border-0 bg-gradient-to-b from-primary-blue to-white" />
+                <div className="flex h-full w-1/2 flex-col items-center justify-start gap-7 overflow-y-auto overflow-x-hidden p-3 pt-32 scrollbar-hide">
+                    {bulkTimelines.map((timeline, i) => (
+                        <TimeLineCard
+                            key={timeline.TIMELINE_DESCRIPTION}
+                            timeLine={timeline}
+                            bg_color={bg_colors[i % 5]}
+                            text_color={text_colors[i % 5]}
+                        />
+                    ))}
+                </div>
+            </div>
+        </>
+    )
+}
+
 const Projects = () => {
     const project: MAIN_PROJECT_DATA = {
         PROJECT_TITLE: 'Wiro',
@@ -95,6 +155,7 @@ export default function Home() {
         <div className="h-full w-full">
             <BulkBanner />
             <Intro />
+            <TimeLine />
             <Benefits />
             <Projects />
         </div>
