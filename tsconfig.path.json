@@ -3,12 +3,12 @@
         "strict": true,
         "baseUrl": ".",
         "paths": {
-            "~/src/*": ["/src/*"],
+            "~/src/*": ["src/*"],
             "~/utils/*": ["src/utils/*"],
             "~/styles/*": ["src/styles/*"],
             "~/hooks/*": ["src/hooks/*"],
             "~/components/*": ["src/components/*"],
-            "~/interface/*": ["src/interface/*"],
+            "~/interfaces/*": ["src/interfaces/*"],
             "~/constants/*": ["src/constants/*"]
         },
         "importHelpers": true,

@@ -9,6 +9,7 @@ export interface API_RESPONSE {
         | API_MAIN_PROJECTS
         | API_MAIN_TIMELINES
         | API_MEMBER_LIST
+        | undefined
 }
 
 export interface API_BLOG_DETAIL {
