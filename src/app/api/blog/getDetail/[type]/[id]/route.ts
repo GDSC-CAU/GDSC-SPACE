@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_BLOG_DETAIL, API_RESPONSE } from '~/src/interfaces/common'
+import { API_BLOG_DETAIL, API_RESPONSE, BLOG_POST_PARAMS } from '~/src/interfaces'
 
-export async function GET(request: NextRequest, { params }: { params: { id: string; type: string } }) {
+export async function GET(request: NextRequest, { params }: BLOG_POST_PARAMS) {
     if (params.type !== 'Design' && params.type !== 'Development' && params.type !== 'Project') {
         const apiResultError: API_RESPONSE = {
             RESULT_CODE: 100,

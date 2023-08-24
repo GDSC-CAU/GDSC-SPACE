@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_MEMBERS, API_MEMBER_LIST, API_RESPONSE, MEMBER_DATA } from '~/src/interfaces/common'
+import { API_MAIN_MEMBERS, API_MEMBER_LIST, API_RESPONSE, MEMBER_DATA, MEMBER_PAGE_PARAMS } from '~/src/interfaces'
 
-export async function GET(request: NextRequest, { params }: { params: { year: string } }) {
+export async function GET(request: NextRequest, { params }: MEMBER_PAGE_PARAMS) {
     const dummyMemberData: MEMBER_DATA = {
         MEMBER_COMMENT: '안녕하세요, GDSC 3기 리드 유용민입니다. 잘 부탁드립니다:)',
         MEMBER_EMAIL: 'yymin1022@gmail.com',
