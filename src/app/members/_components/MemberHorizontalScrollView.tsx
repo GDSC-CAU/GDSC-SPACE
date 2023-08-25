@@ -14,7 +14,7 @@ const GradientBackground = ({ rowIndex }: { rowIndex: number }) => (
     <div
         className={`absolute inset-0 ${
             rowIndex % 2 === 0
-                ? 'via-darkgray right-0 w-1/12 bg-gradient-to-l from-primary-darkgray to-transparent'
+                ? 'flex-end via-darkgray w-1/12 bg-gradient-to-l from-primary-darkgray to-transparent'
                 : 'via-darkgray w-1/12 bg-gradient-to-r from-primary-darkgray to-transparent'
         }`}
         style={{
