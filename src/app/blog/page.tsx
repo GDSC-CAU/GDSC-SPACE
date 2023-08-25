@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 import { Divider } from '~/src/components/common'
 import { BlogTop } from './_components/BlogTop'
@@ -21,7 +20,11 @@ export default function BlogList() {
                     type="button"
                     aria-label="Develop Article"
                     onClick={() => setBlogCategory('Develop Article')}
-                    className="text-2xl hover:underline hover:underline-offset-8"
+                    className={
+                        blogCategory === 'Develop Article'
+                            ? `text-2xl underline underline-offset-8`
+                            : `text-2xl hover:underline hover:underline-offset-8`
+                    }
                 >
                     Develop Article
                 </button>
@@ -29,7 +32,11 @@ export default function BlogList() {
                     type="button"
                     aria-label="Design Article"
                     onClick={() => setBlogCategory('Design Article')}
-                    className="text-2xl hover:underline hover:underline-offset-8"
+                    className={
+                        blogCategory === 'Design Article'
+                            ? `text-2xl underline underline-offset-8`
+                            : `text-2xl hover:underline hover:underline-offset-8`
+                    }
                 >
                     Design Article
                 </button>
@@ -37,7 +44,11 @@ export default function BlogList() {
                     type="button"
                     aria-label="Project"
                     onClick={() => setBlogCategory('Project')}
-                    className="text-2xl hover:underline hover:underline-offset-8"
+                    className={
+                        blogCategory === 'Project'
+                            ? `text-2xl underline underline-offset-8`
+                            : `text-2xl hover:underline hover:underline-offset-8`
+                    }
                 >
                     Project
                 </button>
