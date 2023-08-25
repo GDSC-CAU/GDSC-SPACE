@@ -1,9 +1,14 @@
-import { MAIN_PROJECT_DATA, MAIN_TIMELINE_DATA } from 'src/interfaces/common'
+import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
 import { GradientHeader } from '../components/common'
+import { Fetcher } from '../utils'
 import { ProjectCard } from './_components'
 import { Benefits } from './_components/benefits'
 import { TimeLineCard } from './events/_components/TimeLineCard'
+
+const mainFetcher = new Fetcher({
+    baseUrl: 'http://localhost:3000',
+})
 
 const BulkBanner = () => {
     return (
@@ -63,25 +68,7 @@ const Intro = () => {
     )
 }
 
-const generateBulkTimeLines = (count: number): Array<MAIN_TIMELINE_DATA> => {
-    const bulkTimeLines: Array<MAIN_TIMELINE_DATA> = Array.from(
-        {
-            length: count,
-        },
-        (_, i) =>
-            ({
-                TIMELINE_CARD_TITLE: 'Onboarding',
-                TIMELINE_DATE: 'Aug - Sep',
-                TIMELINE_DESCRIPTION: `${i}`,
-                TIMELINE_TITLE: 'title',
-            } as MAIN_TIMELINE_DATA)
-    )
-    return bulkTimeLines
-}
-
-const bulkTimelines: Array<MAIN_TIMELINE_DATA> = generateBulkTimeLines(7)
-
-const TimeLine = () => {
+const TimeLines = ({ MAIN_TIMELINE_LIST }: API_MAIN_TIMELINES) => {
     const bg_colors = [
         'bg-primary-hotpink',
         'bg-primary-yellow',
@@ -97,20 +84,21 @@ const TimeLine = () => {
         'text-primary-blue',
         'text-primary-purple',
     ] as const
+
     return (
         <>
             <div className="flex h-[60rem] w-full flex-row">
                 <div className="flex w-1/2 items-center justify-center">
-                    <h1 className="w-full bg-gradient-to-b from-primary-blue to-white bg-clip-text text-7xl font-bold leading-[6rem] text-transparent">
+                    <GradientHeader>
                         Here we go. <br /> What you will <br />
                         experience.
-                    </h1>
+                    </GradientHeader>
                 </div>
                 <div className="mx-2 h-full w-[0.08rem] border-0 bg-gradient-to-b from-primary-blue to-white" />
                 <div className="flex h-full w-1/2 flex-col items-center justify-start gap-7 overflow-y-auto overflow-x-hidden p-3 pt-32 scrollbar-hide">
-                    {bulkTimelines.map((timeline, i) => (
+                    {MAIN_TIMELINE_LIST.map((timeline, i) => (
                         <TimeLineCard
-                            key={timeline.TIMELINE_DESCRIPTION}
+                            key={`${timeline.TIMELINE_TITLE}-${timeline.TIMELINE_DESCRIPTION}`}
                             timeLine={timeline}
                             bg_color={bg_colors[i % 5]}
                             text_color={text_colors[i % 5]}
@@ -122,42 +110,32 @@ const TimeLine = () => {
     )
 }
 
-const Projects = () => {
-    const project: MAIN_PROJECT_DATA = {
-        PROJECT_TITLE: 'Wiro',
-        PROJECT_ID: 'PROJECT_ID',
-        PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
-        PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/05/15/15/waves-8171279_1280.jpg',
-        PROJECT_DESCRIPTION:
-            "This is a Solution for the people who don't know what actions could be taken toreduce green house effect.This is an education game. By playing this game, the players are informedwhat could be done in real world to decrease the green house effect andwhat contributes to the global warming and green house effect.",
-        PROJECT_SUBTITLE: ': No more Lonely Death',
-    }
-
+const Projects = ({ MAIN_PROJECT_LIST }: API_MAIN_PROJECTS) => {
     return (
         <div className="mt-28 flex flex-col items-center justify-center gap-6">
-            <div className="bg-gradient-to-b from-blue-700 to-white bg-clip-text text-5xl font-extrabold text-transparent">
-                Project
-            </div>
+            <GradientHeader>Project</GradientHeader>
             <div className="mb-12">우리는 이러한 문제점들을 읽어내고, 해결책을 탐구합니다!</div>
 
             <div className="flex w-[1000px] flex-col items-center gap-10">
-                <ProjectCard isReverse={false} projectData={project} />
-                <ProjectCard isReverse={true} projectData={project} />
-                <ProjectCard isReverse={false} projectData={project} />
-                <ProjectCard isReverse={true} projectData={project} />
+                {MAIN_PROJECT_LIST.map((project, i) => (
+                    <ProjectCard key={project.PROJECT_ID} isReverse={i % 2 === 0} projectData={project} />
+                ))}
             </div>
         </div>
     )
 }
 
-export default function Home() {
+export default async function Home() {
+    const timelines = (await mainFetcher.get<API_RESPONSE>('main/getTimelines')).RESULT_DATA as API_MAIN_TIMELINES
+    const mainProjects = (await mainFetcher.get<API_RESPONSE>('main/getProjects')).RESULT_DATA as API_MAIN_PROJECTS
+
     return (
         <div className="h-full w-full">
             <BulkBanner />
             <Intro />
-            <TimeLine />
+            <TimeLines {...timelines} />
             <Benefits />
-            <Projects />
+            <Projects {...mainProjects} />
         </div>
     )
 }
