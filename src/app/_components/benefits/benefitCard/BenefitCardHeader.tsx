@@ -15,13 +15,18 @@ export const BenefitCardHeader = ({
 
     if (white)
         return (
-            <h1 className={`${twClass} ${textCenter} ${size} z-10 font-eng font-medium leading-normal text-white`}>
+            <h1
+                className={`${twClass} ${textCenter} ${size} z-10 select-none font-eng font-medium leading-normal text-white`}
+            >
                 {children}
             </h1>
         )
 
     return (
-        <GradientHeader twClass={`${twClass} ${textCenter} font-eng font-medium mb-3 leading-normal`} size={size}>
+        <GradientHeader
+            twClass={`${twClass} ${textCenter} select-none font-eng font-medium mb-3 leading-normal`}
+            size={size}
+        >
             {children}
         </GradientHeader>
     )
