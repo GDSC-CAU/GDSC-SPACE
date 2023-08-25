@@ -1,8 +1,7 @@
 'use client'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
-import { FillImage } from '~/components/common'
+import { FillImage, useVisibility } from '~/components/common'
 
 interface ProjectCardProps {
     isReverse: boolean
@@ -21,41 +20,11 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
         : 'translate-y-16 -translate-x-[200%] opacity-0 scale-75'
     const RScrollTo = isReverse ? 'translate-x-0 opacity-100 scale-100' : '-translate-x-full opacity-100 scale-100'
 
-    const [isVisible, setIsVisible] = useState(false)
-    const projectCardRef = useRef<HTMLAnchorElement>(null)
-
-    useEffect(() => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5,
-        }
-
-        const observeTarget = projectCardRef.current
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true)
-                    observer.unobserve(entry.target)
-                }
-            })
-        }, options)
-
-        if (observeTarget) {
-            observer.observe(observeTarget)
-        }
-
-        return () => {
-            if (observeTarget) {
-                observer.unobserve(observeTarget)
-            }
-        }
-    }, [])
+    const { isVisible, setVisibilityRef } = useVisibility<HTMLAnchorElement>()
 
     return (
         <div className="group flex flex-row items-center">
-            <Link href={`/blog/${projectData.PROJECT_ID}`} ref={projectCardRef}>
+            <Link href={`/blog/${projectData.PROJECT_ID}`} ref={setVisibilityRef}>
                 <FillImage
                     src={projectData.PROJECT_IMAGE}
                     alt={projectData.PROJECT_TITLE}
