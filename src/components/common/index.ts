@@ -1,6 +1,7 @@
 export * from './modal'
 export * from './Link'
 export * from './GradientHeader'
+export * from './FadeInGradientHeader'
 export * from './FillImage'
 export * from './ThumbnailCard'
 export * from './Divider'
