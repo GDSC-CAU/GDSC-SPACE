@@ -38,7 +38,11 @@ export const BenefitCard = ({
     const flexLayout = `${tailwind.flexDirection[flexDirection]} ${tailwind.rowAlign[rowAlign]} ${tailwind.colAlign[colAlign]}`
 
     return (
-        <div className={`${twClass} ${flexLayout} ${white ? 'bg-white' : 'bg-black'} flex gap-2 rounded-xl p-7`}>
+        <div
+            className={`${twClass} ${flexLayout} ${
+                white ? 'bg-white' : 'bg-black'
+            } flex h-full w-full gap-2 rounded-xl p-7`}
+        >
             {children}
         </div>
     )
