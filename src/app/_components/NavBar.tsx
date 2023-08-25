@@ -33,7 +33,7 @@ interface NavBarProps {
 }
 export const NavBar = ({ iconSize = 55 }: NavBarProps) => {
     return (
-        <nav className="sticky top-[0rem] z-50 flex h-fit flex-row items-center justify-center bg-theme-background/5 py-4 backdrop-blur-2xl md:gap-16">
+        <nav className="sticky top-[0rem] z-50 flex h-fit flex-row items-center justify-center bg-theme-background/5 py-4 backdrop-blur-lg md:gap-16">
             <NavButton type="link" href="/" disableUnderline>
                 <Gdsc width={iconSize} height={iconSize} className="scale-75 md:scale-100" />
             </NavButton>
