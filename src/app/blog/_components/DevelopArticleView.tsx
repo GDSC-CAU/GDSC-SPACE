@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { Tag } from '~/src/components/common'
 import { BLOG_META } from '~/src/interfaces'
 import { DevelopCard } from './DevelopCard'
 
@@ -24,85 +25,32 @@ const generateBulkData = (count: number): Array<BLOG_META> =>
 const bulkData = generateBulkData(50)
 
 export const DevelopArticleView = () => {
-    const [Tag, setTag] = useState<'Front-End' | 'Back-End' | 'DS/ML/DL' | 'Application' | 'Cloud' | 'General'>(
+    const [tag, setTag] = useState<'Front-End' | 'Back-End' | 'DS/ML/DL' | 'Application' | 'Cloud' | 'General'>(
         'Front-End'
     )
     return (
         <div className="flex min-w-[50%] flex-col items-center justify-center gap-12">
             <div className="flex flex-row items-center justify-center gap-10">
-                <button
-                    type="button"
-                    aria-label="Front-End"
-                    onClick={() => setTag('Front-End')}
-                    className={
-                        Tag === 'Front-End'
-                            ? `rounded-full border border-primary-blue bg-primary-blue px-6 py-1 text-white hover:border-primary-blue`
-                            : `rounded-full border border-white px-6 py-1 text-white`
-                    }
-                >
+                <Tag isActive={tag === 'Front-End'} onClick={() => setTag('Front-End')}>
                     Front-End
-                </button>
-                <button
-                    type="button"
-                    aria-label="Back-End"
-                    onClick={() => setTag('Back-End')}
-                    className={
-                        Tag === 'Back-End'
-                            ? `rounded-full border border-primary-blue bg-primary-blue px-6 py-1 text-white`
-                            : `rounded-full border border-white px-6 py-1 text-white hover:border-primary-blue`
-                    }
-                >
+                </Tag>
+                <Tag isActive={tag === 'Back-End'} onClick={() => setTag('Back-End')}>
                     Back-End
-                </button>
-                <button
-                    type="button"
-                    aria-label="DS/ML/DL"
-                    onClick={() => setTag('DS/ML/DL')}
-                    className={
-                        Tag === 'DS/ML/DL'
-                            ? `rounded-full border border-primary-blue bg-primary-blue px-6 py-1 text-white`
-                            : `rounded-full border border-white px-6 py-1 text-white hover:border-primary-blue`
-                    }
-                >
+                </Tag>
+                <Tag isActive={tag === 'DS/ML/DL'} onClick={() => setTag('DS/ML/DL')}>
                     DS/ML/DL
-                </button>
-                <button
-                    type="button"
-                    aria-label="Application"
-                    onClick={() => setTag('Application')}
-                    className={
-                        Tag === 'Application'
-                            ? `rounded-full border border-primary-blue bg-primary-blue px-6 py-1 text-white`
-                            : `rounded-full border border-white px-6 py-1 text-white hover:border-primary-blue`
-                    }
-                >
+                </Tag>
+                <Tag isActive={tag === 'Application'} onClick={() => setTag('Application')}>
                     Application
-                </button>
-                <button
-                    type="button"
-                    aria-label="Cloud"
-                    onClick={() => setTag('Cloud')}
-                    className={
-                        Tag === 'Cloud'
-                            ? `rounded-full border border-primary-blue bg-primary-blue px-6 py-1 text-white`
-                            : `rounded-full border border-white px-6 py-1 text-white hover:border-primary-blue`
-                    }
-                >
+                </Tag>
+                <Tag isActive={tag === 'Cloud'} onClick={() => setTag('Cloud')}>
                     Cloud
-                </button>
-                <button
-                    type="button"
-                    aria-label="General"
-                    onClick={() => setTag('General')}
-                    className={
-                        Tag === 'General'
-                            ? `rounded-full border border-primary-blue bg-primary-blue px-6 py-1 text-white`
-                            : `rounded-full border border-white px-6 py-1 text-white hover:border-primary-blue`
-                    }
-                >
+                </Tag>
+                <Tag isActive={tag === 'General'} onClick={() => setTag('General')}>
                     General
-                </button>
+                </Tag>
             </div>
+
             <div className="flex w-full flex-col items-center justify-evenly gap-y-8">
                 {bulkData.map((article) => (
                     <Link href={`/blog/${article.BLOG_ID}`} key={article.BLOG_ID} className="w-full">

@@ -20,37 +20,50 @@ export default function BlogList() {
                     type="button"
                     aria-label="Develop Article"
                     onClick={() => setBlogCategory('Develop Article')}
-                    className={
-                        blogCategory === 'Develop Article'
-                            ? `text-2xl underline underline-offset-8`
-                            : `text-2xl hover:underline hover:underline-offset-8`
-                    }
+                    className="group"
                 >
-                    Develop Article
+                    {blogCategory === 'Develop Article' ? (
+                        <div>
+                            <p className="text-2xl font-bold">Develop Article</p>
+                            <div className="h-[0.75px] w-full rounded bg-theme-font" />
+                        </div>
+                    ) : (
+                        <div>
+                            <p className="text-2xl">Develop Article</p>
+                            <div className="h-[0.75px] w-full rounded bg-theme-font transition-all duration-200 scale-x-0 group-hover:opacity-90 group-hover:scale-x-100" />
+                        </div>
+                    )}
                 </button>
                 <button
                     type="button"
                     aria-label="Design Article"
                     onClick={() => setBlogCategory('Design Article')}
-                    className={
-                        blogCategory === 'Design Article'
-                            ? `text-2xl underline underline-offset-8`
-                            : `text-2xl hover:underline hover:underline-offset-8`
-                    }
+                    className="group"
                 >
-                    Design Article
+                    {blogCategory === 'Design Article' ? (
+                        <div>
+                            <p className="text-2xl font-bold">Design Article</p>
+                            <div className="h-[0.75px] w-full rounded bg-theme-font" />
+                        </div>
+                    ) : (
+                        <div>
+                            <p className="text-2xl">Design Article</p>
+                            <div className="h-[0.75px] w-full rounded bg-theme-font transition-all duration-200 scale-x-0 group-hover:opacity-90 group-hover:scale-x-100" />
+                        </div>
+                    )}
                 </button>
-                <button
-                    type="button"
-                    aria-label="Project"
-                    onClick={() => setBlogCategory('Project')}
-                    className={
-                        blogCategory === 'Project'
-                            ? `text-2xl underline underline-offset-8`
-                            : `text-2xl hover:underline hover:underline-offset-8`
-                    }
-                >
-                    Project
+                <button type="button" aria-label="Project" onClick={() => setBlogCategory('Project')} className="group">
+                    {blogCategory === 'Project' ? (
+                        <div>
+                            <p className="text-2xl font-bold">Project</p>
+                            <div className="h-[0.75px] w-full rounded bg-theme-font" />
+                        </div>
+                    ) : (
+                        <div>
+                            <p className="text-2xl">Project</p>
+                            <div className="h-[0.75px] w-full rounded bg-theme-font transition-all duration-200 scale-x-0 group-hover:opacity-90 group-hover:scale-x-100" />
+                        </div>
+                    )}
                 </button>
             </div>
             <div className="flex w-full flex-row items-center justify-center">
