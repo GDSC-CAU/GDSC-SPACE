@@ -7,10 +7,11 @@ export interface API_RESPONSE<
         | API_MAIN_PROJECTS
         | API_MAIN_TIMELINES
         | API_MEMBER_LIST
+        | undefined
 > {
     RESULT_CODE: number
     RESULT_MSG: string
-    RESULT_DATA?: API_DATA
+    RESULT_DATA: API_DATA
 }
 
 export interface API_BLOG_DETAIL {
