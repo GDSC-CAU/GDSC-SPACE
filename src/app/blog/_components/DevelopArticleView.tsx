@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Tag } from '~/src/components/common'
 import { BLOG_META } from '~/src/interfaces'
+import { Category } from './Category'
 import { DevelopCard } from './DevelopCard'
 
 const generateBulkData = (count: number): Array<BLOG_META> =>
@@ -31,24 +31,24 @@ export const DevelopArticleView = () => {
     return (
         <div className="flex min-w-[50%] flex-col items-center justify-center gap-12">
             <div className="flex flex-row items-center justify-center gap-10">
-                <Tag isActive={tag === 'Front-End'} onClick={() => setTag('Front-End')}>
+                <Category isActive={tag === 'Front-End'} onClick={() => setTag('Front-End')}>
                     Front-End
-                </Tag>
-                <Tag isActive={tag === 'Back-End'} onClick={() => setTag('Back-End')}>
+                </Category>
+                <Category isActive={tag === 'Back-End'} onClick={() => setTag('Back-End')}>
                     Back-End
-                </Tag>
-                <Tag isActive={tag === 'DS/ML/DL'} onClick={() => setTag('DS/ML/DL')}>
+                </Category>
+                <Category isActive={tag === 'DS/ML/DL'} onClick={() => setTag('DS/ML/DL')}>
                     DS/ML/DL
-                </Tag>
-                <Tag isActive={tag === 'Application'} onClick={() => setTag('Application')}>
+                </Category>
+                <Category isActive={tag === 'Application'} onClick={() => setTag('Application')}>
                     Application
-                </Tag>
-                <Tag isActive={tag === 'Cloud'} onClick={() => setTag('Cloud')}>
+                </Category>
+                <Category isActive={tag === 'Cloud'} onClick={() => setTag('Cloud')}>
                     Cloud
-                </Tag>
-                <Tag isActive={tag === 'General'} onClick={() => setTag('General')}>
+                </Category>
+                <Category isActive={tag === 'General'} onClick={() => setTag('General')}>
                     General
-                </Tag>
+                </Category>
             </div>
 
             <div className="flex w-full flex-col items-center justify-evenly gap-y-8">

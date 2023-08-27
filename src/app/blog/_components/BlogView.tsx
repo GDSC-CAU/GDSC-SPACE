@@ -5,8 +5,8 @@ import { ProjectView } from './ProjectView'
 export const BlogView = ({ blogCategory }: { blogCategory: string }) => {
     return (
         <div>
-            {blogCategory === 'Develop Article' && <DevelopArticleView />}
-            {blogCategory === 'Design Article' && <DesignArticleView />}
+            {blogCategory === 'Develop' && <DevelopArticleView />}
+            {blogCategory === 'Design' && <DesignArticleView />}
             {blogCategory === 'Project' && <ProjectView />}
         </div>
     )

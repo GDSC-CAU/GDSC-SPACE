@@ -1,8 +1,8 @@
 'use Client'
 import { useState } from 'react'
 import { BLOG_META } from '~/src/interfaces'
+import { Category } from './Category'
 import { DesignProjectCard } from './DesignProjectCard'
-import { Tag } from '~/src/components/common'
 
 const generateBulkData = (count: number): Array<BLOG_META> =>
     Array.from(
@@ -27,12 +27,12 @@ export const ProjectView = () => {
     return (
         <div className="flex min-w-[50%] flex-col items-center justify-center gap-12">
             <div className="flex flex-row items-center justify-center gap-10">
-                <Tag isActive={tag === 'Web'} onClick={() => setTag('Web')}>
+                <Category isActive={tag === 'Web'} onClick={() => setTag('Web')}>
                     Web
-                </Tag>
-                <Tag isActive={tag === 'App'} onClick={() => setTag('App')}>
+                </Category>
+                <Category isActive={tag === 'App'} onClick={() => setTag('App')}>
                     App
-                </Tag>
+                </Category>
             </div>
             <div className="grid grid-cols-3 items-center justify-evenly gap-x-2 gap-y-8">
                 {bulkData.map((article) => (
