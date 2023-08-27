@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { MEMBER_DATA } from '../../interfaces/common'
+import type { MEMBER_DATA } from '~/interfaces/Common'
 import { MemberHorizontalScrollView } from './_components'
 
 const generateBulkMembers = (count: number): Array<MEMBER_DATA> => {

@@ -1,5 +1,5 @@
 import { Core, Lead } from '~/components/icons'
-import { MEMBER_DATA } from '../../../interfaces/common'
+import { MEMBER_DATA } from '~/interfaces/Common'
 
 export const MemberRoleIcon = ({ MEMBER_ROLE }: Pick<MEMBER_DATA, 'MEMBER_ROLE'>) => (
     <>

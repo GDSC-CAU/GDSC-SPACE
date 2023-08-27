@@ -1,5 +1,5 @@
-import { EVENT_META } from 'src/interfaces/common'
 import { ThumbnailCard } from '~/components/common'
+import { EVENT_META } from '~/interfaces/Common'
 
 export const EventCard = ({ event }: { event: EVENT_META }) => {
     return (

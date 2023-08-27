@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_PROJECTS, API_RESPONSE, MAIN_PROJECT_DATA } from '~/src/interfaces/common'
+import { API_MAIN_PROJECTS, API_RESPONSE, MAIN_PROJECT_DATA } from '~/interfaces/Common'
 
 export async function GET(_: NextRequest) {
     const dummyProjectData: MAIN_PROJECT_DATA = {
