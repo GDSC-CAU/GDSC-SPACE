@@ -17,7 +17,7 @@ export const TimeLineCard = ({
     return (
         <FadeIn
             observerOption={{
-                rootMargin: '-10px 0px 0px 0px',
+                rootMargin: '100px 0px 0px 0px',
             }}
             from="translate-x-full"
             to="translate-x-0"
