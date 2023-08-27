@@ -1,7 +1,5 @@
-export interface API_RESPONSE {
-    RESULT_CODE: number
-    RESULT_MSG: string
-    RESULT_DATA:
+export interface API_RESPONSE<
+    API_DATA extends
         | API_BLOG_DETAIL
         | API_BLOG_LIST
         | API_EVENT_DETAIL
@@ -9,7 +7,10 @@ export interface API_RESPONSE {
         | API_MAIN_PROJECTS
         | API_MAIN_TIMELINES
         | API_MEMBER_LIST
-        | undefined
+> {
+    RESULT_CODE: number
+    RESULT_MSG: string
+    RESULT_DATA?: API_DATA
 }
 
 export interface API_BLOG_DETAIL {
