@@ -7,12 +7,14 @@ import { TailwindComponent } from './tailwind'
 interface FadeInGradientHeaderProps extends GradientHeaderProps, TailwindComponent, FadeInProps {}
 
 export const FadeInGradientHeader = ({
+    id,
     size = 'text-6xl',
     children,
-
     ...fadeInProps
 }: React.PropsWithChildren<FadeInGradientHeaderProps>) => (
     <FadeIn {...fadeInProps}>
-        <GradientHeader size={size}>{children}</GradientHeader>
+        <GradientHeader id={id} size={size}>
+            {children}
+        </GradientHeader>
     </FadeIn>
 )
