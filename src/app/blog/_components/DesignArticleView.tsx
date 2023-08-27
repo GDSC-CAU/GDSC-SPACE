@@ -24,10 +24,13 @@ const generateBulkData = (count: number): Array<BLOG_META> =>
 const bulkData = generateBulkData(50)
 
 export const DesignArticleView = () => {
-    const [tag, setTag] = useState<'Graphic' | 'UI/UX' | 'Product' | 'Reference'>('Graphic')
+    const [tag, setTag] = useState<'All' | 'Graphic' | 'UI/UX' | 'Product' | 'Reference'>('All')
     return (
         <div className="flex min-w-[50%] flex-col items-center justify-center gap-12">
             <div className="flex flex-row items-center justify-center gap-10">
+                <Category isActive={tag === 'All'} onClick={() => setTag('All')}>
+                    All
+                </Category>
                 <Category isActive={tag === 'Graphic'} onClick={() => setTag('Graphic')}>
                     Graphic
                 </Category>

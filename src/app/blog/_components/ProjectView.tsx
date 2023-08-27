@@ -23,10 +23,13 @@ const generateBulkData = (count: number): Array<BLOG_META> =>
 const bulkData = generateBulkData(50)
 
 export const ProjectView = () => {
-    const [tag, setTag] = useState<'Web' | 'App'>('Web')
+    const [tag, setTag] = useState<'All' | 'Web' | 'App'>('All')
     return (
         <div className="flex min-w-[50%] flex-col items-center justify-center gap-12">
             <div className="flex flex-row items-center justify-center gap-10">
+                <Category isActive={tag === 'All'} onClick={() => setTag('All')}>
+                    All
+                </Category>
                 <Category isActive={tag === 'Web'} onClick={() => setTag('Web')}>
                     Web
                 </Category>
