@@ -23,11 +23,10 @@ export const Benefits = () => {
                             Make<br></br>Networking
                         </BenefitCard.Header>
                     </FadeIn>
-                    <BenefitCard.Description twClass="leading-loose mb-5">
+                    <BenefitCard.Description>
                         <BenefitCard.Description.Eng>
                             You can get mentoring from field experts such as GDE, a Googleer, and a senior.
                         </BenefitCard.Description.Eng>
-
                         <BenefitCard.Description.Kor>
                             GDSC에서 이루어지는 다양한 커뮤니티 이벤트를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를
                             만나고 멘토링을 받을 수 있어요.
@@ -57,13 +56,12 @@ export const Benefits = () => {
                 </BenefitCard>
 
                 <BenefitCard twClass="col-start-5 col-end-8 xl:col-end-7 row-auto" colAlign="center" rowAlign="center">
-                    <BenefitCard.Description twClass="leading-loose mt-5">
+                    <BenefitCard.Description>
                         <BenefitCard.Description.Eng>
                             We hold various events such as Hands on Workshop, Study Group, and Hackathon. Let’s learn
                             new skills together and improve your expertise.
                         </BenefitCard.Description.Eng>
-
-                        <BenefitCard.Description.Kor twClass="mt-5">
+                        <BenefitCard.Description.Kor>
                             우리는 Hands on workshop, Study Group, Hackathon 등 다양한 이벤트를 진행합니다. 새로운
                             기술을 함께 배우고 실습하면서 전문성을 길러보세요.
                         </BenefitCard.Description.Kor>
@@ -104,7 +102,7 @@ export const Benefits = () => {
                             Universities
                         </BenefitCard.Header>
                     </FadeIn>
-                    <BenefitCard.Description twClass="leading-loose">
+                    <BenefitCard.Description>
                         <BenefitCard.Description.Eng>
                             Become a better developer by interacting with 36 universities in Korea through the Google
                             Developer Student Clubs network.
@@ -122,13 +120,12 @@ export const Benefits = () => {
                     colAlign="center"
                     rowAlign="center"
                 >
-                    <BenefitCard.Description twClass="leading-loose mt-10">
+                    <BenefitCard.Description>
                         <BenefitCard.Description.Eng>
                             Join the google solution challenge with us. Develop solutions to solve social problems
                             presented by the UN and win prizes.
                         </BenefitCard.Description.Eng>
-
-                        <BenefitCard.Description.Kor twClass="mt-5">
+                        <BenefitCard.Description.Kor>
                             Google solution challenge에 커뮤니티와 함께 참여하고, UN이 제시한 사회적 문제를 해결하는
                             솔루션을 통해 입상할 기회를 잡으세요.
                         </BenefitCard.Description.Kor>

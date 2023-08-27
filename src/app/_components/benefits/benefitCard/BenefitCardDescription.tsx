@@ -1,7 +1,7 @@
 import { TailwindComponent } from '~/components/common/tailwind'
 
 export const BenefitCardDescription = ({ twClass, children }: React.PropsWithChildren<TailwindComponent>) => {
-    return <div className={`${twClass} flex flex-col gap-2`}>{children}</div>
+    return <div className={`${twClass} flex flex-col gap-6 leading-relaxed`}>{children}</div>
 }
 const Kor = ({ children, twClass }: React.PropsWithChildren<TailwindComponent>) => (
     <p className={`${twClass} font-kor font-light`}>{children}</p>
