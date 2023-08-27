@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Image from 'next/image'
 import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
@@ -7,7 +8,7 @@ import { ProjectCard } from './_components'
 import { Benefits } from './_components/benefits'
 import { TimeLineCard } from './events/_components/TimeLineCard'
 
-const mainFetcher = new Fetcher({
+const fetcher = new Fetcher({
     baseUrl: 'http://localhost:3000',
 })
 
@@ -169,15 +170,15 @@ const Projects = ({ MAIN_PROJECT_LIST }: API_MAIN_PROJECTS) => {
 }
 
 export default async function Home() {
-    const timelines = await mainFetcher.get<API_RESPONSE<API_MAIN_TIMELINES>>('main/getTimelines')
-    const mainProjects = await mainFetcher.get<API_RESPONSE<API_MAIN_PROJECTS>>('main/getProjects')
+    const timelines = await fetcher.get<API_RESPONSE<API_MAIN_TIMELINES>>('main/getTimelines')
+    const mainProjects = await fetcher.get<API_RESPONSE<API_MAIN_PROJECTS>>('main/getProjects')
 
     return (
         <div className="h-full w-full">
             <Introduction />
-            <TimeLines {...timelines.RESULT_DATA} />
+            <TimeLines {...timelines.RESULT_DATA!} />
             <Benefits />
-            <Projects {...mainProjects.RESULT_DATA} />
+            <Projects {...mainProjects.RESULT_DATA!} />
         </div>
     )
 }

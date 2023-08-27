@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         })
     }
 
-    const apiResult: API_RESPONSE = {
+    const apiResult: API_RESPONSE<API_EVENT_LIST> = {
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyEventList,
