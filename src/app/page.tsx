@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from 'src/interfaces/common'
 import { IntroIcon } from '~/components/icons'
-import { FadeIn, FadeInGradientHeader, GradientHeader } from '../components/common'
+import { FadeIn, FadeInGradientHeader, Footer, GradientHeader } from '../components/common'
 import { Fetcher } from '../utils'
 import { ProjectCard } from './_components'
 import { Benefits } from './_components/benefits'
@@ -50,7 +50,7 @@ const WhoAreWeSection = () => {
     )
 }
 
-const Introduction = () => {
+const IntroductionSection = () => {
     // -mt-20 for navbar height
     return (
         <section className="-mt-20 ml-[calc(-13rem)] flex w-screen select-none flex-col items-center justify-center bg-black">
@@ -95,7 +95,7 @@ const Introduction = () => {
     )
 }
 
-const TimeLines = ({ MAIN_TIMELINE_LIST }: API_MAIN_TIMELINES) => {
+const TimeLinesSection = ({ MAIN_TIMELINE_LIST }: API_MAIN_TIMELINES) => {
     const bg_colors = [
         'bg-primary-hotpink',
         'bg-primary-yellow',
@@ -154,7 +154,7 @@ const TimeLines = ({ MAIN_TIMELINE_LIST }: API_MAIN_TIMELINES) => {
     )
 }
 
-const Projects = ({ MAIN_PROJECT_LIST }: API_MAIN_PROJECTS) => {
+const ProjectsSection = ({ MAIN_PROJECT_LIST }: API_MAIN_PROJECTS) => {
     return (
         <section className="mt-28 flex flex-col items-center justify-center gap-6 pb-20">
             <GradientHeader id="projects">Projects</GradientHeader>
@@ -175,10 +175,11 @@ export default async function Home() {
 
     return (
         <div className="h-full w-full">
-            <Introduction />
-            <TimeLines {...timelines.RESULT_DATA!} />
+            <IntroductionSection />
+            <TimeLinesSection {...timelines.RESULT_DATA!} />
             <Benefits />
-            <Projects {...mainProjects.RESULT_DATA!} />
+            <ProjectsSection {...mainProjects.RESULT_DATA!} />
+            <Footer main />
         </div>
     )
 }
