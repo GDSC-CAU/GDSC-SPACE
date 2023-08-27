@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
-const SvgClose = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={18} height={18} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M17 1 1 17M17 17 1 1" stroke="#000" strokeWidth={1.2} strokeLinecap="round" />
+const SvgGroup500 = (props: SVGProps<SVGSVGElement>) => (
+    <svg width={16} height={16} fill="none" strokeWidth={0} xmlns="http://www.w3.org/2000/svg" {...props}>
+        <circle cx={8} cy={8} r={8} transform="rotate(90 8 8)" />
+        <path d="m11 5-6 6M11 11 5 5" stroke="#000" strokeWidth={1.5} strokeLinecap="round" />
     </svg>
 )
-export default SvgClose
+export default SvgGroup500
