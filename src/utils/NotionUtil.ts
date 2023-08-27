@@ -1,34 +1,11 @@
 import * as process from 'process'
 import { Client } from '@notionhq/client'
-import { API_MEMBER_LIST, MEMBER_DATA } from '~/src/interfaces'
+import { API_MEMBER_LIST, MEMBER_DATA, MemberDBRow } from '~/src/interfaces'
 
 const NOTION_API_KEY = process.env.NEXT_PUBLIC_NOTION_API_KEY
 const NOTION_MEMBER_DB_ID = '922775f782b44af08eb93be1693edb64'
 
 const notionClient = new Client({ auth: NOTION_API_KEY })
-
-interface MemberDBRow {
-    properties: {
-        Year: {
-            rich_text: [
-                {
-                    text: {
-                        content: string
-                    }
-                }
-            ]
-        }
-        Name: {
-            title: [
-                {
-                    text: {
-                        content: string
-                    }
-                }
-            ]
-        }
-    }
-}
 
 export const getMemberDB = async () => {
     const pageDBQuery = await notionClient.databases.query({
