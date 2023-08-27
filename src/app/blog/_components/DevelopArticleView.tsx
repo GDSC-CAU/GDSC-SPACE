@@ -56,7 +56,7 @@ export const DevelopArticleView = () => {
 
             <div className="flex w-full flex-col items-center justify-evenly gap-y-8">
                 {bulkData.map((article) => (
-                    <Link href={`/blog/${article.BLOG_ID}`} key={article.BLOG_ID} className="w-full">
+                    <Link href={`/blog/develop/${article.BLOG_ID}`} key={article.BLOG_ID} className="w-full">
                         <DevelopCard article={article} key={article.BLOG_ID} />
                     </Link>
                 ))}

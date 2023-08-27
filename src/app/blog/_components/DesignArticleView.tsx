@@ -46,7 +46,7 @@ export const DesignArticleView = () => {
             </div>
             <div className="grid grid-cols-3 items-center justify-evenly gap-x-2 gap-y-8">
                 {bulkData.map((article) => (
-                    <DesignProjectCard article={article} key={article.BLOG_ID} />
+                    <DesignProjectCard type="design" article={article} key={article.BLOG_ID} />
                 ))}
             </div>
         </div>

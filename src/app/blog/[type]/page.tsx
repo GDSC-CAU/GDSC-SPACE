@@ -10,7 +10,7 @@ import { ProjectView } from '../_components/ProjectView'
 export default function TypeView({ params }: { params: { type: string } }) {
     const blogType = params.type
     return (
-        <main className="flex h-full w-full flex-col items-center justify-between p-24">
+        <main className="flex h-full w-full flex-col items-center justify-between gap-8 p-24">
             <BlogTop />
             <div className="mx-6 my-8 flex flex-row gap-16">
                 <Link href="/blog/develop">
