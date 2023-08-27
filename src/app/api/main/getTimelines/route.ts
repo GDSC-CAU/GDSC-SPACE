@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         dummyTimelineList.MAIN_TIMELINE_LIST.push(dummyTimelineData)
     }
 
-    const apiResult: API_RESPONSE = {
+    const apiResult: API_RESPONSE<API_MAIN_TIMELINES> = {
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyTimelineList,

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_MEMBERS, API_MEMBER_LIST, API_RESPONSE, MEMBER_DATA, MEMBER_PAGE_PARAMS } from '~/src/interfaces'
+import { API_MEMBER_LIST, API_RESPONSE, MEMBER_DATA, MEMBER_PAGE_PARAMS } from '~/src/interfaces'
 
 export async function GET(request: NextRequest, { params }: MEMBER_PAGE_PARAMS) {
     const dummyMemberData: MEMBER_DATA = {
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest, { params }: MEMBER_PAGE_PARAMS) 
         dummyMemberList.MEMBER_LIST.push(dummyMemberData)
     }
 
-    const apiResult: API_RESPONSE = {
+    const apiResult: API_RESPONSE<API_MEMBER_LIST> = {
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyMemberList,

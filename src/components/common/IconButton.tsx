@@ -1,9 +1,10 @@
 import { TailwindComponent } from './tailwind'
 
-interface IconButtonProps extends TailwindComponent {
+export interface IconButtonProps extends TailwindComponent {
     onClick?: () => void
     ariaLabel?: string
     disableScaleOnActive?: boolean
+    gray?: boolean
 }
 export const IconButton = ({
     children,
@@ -11,13 +12,14 @@ export const IconButton = ({
     twClass,
     disableScaleOnActive = false,
     ariaLabel = 'button',
+    gray = false,
 }: React.PropsWithChildren<IconButtonProps>) => (
     <div
         onClick={onClick}
         aria-label={ariaLabel}
-        className={`${twClass} flex items-center justify-center rounded-full bg-primary-whitegray stroke-black p-1.5 transition-opacity duration-300 scale-100 hover:opacity-75 ${
+        className={`${twClass} ${gray ? 'bg-primary-whitegray' : 'bg-white'} ${
             disableScaleOnActive === false && 'active:scale-95 group-active:scale-95'
-        }`}
+        } flex items-center justify-center rounded-full stroke-black p-1.5 transition-opacity duration-300 scale-100 hover:opacity-75 `}
     >
         {children}
     </div>

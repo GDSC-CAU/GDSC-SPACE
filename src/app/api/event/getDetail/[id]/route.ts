@@ -11,7 +11,7 @@ export async function GET(request: NextRequest, { params }: EVENT_PAGE_PARAMS) {
         EVENT_TITLE: `Event ${params.id}`,
     }
 
-    const apiResult: API_RESPONSE = {
+    const apiResult: API_RESPONSE<API_EVENT_DETAIL> = {
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyEventDetail,

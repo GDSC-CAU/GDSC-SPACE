@@ -3,7 +3,7 @@ import { API_BLOG_LIST, API_RESPONSE, BLOG_TYPE_PARAMS } from '~/src/interfaces'
 
 export async function GET(request: NextRequest, { params }: BLOG_TYPE_PARAMS) {
     if (params.type !== 'Design' && params.type !== 'Development' && params.type !== 'Project') {
-        const apiResultError: API_RESPONSE = {
+        const apiResultError: API_RESPONSE<API_BLOG_LIST> = {
             RESULT_CODE: 100,
             RESULT_MSG: 'Blog Type Error',
             RESULT_DATA: undefined,
@@ -29,7 +29,7 @@ export async function GET(request: NextRequest, { params }: BLOG_TYPE_PARAMS) {
         })
     }
 
-    const apiResultSuccess: API_RESPONSE = {
+    const apiResultSuccess: API_RESPONSE<API_BLOG_LIST> = {
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyBlogList,

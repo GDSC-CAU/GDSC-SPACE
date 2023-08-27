@@ -26,6 +26,7 @@ export interface BenefitCardProps extends TailwindComponent {
     rowAlign?: keyof (typeof tailwind)['rowAlign']
     colAlign?: keyof (typeof tailwind)['colAlign']
     flexDirection?: keyof (typeof tailwind)['flexDirection']
+    zeroPadding?: boolean
 }
 export const BenefitCard = ({
     children,
@@ -34,14 +35,12 @@ export const BenefitCard = ({
     rowAlign = 'start',
     colAlign = 'between',
     flexDirection = 'col',
+    zeroPadding = false,
 }: React.PropsWithChildren<BenefitCardProps>) => {
     const flexLayout = `${tailwind.flexDirection[flexDirection]} ${tailwind.rowAlign[rowAlign]} ${tailwind.colAlign[colAlign]}`
+    const cardStyle = `${twClass} ${flexLayout} ${zeroPadding ? 'p-0' : 'p-7'} ${white ? 'bg-white' : 'bg-black'}`
 
-    return (
-        <div className={`${twClass} ${flexLayout} ${white ? 'bg-white' : 'bg-black'} flex gap-2 rounded-xl p-7`}>
-            {children}
-        </div>
-    )
+    return <div className={`${cardStyle} flex h-full w-full gap-2 rounded-xl`}>{children}</div>
 }
 
 BenefitCard.Header = BenefitCardHeader

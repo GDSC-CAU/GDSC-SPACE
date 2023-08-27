@@ -12,7 +12,7 @@ export const Mentor = () => {
     })
 
     return (
-        <div ref={setTiltRef} {...listeners} className="col-start-4 col-end-7 row-auto">
+        <div ref={setTiltRef} {...listeners} className="col-start-4  col-end-8 row-auto xl:col-end-7">
             <BenefitCard white colAlign="around" rowAlign="center">
                 <BenefitCard.Header>Get</BenefitCard.Header>
                 <div style={style}>

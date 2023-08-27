@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from 'react'
-import { IconButton, Modal, useModal } from '~/components/common'
+import { IconButton, type IconButtonProps, Modal, useModal } from '~/components/common'
 import { Close, Plus } from '~/components/icons'
 import { BenefitCard, BenefitCardProps } from './benefitCard/BenefitCard'
 
@@ -49,21 +49,33 @@ const BenefitModalContent = ({ children }: React.PropsWithChildren) => {
             <div className="relative flex h-fit min-h-[25%] w-[calc(100%-26rem)] min-w-[50%] flex-col items-start justify-center gap-4 rounded-xl bg-black px-12 py-7">
                 {children}
                 <IconButton ariaLabel="open modal" twClass="absolute top-5 right-5" onClick={action.close}>
-                    <Close className="scale-95" />
+                    <Close />
                 </IconButton>
             </div>
         </Modal>
     )
 }
 
-const BenefitModalMainContent = ({ children, ...benefitCardProps }: React.PropsWithChildren<BenefitCardProps>) => {
+interface BenefitCardPropsWithChildren extends BenefitCardProps {
+    iconButtonProps?: IconButtonProps
+}
+const BenefitModalMainContent = ({
+    children,
+    iconButtonProps,
+    ...benefitCardProps
+}: React.PropsWithChildren<BenefitCardPropsWithChildren>) => {
     const { action } = useModalContextValue()
 
     return (
         <BenefitCard {...benefitCardProps} twClass={`${benefitCardProps?.twClass} relative`}>
             {children}
-            <IconButton ariaLabel="open modal" twClass="absolute bottom-5 right-5" onClick={action.open}>
-                <Plus className="scale-110" />
+            <IconButton
+                {...iconButtonProps}
+                ariaLabel="open modal"
+                twClass="absolute bottom-5 right-5"
+                onClick={action.open}
+            >
+                <Plus className={iconButtonProps?.gray ? 'fill-primary-whitegray' : 'fill-white'} />
             </IconButton>
         </BenefitCard>
     )
