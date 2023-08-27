@@ -20,3 +20,21 @@ export interface MemberDBRow {
         }
     }
 }
+
+export interface MemberImageData {
+    image: {
+        file: {
+            url: string
+        }
+    }
+}
+
+export interface MemberTableRowData {
+    results: [
+        {
+            table_row: {
+                cells: [[{ plain_text: string }], [{ plain_text: string }]]
+            }
+        }
+    ]
+}
