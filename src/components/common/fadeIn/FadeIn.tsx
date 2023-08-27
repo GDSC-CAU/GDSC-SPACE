@@ -8,6 +8,7 @@ const tailwindDuration = {
     '500': 'duration-500',
     '700': 'duration-700',
     '1000': 'duration-1000',
+    '1250': 'duration-[1.25s]',
 } as const
 
 const tailwindAnimationTiming = {
