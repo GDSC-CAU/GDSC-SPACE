@@ -10,12 +10,12 @@ export const Category = ({ isActive, onClick, children, twClass }: React.PropsWi
         <button type="button" onClick={onClick} className={`${twClass} group`}>
             {isActive ? (
                 <div>
-                    <p className="text-2xl font-semibold">{children}</p>
+                    <p className="text-xl font-semibold">{children}</p>
                     <div className="h-[0.75px] w-full rounded bg-theme-font" />
                 </div>
             ) : (
                 <div>
-                    <p className="text-2xl">{children}</p>
+                    <p className="text-xl">{children}</p>
                     <div className="h-[0.75px] w-full rounded bg-theme-font transition-all duration-200 scale-x-0 group-hover:opacity-90 group-hover:scale-x-100" />
                 </div>
             )}
