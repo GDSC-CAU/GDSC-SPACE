@@ -44,7 +44,7 @@ export const DesignArticleView = () => {
                     Reference
                 </Category>
             </div>
-            <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:grid-cols-3 md:gap-y-8">
+            <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:w-fit md:grid-cols-3 md:gap-y-8">
                 {bulkData.map((article) => (
                     <DesignProjectCard type="design" article={article} key={article.BLOG_ID} />
                 ))}

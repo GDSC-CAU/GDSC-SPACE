@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from 'react'
-import { IconButton, Modal, Tag, useModal } from '~/src/components/common'
+import { Modal, useModal } from '~/src/components/common'
 import { Arrow } from '~/src/components/icons'
 
 type ModalActionContext = ReturnType<typeof useModal> | null
@@ -46,9 +46,10 @@ const BlogModalContent = ({ children }: React.PropsWithChildren) => {
             <div className="flex h-fit min-h-[25%] flex-col gap-4">
                 {children}
                 <div className="flex items-center justify-center">
-                    <IconButton ariaLabel="close modal" twClass="w-6 h-6 md:hidden" onClick={action.close}>
-                        <Arrow className="-rotate-90" />
-                    </IconButton>
+                    <Arrow
+                        className="h-8 w-8 fill-transparent stroke-black -rotate-90 md:hidden"
+                        onClick={action.close}
+                    />
                 </div>
             </div>
         </Modal>
@@ -62,11 +63,7 @@ const BlogModalMainContent = ({ children, isType }: { children: React.ReactNode;
         <div className="flex flex-col gap-3">
             {children}
             <div className="flex items-center justify-center">
-                {isType && (
-                    <IconButton ariaLabel="open modal" twClass="w-6 h-6 md:hidden" onClick={action.open}>
-                        <Arrow className="rotate-90" />
-                    </IconButton>
-                )}
+                {isType && <Arrow className="h-8 w-8 stroke-black rotate-90 md:hidden" onClick={action.open} />}
             </div>
         </div>
     )

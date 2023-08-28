@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Footer, IconButton, Tag } from '~/src/components/common'
+import { Footer, Tag } from '~/src/components/common'
 import { DesignModal, DevelopModal, ProjectModal } from '../_components/BlogModalSections'
 import { BlogTop } from '../_components/BlogTop'
 import { DesignArticleView } from '../_components/DesignArticleView'
@@ -11,10 +11,10 @@ import { ProjectView } from '../_components/ProjectView'
 export default function TypeView({ params }: { params: { type: string } }) {
     const blogType = params.type
     return (
-        <main className="flex h-full w-full min-w-[50%] flex-col items-center justify-between gap-4">
+        <main className="flex h-full w-full min-w-[50%] flex-col items-center justify-between gap-4 md:gap-7">
             <BlogTop />
 
-            <div className="flex flex-row gap-4 md:hidden">
+            <div className="mt-7 flex flex-row gap-4 md:hidden">
                 <DevelopModal isType={blogType === 'develop'} params={blogType} />
                 <DesignModal isType={blogType === 'design'} params={blogType} />
                 <ProjectModal isType={blogType === 'project'} params={blogType} />
