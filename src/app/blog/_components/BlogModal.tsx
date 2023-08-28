@@ -46,10 +46,7 @@ const BlogModalContent = ({ children }: React.PropsWithChildren) => {
             <div className="flex h-fit min-h-[25%] flex-col gap-4">
                 {children}
                 <div className="flex items-center justify-center">
-                    <Arrow
-                        className="h-8 w-8 fill-transparent stroke-black -rotate-90 md:hidden"
-                        onClick={action.close}
-                    />
+                    <Arrow className="h-4 w-4 fill-transparent -rotate-90 scale-150 md:hidden" onClick={action.close} />
                 </div>
             </div>
         </Modal>
@@ -63,7 +60,7 @@ const BlogModalMainContent = ({ children, isType }: { children: React.ReactNode;
         <div className="flex flex-col gap-3">
             {children}
             <div className="flex items-center justify-center">
-                {isType && <Arrow className="h-8 w-8 stroke-black rotate-90 md:hidden" onClick={action.open} />}
+                {isType && <Arrow className="h-4 w-4 rotate-90 scale-150 md:hidden" onClick={action.open} />}
             </div>
         </div>
     )
