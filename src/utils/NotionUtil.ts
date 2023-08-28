@@ -1,8 +1,19 @@
 import * as process from 'process'
 import { Client } from '@notionhq/client'
-import { API_MEMBER_LIST, MEMBER_DATA, MemberDBRow, MemberImageData, MemberTableRowData } from '~/src/interfaces'
+import {
+    API_MAIN_TIMELINES,
+    API_MEMBER_LIST,
+    MAIN_TIMELINE_DATA,
+    MEMBER_DATA,
+    MemberDBRow,
+    MemberImageData,
+    MemberTableRowData,
+    TimelineDBRow,
+    TimelineTableRowData,
+} from '~/src/interfaces'
 
 const NOTION_API_KEY = process.env.NEXT_PUBLIC_NOTION_API_KEY
+const NOTION_MAIN_TIMELINE_DB_ID = '38dc092380834d388f24aba5e7a14774'
 const NOTION_MEMBER_DB_ID = '922775f782b44af08eb93be1693edb64'
 
 const notionClient = new Client({ auth: NOTION_API_KEY })
@@ -88,4 +99,57 @@ export const getMemberDB = async () => {
     )
 
     return MemberList
+}
+
+export const getMainTimelineDB = async () => {
+    const pageDBQuery = await notionClient.databases.query({
+        database_id: NOTION_MAIN_TIMELINE_DB_ID,
+    })
+
+    const TimelineList: API_MAIN_TIMELINES = {
+        MAIN_TIMELINE_CNT: 0,
+        MAIN_TIMELINE_LIST: [],
+    }
+
+    const dbPageIdList = pageDBQuery.results.map((result) => result.id)
+    TimelineList.MAIN_TIMELINE_LIST = await Promise.all(
+        dbPageIdList.map(async (id) => {
+            TimelineList.MAIN_TIMELINE_CNT++
+            const timelineDBRow = (await notionClient.pages.retrieve({
+                page_id: id,
+            })) as unknown as TimelineDBRow
+            const timelineTableData = await notionClient.blocks.children.list({
+                block_id: id,
+            })
+
+            const TimelineItem: MAIN_TIMELINE_DATA = {
+                TIMELINE_CARD_TITLE: '',
+                TIMELINE_DATE: '',
+                TIMELINE_DESCRIPTION: '',
+                TIMELINE_TITLE: '',
+            }
+
+            const timelineTableRowData = (await notionClient.blocks.children.list({
+                block_id: timelineTableData.results[0].id,
+            })) as unknown as TimelineTableRowData
+
+            timelineTableRowData.results.forEach((rowData) => {
+                switch (rowData.table_row.cells[0][0].plain_text) {
+                    case 'Title':
+                        TimelineItem.TIMELINE_TITLE = rowData.table_row.cells[1][0].plain_text
+                        break
+                    case 'Date':
+                        TimelineItem.TIMELINE_DATE = rowData.table_row.cells[1][0].plain_text
+                        break
+                    case 'Description':
+                        TimelineItem.TIMELINE_DESCRIPTION = rowData.table_row.cells[1][0].plain_text
+                        break
+                }
+            })
+
+            return TimelineItem
+        })
+    )
+
+    return TimelineList
 }
