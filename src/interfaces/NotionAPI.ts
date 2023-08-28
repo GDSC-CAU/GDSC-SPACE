@@ -19,7 +19,7 @@ export interface NotionDBRow {
             ]
         }
         ID: {
-            title: [
+            rich_text: [
                 {
                     text: {
                         content: string
