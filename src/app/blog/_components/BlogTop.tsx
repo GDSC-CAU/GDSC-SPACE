@@ -1,6 +1,6 @@
 export const BlogTop = () => {
     return (
-        <div className="flex w-full flex-col items-center justify-center gap-10 md:flex-row">
+        <div className="flex w-full flex-col items-center justify-center gap-10 text-center md:flex-row md:text-left">
             <h1 className="font-eng text-7xl font-bold">Blog</h1>
             <div className="font-kor text-xl">
                 GDSC CAU 개발자와 디자이너의 작업 과정과 그 결과물을 공유하는 공간입니다. <br />

@@ -29,8 +29,8 @@ export const DevelopArticleView = () => {
         'All'
     )
     return (
-        <div className="flex min-w-[50%] flex-col items-center justify-center gap-12">
-            <div className="flex flex-row items-center justify-center gap-10">
+        <div className="flex w-full flex-col items-center justify-center gap-12">
+            <div className="hidden md:flex md:w-full md:flex-row md:items-center md:justify-center md:gap-10">
                 <Category isActive={tag === 'All'} onClick={() => setTag('All')}>
                     All
                 </Category>
@@ -54,7 +54,7 @@ export const DevelopArticleView = () => {
                 </Category>
             </div>
 
-            <div className="flex w-full flex-col items-center justify-evenly gap-y-8">
+            <div className="flex w-full flex-col items-center justify-evenly gap-y-4 md:gap-y-8">
                 {bulkData.map((article) => (
                     <Link href={`/blog/develop/${article.BLOG_ID}`} key={article.BLOG_ID} className="w-full">
                         <DevelopCard article={article} key={article.BLOG_ID} />
