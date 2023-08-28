@@ -19,17 +19,21 @@ const NOTION_MEMBER_DB_ID = '922775f782b44af08eb93be1693edb64'
 
 const notionClient = new Client({ auth: NOTION_API_KEY })
 
-export const getMemberDB = async () => {
+const getDBPageIdList = async (NOTION_DB_ID: string) => {
     const pageDBQuery = await notionClient.databases.query({
-        database_id: NOTION_MEMBER_DB_ID,
+        database_id: NOTION_DB_ID,
     })
 
+    return pageDBQuery.results.map((result) => result.id)
+}
+
+export const getMemberDB = async () => {
     const MemberList: API_MEMBER_LIST = {
         MEMBER_CNT: 0,
         MEMBER_LIST: [],
     }
 
-    const dbPageIdList = pageDBQuery.results.map((result) => result.id)
+    const dbPageIdList = await getDBPageIdList(NOTION_MEMBER_DB_ID)
     MemberList.MEMBER_LIST = await Promise.all(
         dbPageIdList.map(async (id) => {
             MemberList.MEMBER_CNT++
@@ -103,16 +107,12 @@ export const getMemberDB = async () => {
 }
 
 export const getMainProjectDB = async () => {
-    const pageDBQuery = await notionClient.databases.query({
-        database_id: NOTION_MAIN_PROJECT_DB_ID,
-    })
-
     const ProjectList: API_MAIN_PROJECTS = {
         MAIN_PROJECT_CNT: 0,
         MAIN_PROJECT_LIST: [],
     }
 
-    const dbPageIdList = pageDBQuery.results.map((result) => result.id)
+    const dbPageIdList = await getDBPageIdList(NOTION_MAIN_PROJECT_DB_ID)
     ProjectList.MAIN_PROJECT_LIST = await Promise.all(
         dbPageIdList.map(async (id) => {
             ProjectList.MAIN_PROJECT_CNT++
@@ -155,16 +155,12 @@ export const getMainProjectDB = async () => {
 }
 
 export const getMainTimelineDB = async () => {
-    const pageDBQuery = await notionClient.databases.query({
-        database_id: NOTION_MAIN_TIMELINE_DB_ID,
-    })
-
     const TimelineList: API_MAIN_TIMELINES = {
         MAIN_TIMELINE_CNT: 0,
         MAIN_TIMELINE_LIST: [],
     }
 
-    const dbPageIdList = pageDBQuery.results.map((result) => result.id)
+    const dbPageIdList = await getDBPageIdList(NOTION_MAIN_TIMELINE_DB_ID)
     TimelineList.MAIN_TIMELINE_LIST = await Promise.all(
         dbPageIdList.map(async (id) => {
             TimelineList.MAIN_TIMELINE_CNT++
