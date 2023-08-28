@@ -125,7 +125,7 @@ export const getMainProjectDB = async () => {
 
             const ProjectItem: MAIN_PROJECT_DATA = {
                 PROJECT_DESCRIPTION: '',
-                PROJECT_ID: projectDBRow.properties.ID.title[0].text.content,
+                PROJECT_ID: projectDBRow.properties.ID.rich_text[0].text.content,
                 PROJECT_IMAGE: 'IMAGE',
                 PROJECT_IMAGE_SUB: 'IMAGE_SUB',
                 PROJECT_SUBTITLE: '',
@@ -139,7 +139,7 @@ export const getMainProjectDB = async () => {
             projectTableRowData.results.forEach((rowData) => {
                 switch (rowData.table_row.cells[0][0].plain_text) {
                     case 'Subtitle':
-                        ProjectItem.PROJECT_TITLE = rowData.table_row.cells[1][0].plain_text
+                        ProjectItem.PROJECT_SUBTITLE = rowData.table_row.cells[1][0].plain_text
                         break
                     case 'Description':
                         ProjectItem.PROJECT_DESCRIPTION = rowData.table_row.cells[1][0].plain_text
