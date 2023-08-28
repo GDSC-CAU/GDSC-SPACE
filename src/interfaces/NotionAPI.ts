@@ -18,6 +18,15 @@ export interface NotionDBRow {
                 }
             ]
         }
+        ID: {
+            title: [
+                {
+                    text: {
+                        content: string
+                    }
+                }
+            ]
+        }
         Title: {
             title: [
                 {
