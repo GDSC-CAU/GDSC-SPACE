@@ -1,5 +1,5 @@
-import { EVENT_META } from 'src/interfaces/common'
 import { Divider } from '~/components/common'
+import { EVENT_META } from '~/interfaces/Common'
 import { EventCard } from './_components'
 
 const generateRandomEvent = (count: number): Array<EVENT_META> =>

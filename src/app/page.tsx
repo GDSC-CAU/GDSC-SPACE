@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Image from 'next/image'
-import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from 'src/interfaces/common'
+import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from 'src/interfaces/Common'
 import { IntroIcon } from '~/components/icons'
 import { FadeIn, FadeInGradientHeader, Footer, GradientHeader } from '../components/common'
 import { Fetcher } from '../utils'

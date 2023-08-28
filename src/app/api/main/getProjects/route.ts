@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_PROJECTS, API_RESPONSE, MAIN_PROJECT_DATA } from '~/src/interfaces/common'
+import { API_MAIN_PROJECTS, API_RESPONSE, MAIN_PROJECT_DATA } from '~/interfaces/Common'
 
-export async function GET(request: NextRequest) {
+export async function GET(_: NextRequest) {
     const dummyProjectData: MAIN_PROJECT_DATA = {
         PROJECT_DESCRIPTION:
             "This is a Solution for the people who don't know what actions could be taken toreduce green house effect.This is an education game. By playing this game, the players are informedwhat could be done in real world to decrease the green house effect andwhat contributes to the global warming and green house effect.",

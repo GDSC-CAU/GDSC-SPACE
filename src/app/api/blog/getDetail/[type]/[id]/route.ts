@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { API_BLOG_DETAIL, API_RESPONSE, BLOG_POST_PARAMS } from '~/src/interfaces'
 
-export async function GET(request: NextRequest, { params }: BLOG_POST_PARAMS) {
+export async function GET(_: NextRequest, { params }: BLOG_POST_PARAMS) {
     if (params.type !== 'Design' && params.type !== 'Development' && params.type !== 'Project') {
-        const apiResultError: API_RESPONSE<API_BLOG_DETAIL> = {
+        const apiResultError: API_RESPONSE<undefined> = {
             RESULT_CODE: 100,
             RESULT_MSG: 'Blog Type Error',
             RESULT_DATA: undefined,

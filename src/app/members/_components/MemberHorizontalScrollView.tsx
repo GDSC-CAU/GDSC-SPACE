@@ -1,4 +1,4 @@
-import type { MEMBER_DATA } from 'src/interfaces/common'
+import type { MEMBER_DATA } from '~/interfaces/Common'
 import { MemberCard } from './MemberCard'
 
 function divideArrayIntoChunk<T>(arr: T[], chunkSize: number) {
@@ -17,7 +17,7 @@ export const MemberHorizontalScrollView = ({ members }: RenderMemberByYearProps)
     const dividedMembers = divideArrayIntoChunk(members, 6)
 
     return dividedMembers.map((memberChunk, rowIndex) => (
-        <div key={rowIndex} className="scrollbar-hide flex flex-row gap-8 overflow-x-auto overflow-y-hidden px-4 py-7">
+        <div key={rowIndex} className="flex flex-row gap-8 overflow-x-auto overflow-y-hidden px-4 py-7 scrollbar-hide">
             {memberChunk.map((member) => (
                 <MemberCard key={`${member.MEMBER_NAME}-${member.MEMBER_POSITION}`} member={member} />
             ))}

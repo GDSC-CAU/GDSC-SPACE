@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_TIMELINES, API_RESPONSE, MAIN_TIMELINE_DATA } from '~/src/interfaces/common'
+import { API_MAIN_TIMELINES, API_RESPONSE, MAIN_TIMELINE_DATA } from '~/interfaces/Common'
 
-export async function GET(request: NextRequest) {
+export async function GET(_: NextRequest) {
     const dummyTimelineData: MAIN_TIMELINE_DATA = {
         TIMELINE_CARD_TITLE: 'TIMELINE CARD TITLE',
         TIMELINE_DATE: '2023. 8.',
