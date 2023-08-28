@@ -121,7 +121,7 @@ export const getMainTimelineDB = async () => {
             })
 
             const TimelineItem: MAIN_TIMELINE_DATA = {
-                TIMELINE_CARD_TITLE: '',
+                TIMELINE_CARD_TITLE: timelineDBRow.properties.Title?.title[0].text.content,
                 TIMELINE_DATE: '',
                 TIMELINE_DESCRIPTION: '',
                 TIMELINE_TITLE: '',
