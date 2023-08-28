@@ -1,8 +1,10 @@
 import * as process from 'process'
 import { Client } from '@notionhq/client'
 import {
+    API_MAIN_PROJECTS,
     API_MAIN_TIMELINES,
     API_MEMBER_LIST,
+    MAIN_PROJECT_DATA,
     MAIN_TIMELINE_DATA,
     MEMBER_DATA,
     NotionDBRow,
@@ -12,6 +14,7 @@ import {
 
 const NOTION_API_KEY = process.env.NEXT_PUBLIC_NOTION_API_KEY
 const NOTION_MAIN_TIMELINE_DB_ID = '38dc092380834d388f24aba5e7a14774'
+const NOTION_MAIN_PROJECT_DB_ID = '71f02139507444369e3d7a9ba3186de9'
 const NOTION_MEMBER_DB_ID = '922775f782b44af08eb93be1693edb64'
 
 const notionClient = new Client({ auth: NOTION_API_KEY })
@@ -97,6 +100,58 @@ export const getMemberDB = async () => {
     )
 
     return MemberList
+}
+
+export const getMainProjectDB = async () => {
+    const pageDBQuery = await notionClient.databases.query({
+        database_id: NOTION_MAIN_PROJECT_DB_ID,
+    })
+
+    const ProjectList: API_MAIN_PROJECTS = {
+        MAIN_PROJECT_CNT: 0,
+        MAIN_PROJECT_LIST: [],
+    }
+
+    const dbPageIdList = pageDBQuery.results.map((result) => result.id)
+    ProjectList.MAIN_PROJECT_LIST = await Promise.all(
+        dbPageIdList.map(async (id) => {
+            ProjectList.MAIN_PROJECT_CNT++
+            const projectDBRow = (await notionClient.pages.retrieve({
+                page_id: id,
+            })) as unknown as NotionDBRow
+            const projectTableData = await notionClient.blocks.children.list({
+                block_id: id,
+            })
+
+            const ProjectItem: MAIN_PROJECT_DATA = {
+                PROJECT_DESCRIPTION: '',
+                PROJECT_ID: projectDBRow.properties.ID.title[0].text.content,
+                PROJECT_IMAGE: 'IMAGE',
+                PROJECT_IMAGE_SUB: 'IMAGE_SUB',
+                PROJECT_SUBTITLE: '',
+                PROJECT_TITLE: projectDBRow.properties.Title.title[0].text.content,
+            }
+
+            const projectTableRowData = (await notionClient.blocks.children.list({
+                block_id: projectTableData.results[0].id,
+            })) as unknown as NotionTableRowData
+
+            projectTableRowData.results.forEach((rowData) => {
+                switch (rowData.table_row.cells[0][0].plain_text) {
+                    case 'Subtitle':
+                        ProjectItem.PROJECT_TITLE = rowData.table_row.cells[1][0].plain_text
+                        break
+                    case 'Description':
+                        ProjectItem.PROJECT_DESCRIPTION = rowData.table_row.cells[1][0].plain_text
+                        break
+                }
+            })
+
+            return ProjectItem
+        })
+    )
+
+    return ProjectList
 }
 
 export const getMainTimelineDB = async () => {
