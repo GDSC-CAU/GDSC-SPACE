@@ -5,11 +5,9 @@ import {
     API_MEMBER_LIST,
     MAIN_TIMELINE_DATA,
     MEMBER_DATA,
-    MemberDBRow,
-    MemberImageData,
-    MemberTableRowData,
-    TimelineDBRow,
-    TimelineTableRowData,
+    NotionDBRow,
+    NotionImageData,
+    NotionTableRowData,
 } from '~/src/interfaces'
 
 const NOTION_API_KEY = process.env.NEXT_PUBLIC_NOTION_API_KEY
@@ -34,13 +32,13 @@ export const getMemberDB = async () => {
             MemberList.MEMBER_CNT++
             const memberDBRow = (await notionClient.pages.retrieve({
                 page_id: id,
-            })) as unknown as MemberDBRow
+            })) as unknown as NotionDBRow
             const memberTableData = await notionClient.blocks.children.list({
                 block_id: id,
             })
             const memberImageData = (await notionClient.blocks.retrieve({
                 block_id: memberTableData.results[1].id,
-            })) as unknown as MemberImageData
+            })) as unknown as NotionImageData
 
             const MemberItem: MEMBER_DATA = {
                 MEMBER_COMMENT: '',
@@ -59,7 +57,7 @@ export const getMemberDB = async () => {
 
             const memberTableRowData = (await notionClient.blocks.children.list({
                 block_id: memberTableData.results[0].id,
-            })) as unknown as MemberTableRowData
+            })) as unknown as NotionTableRowData
 
             memberTableRowData.results.forEach((rowData) => {
                 switch (rowData.table_row.cells[0][0].plain_text) {
@@ -117,7 +115,7 @@ export const getMainTimelineDB = async () => {
             TimelineList.MAIN_TIMELINE_CNT++
             const timelineDBRow = (await notionClient.pages.retrieve({
                 page_id: id,
-            })) as unknown as TimelineDBRow
+            })) as unknown as NotionDBRow
             const timelineTableData = await notionClient.blocks.children.list({
                 block_id: id,
             })
@@ -131,7 +129,7 @@ export const getMainTimelineDB = async () => {
 
             const timelineTableRowData = (await notionClient.blocks.children.list({
                 block_id: timelineTableData.results[0].id,
-            })) as unknown as TimelineTableRowData
+            })) as unknown as NotionTableRowData
 
             timelineTableRowData.results.forEach((rowData) => {
                 switch (rowData.table_row.cells[0][0].plain_text) {
