@@ -46,7 +46,7 @@ const BenefitModalContent = ({ children }: React.PropsWithChildren) => {
             transitionDuration="duration-500"
             blur="lg"
         >
-            <div className="relative flex h-fit min-h-[25%] w-[calc(100%-26rem)] min-w-[50%] flex-col items-start justify-center gap-4 rounded-xl bg-black px-12 py-7">
+            <div className="relative flex h-fit w-[calc(100%-4rem)] flex-col items-start justify-center gap-4 rounded-xl bg-black px-10 py-14 md:min-h-[25%] md:w-[calc(100%-10rem)] md:min-w-[50%] md:px-14 md:py-7 lg:w-[calc(100%-26rem)]">
                 {children}
                 <IconButton ariaLabel="open modal" twClass="absolute top-5 right-5" onClick={action.close}>
                     <Close />
@@ -72,7 +72,7 @@ const BenefitModalMainContent = ({
             <IconButton
                 {...iconButtonProps}
                 ariaLabel="open modal"
-                twClass="absolute bottom-5 right-5"
+                twClass="absolute top-5 right-5 md:top-[unset] md:bottom-5 md:right-5"
                 onClick={action.open}
             >
                 <Plus className={iconButtonProps?.gray ? 'fill-primary-whitegray' : 'fill-white'} />

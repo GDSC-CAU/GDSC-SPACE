@@ -30,7 +30,7 @@ const generateBulkMembers = (count: number): Array<MEMBER_DATA> => {
 
 const bulkMembers: Array<MEMBER_DATA> = generateBulkMembers(300)
 
-export default function MemberList() {
+export default function MemberPage() {
     const [selectedYear, setSelectedYear] = useState<MEMBER_DATA['MEMBER_YEAR']>('1기')
     const targetMemberList = bulkMembers.filter(({ MEMBER_YEAR }) => selectedYear === MEMBER_YEAR)
 
