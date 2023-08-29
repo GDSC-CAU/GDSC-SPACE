@@ -7,7 +7,7 @@ import { Arrow } from '~/src/components/icons'
 type ModalActionContext = ReturnType<typeof useModal> | null
 const ModalActionContext = createContext<ModalActionContext>(null)
 
-const useModalContextValue = () => {
+export const useModalContextValue = () => {
     const modalActionContext = useContext(ModalActionContext)
 
     if (modalActionContext === null) {
@@ -39,14 +39,17 @@ const BlogModalContent = ({ children }: React.PropsWithChildren) => {
             open={open}
             onOutsideClick={action.close}
             modalOpenClassName="scale-100 translate-y-0"
-            modalCloseClassName="scale-0 translate-y-[25%]"
+            modalCloseClassName="scale-75 translate-y-[25%]"
             transitionDuration="duration-500"
             blur="lg"
         >
             <div className="flex h-fit min-h-[25%] flex-col gap-4">
                 {children}
                 <div className="flex items-center justify-center">
-                    <Arrow className="h-4 w-4 fill-transparent -rotate-90 scale-150 md:hidden" onClick={action.close} />
+                    <Arrow
+                        className="fill-transparent stroke-white -rotate-90 scale-125 md:hidden"
+                        onClick={action.close}
+                    />
                 </div>
             </div>
         </Modal>
@@ -60,7 +63,7 @@ const BlogModalMainContent = ({ children, isType }: { children: React.ReactNode;
         <div className="flex flex-col gap-3">
             {children}
             <div className="flex items-center justify-center">
-                {isType && <Arrow className="h-4 w-4 rotate-90 scale-150 md:hidden" onClick={action.open} />}
+                {isType && <Arrow className="stroke-white rotate-90 scale-125 md:hidden" onClick={action.open} />}
             </div>
         </div>
     )
