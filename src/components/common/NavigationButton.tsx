@@ -22,7 +22,11 @@ export const NavigationButton = ({
             }`}
         >
             <IconButton disableScaleOnActive>
-                {left ? <Arrow className="mr-0.5 rotate-180 scale-125" /> : <Arrow className="ml-0.5 scale-125" />}
+                {left ? (
+                    <Arrow className="mr-0.5 stroke-black rotate-180 scale-125" />
+                ) : (
+                    <Arrow className="ml-0.5 stroke-black scale-125" />
+                )}
             </IconButton>
 
             <p className="px-4">{children}</p>
