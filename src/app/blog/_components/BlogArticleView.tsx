@@ -54,7 +54,7 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
                         setTag(targetTag)
                     }}
                 />
-                <div className="flex w-full flex-col items-center justify-evenly gap-y-4 pt-5 md:gap-y-7">
+                <div className="flex w-full flex-col items-center justify-evenly gap-y-4 md:gap-y-7">
                     {filteredArticle.map((article) => (
                         <Link$ href={`/blog/Development/${article.BLOG_ID}`} key={article.BLOG_ID} className="w-full">
                             <DevelopCard article={article} key={article.BLOG_ID} />
