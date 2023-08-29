@@ -52,11 +52,11 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
 
             <ul className={`${main ? 'items-center' : 'items-start'} mt-4 flex flex-col gap-3`}>
                 {footerData.map(({ content, type }, order) => {
-                    if (main === false && type === 'copyright') return <></>
+                    if (main === false && type === 'copyright') return null
 
                     const shouldRenderDivider = order !== 0 && main
                     return (
-                        <>
+                        <div key={type}>
                             {shouldRenderDivider && <Divider disableMargin darkGray twClass="w-2.5" />}
                             <li key={type} className="max-w-4xl">
                                 <p
@@ -67,7 +67,7 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
                                     {content}
                                 </p>
                             </li>
-                        </>
+                        </div>
                     )
                 })}
             </ul>
