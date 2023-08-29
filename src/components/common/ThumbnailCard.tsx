@@ -1,9 +1,8 @@
-import Link from 'next/link'
-import { FillImage } from '~/components/common'
+import { FillImage, Link$, LinkPath } from '~/components/common'
 import { TailwindComponent } from './tailwind'
 
 interface ThumbnailCardProps<ThumbnailMeta> extends TailwindComponent {
-    href: string
+    href: LinkPath
     meta: ThumbnailMeta
     style?: React.CSSProperties
     transformer: (originalMeta: ThumbnailMeta) => {
@@ -24,7 +23,7 @@ export function ThumbnailCard<ThumbnailMeta>({
     const thumbnailMeta = transformer(meta)
 
     return (
-        <Link
+        <Link$
             href={href}
             style={style}
             className={`${twClass} group flex w-full flex-col gap-0 rounded-2xl border-2 border-transparent bg-transparent transition-colors duration-300 hover:border-primary-blue md:w-64 md:rounded-[0.65rem]`}
@@ -48,6 +47,6 @@ export function ThumbnailCard<ThumbnailMeta>({
                 </div>
                 <p className="line-clamp-4 font-kor text-xs font-light">{thumbnailMeta.description}</p>
             </section>
-        </Link>
+        </Link$>
     )
 }
