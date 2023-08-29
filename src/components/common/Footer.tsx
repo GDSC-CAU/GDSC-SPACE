@@ -46,7 +46,7 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
     }`
 
     return (
-        <footer className={`${twClass} ${mainFooterStyle} flex flex-col justify-center py-20`}>
+        <footer className={`${twClass} ${mainFooterStyle} flex w-full flex-col justify-center py-20`}>
             <Divider darkGray twClass="w-full" />
             <GdscLogo twClass={`${main ? 'mt-4 mb-5' : 'mt-6 mb-7'}`} />
 
