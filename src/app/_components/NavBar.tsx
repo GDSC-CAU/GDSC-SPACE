@@ -45,7 +45,7 @@ export const NavBar = ({ iconSize = 55 }: NavBarProps) => {
                 Projects
             </NavButton>
 
-            <NavButton type="link" href="/blog/develop">
+            <NavButton type="link" href="/blog/Development">
                 Blog
             </NavButton>
             <NavButton type="link" href="/events">
