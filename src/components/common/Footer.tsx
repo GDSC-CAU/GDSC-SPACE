@@ -1,3 +1,4 @@
+import { tw } from '~/src/styles/util'
 import { Divider } from './Divider'
 import { GdscLogo } from './GdscLogo'
 import { TailwindComponent } from './tailwind'
@@ -41,7 +42,7 @@ const footerData: Readonly<
 export const Footer = ({ main = false, twClass }: FooterProps) => {
     const mainFooterStyle = `${
         main
-            ? 'items-center ml-[calc(-13rem)] h-fit w-screen gap-10 bg-gradient-to-t from-black to-primary-darkgray px-20'
+            ? `items-center ${tw.fullScreen} h-fit gap-10 bg-gradient-to-t from-black to-primary-darkgray px-10 md:px-20`
             : 'items-start'
     }`
 
