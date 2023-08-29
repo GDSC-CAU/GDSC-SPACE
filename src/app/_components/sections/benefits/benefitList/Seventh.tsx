@@ -1,3 +1,5 @@
+'use client'
+
 import { FadeIn } from '~/src/components/common'
 import { BenefitCard } from '../benefitCard'
 

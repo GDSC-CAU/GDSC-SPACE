@@ -1,3 +1,5 @@
+'use client'
+
 import { FillImage } from '~/src/components/common'
 import { BenefitCard } from '../benefitCard'
 

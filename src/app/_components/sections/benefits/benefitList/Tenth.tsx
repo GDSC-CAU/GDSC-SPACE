@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { BenefitCard } from '../benefitCard'
 import { BenefitModal } from '../BenefitModal'

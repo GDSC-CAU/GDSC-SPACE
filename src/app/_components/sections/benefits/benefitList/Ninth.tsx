@@ -1,3 +1,5 @@
+'use client'
+
 import { BenefitCard } from '../benefitCard'
 
 export const BenefitNinthSolutionChallenge = () => {
