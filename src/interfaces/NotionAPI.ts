@@ -1,4 +1,4 @@
-export interface MemberDBRow {
+export interface NotionDBRow {
     properties: {
         Year: {
             rich_text: [
@@ -18,10 +18,28 @@ export interface MemberDBRow {
                 }
             ]
         }
+        ID: {
+            rich_text: [
+                {
+                    text: {
+                        content: string
+                    }
+                }
+            ]
+        }
+        Title: {
+            title: [
+                {
+                    text: {
+                        content: string
+                    }
+                }
+            ]
+        }
     }
 }
 
-export interface MemberImageData {
+export interface NotionImageData {
     image: {
         file: {
             url: string
@@ -29,7 +47,7 @@ export interface MemberImageData {
     }
 }
 
-export interface MemberTableRowData {
+export interface NotionTableRowData {
     results: [
         {
             table_row: {
