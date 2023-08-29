@@ -41,7 +41,8 @@ const BlogModalContent = ({ children }: React.PropsWithChildren) => {
             modalOpenClassName="scale-100 translate-y-0"
             modalCloseClassName="scale-75 translate-y-[25%]"
             transitionDuration="duration-500"
-            blur="lg"
+            blur="2xl"
+            bgBlack
         >
             <div className="flex h-fit min-h-[25%] flex-col gap-4">
                 {children}
