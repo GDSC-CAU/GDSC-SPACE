@@ -46,17 +46,17 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
     }`
 
     return (
-        <footer className={`${twClass} ${mainFooterStyle} flex flex-col justify-center py-20`}>
+        <footer className={`${twClass} ${mainFooterStyle} flex w-full flex-col justify-center py-20`}>
             <Divider darkGray twClass="w-full" />
             <GdscLogo twClass={`${main ? 'mt-4 mb-5' : 'mt-6 mb-7'}`} />
 
             <ul className={`${main ? 'items-center' : 'items-start'} mt-4 flex flex-col gap-3`}>
                 {footerData.map(({ content, type }, order) => {
-                    if (main === false && type === 'copyright') return <></>
+                    if (main === false && type === 'copyright') return null
 
                     const shouldRenderDivider = order !== 0 && main
                     return (
-                        <>
+                        <div key={type}>
                             {shouldRenderDivider && <Divider disableMargin darkGray twClass="w-2.5" />}
                             <li key={type} className="max-w-4xl">
                                 <p
@@ -67,7 +67,7 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
                                     {content}
                                 </p>
                             </li>
-                        </>
+                        </div>
                     )
                 })}
             </ul>

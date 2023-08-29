@@ -31,10 +31,12 @@ interface ModalViewProps {
     transitionDuration?: TransitionDuration
     modalCloseClassName?: string
     modalOpenClassName?: string
+    bgBlack?: boolean
 }
 export const ModalView = ({
     children,
     open,
+    bgBlack = false,
     blur = 'none',
     modalCloseClassName,
     modalOpenClassName,
@@ -49,9 +51,9 @@ export const ModalView = ({
     }
     return (
         <div
-            className={`fixed left-0 top-0 z-40 h-full w-full overflow-hidden bg-white/5 transition ${transitionDuration} ${
-                blurLevel[blur]
-            } ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
+            className={`${bgBlack ? 'bg-black/10' : 'bg-white/5'}  ${transitionDuration} ${blurLevel[blur]} ${
+                open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+            } fixed left-0 top-0 z-40 h-full w-full overflow-hidden transition `}
         >
             <div
                 className={`flex h-full w-full items-center justify-center transition-all transform-gpu ${transitionDuration} ${

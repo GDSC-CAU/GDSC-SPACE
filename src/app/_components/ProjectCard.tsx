@@ -35,7 +35,7 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
                     imageClass="rounded-xl group-hover:scale-110 group-hover:brightness-110 transition-all duration-500"
                 >
                     <IconButton twClass="absolute opacity-0 bottom-4 right-4 group-hover:opacity-100 transition-opacity duration-300">
-                        <Arrow />
+                        <Arrow className="stroke-black" />
                     </IconButton>
                 </FillImage>
             </Link>

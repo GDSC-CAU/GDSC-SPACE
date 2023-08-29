@@ -1,33 +1,19 @@
-'use client'
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { API_BLOG_LIST, API_RESPONSE, BLOG_TYPE_PARAMS } from '~/src/interfaces'
+import { Fetcher } from '~/src/utils/fetcher'
+import { BlogView } from '../_components/BlogArticleView'
+import { BlogRoutingType } from '../_data/blogRouteData'
 
-import Link from 'next/link'
-import { Tag } from '~/src/components/common'
-import { BlogTop } from '../_components/BlogTop'
-import { DesignArticleView } from '../_components/DesignArticleView'
-import { DevelopArticleView } from '../_components/DevelopArticleView'
-import { ProjectView } from '../_components/ProjectView'
+const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
 
-export default function TypeView({ params }: { params: { type: string } }) {
-    const blogType = params.type
+export default async function Blog({ params: { type } }: BLOG_TYPE_PARAMS) {
+    const post = await fetcher.get<API_RESPONSE<API_BLOG_LIST>>(`/blog/getList/${type}`)
+
+    const isValidRequest = post.RESULT_CODE === 200 && post.RESULT_DATA
+
     return (
-        <main className="flex h-full w-full flex-col items-center justify-between gap-8 p-24">
-            <BlogTop />
-            <div className="mx-6 my-8 flex flex-row gap-16">
-                <Link href="/blog/develop">
-                    <Tag isActive={blogType === 'develop'}>Develop</Tag>
-                </Link>
-                <Link href="/blog/design">
-                    <Tag isActive={blogType === 'design'}>Design</Tag>
-                </Link>
-                <Link href="/blog/project">
-                    <Tag isActive={blogType === 'project'}>Project</Tag>
-                </Link>
-            </div>
-            <div className="w-full">
-                {blogType === 'develop' && <DevelopArticleView />}
-                {blogType === 'design' && <DesignArticleView />}
-                {blogType === 'project' && <ProjectView />}
-            </div>
-        </main>
+        <>
+            {isValidRequest ? <BlogView type={type as BlogRoutingType} {...post.RESULT_DATA!} /> : "Something's wrong!"}
+        </>
     )
 }
