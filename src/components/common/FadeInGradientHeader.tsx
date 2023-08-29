@@ -8,12 +8,13 @@ interface FadeInGradientHeaderProps extends GradientHeaderProps, TailwindCompone
 
 export const FadeInGradientHeader = ({
     id,
-    size = 'text-6xl',
+    desktopSize = 'md:text-6xl',
+    mobileSize = 'text-5xl',
     children,
     ...fadeInProps
 }: React.PropsWithChildren<FadeInGradientHeaderProps>) => (
     <FadeIn {...fadeInProps}>
-        <GradientHeader id={id} size={size}>
+        <GradientHeader id={id} mobileSize={mobileSize} desktopSize={desktopSize}>
             {children}
         </GradientHeader>
     </FadeIn>
