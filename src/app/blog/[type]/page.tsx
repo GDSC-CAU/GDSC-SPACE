@@ -6,7 +6,7 @@ import { BlogRoutingType } from '../_data/blogRouteData'
 
 const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
 
-export default async function Blog({ params: { type } }: BLOG_TYPE_PARAMS) {
+export default async function BlogPage({ params: { type } }: BLOG_TYPE_PARAMS) {
     const post = await fetcher.get<API_RESPONSE<API_BLOG_LIST>>(`/blog/getList/${type}`)
 
     const isValidRequest = post.RESULT_CODE === 200 && post.RESULT_DATA

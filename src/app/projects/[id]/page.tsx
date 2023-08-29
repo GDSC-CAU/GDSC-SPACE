@@ -1,4 +1,4 @@
-export default function ProjectView({ params }: { params: { id: string } }) {
+export default function ProjectPage({ params }: { params: { id: string } }) {
     const projectID = params.id
     return (
         <main className="flex h-full w-full flex-col items-center justify-between p-24">

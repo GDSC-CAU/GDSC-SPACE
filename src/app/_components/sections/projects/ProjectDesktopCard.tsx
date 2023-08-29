@@ -1,14 +1,13 @@
 'use client'
-import Link from 'next/link'
 import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
-import { FillImage, IconButton, useVisibility } from '~/components/common'
+import { FillImage, IconButton, Link$, useVisibility } from '~/components/common'
 import { Arrow } from '~/src/components/icons'
 
-interface ProjectCardProps {
+interface ProjectCardDesktopProps {
     isReverse: boolean
     projectData: MAIN_PROJECT_DATA
 }
-export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
+export const ProjectCardDesktop = ({ isReverse, projectData }: ProjectCardDesktopProps) => {
     const textAlign = isReverse ? 'text-end' : 'text-start'
     const LCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
     const RCardMargin = isReverse ? 'ml-[20px]' : 'mr-[-20px]'
@@ -24,8 +23,8 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
     const { isVisible, setVisibilityRef } = useVisibility<HTMLDivElement>()
 
     return (
-        <div className="group flex flex-row items-center" ref={setVisibilityRef}>
-            <Link href={`/blog/${projectData.PROJECT_ID}`}>
+        <div className="group hidden flex-row items-center lg:flex" ref={setVisibilityRef}>
+            <Link$ href={`/blog/${projectData.PROJECT_ID}`}>
                 <FillImage
                     src={projectData.PROJECT_IMAGE}
                     alt={projectData.PROJECT_TITLE}
@@ -38,7 +37,7 @@ export const ProjectCard = ({ isReverse, projectData }: ProjectCardProps) => {
                         <Arrow className="stroke-black" />
                     </IconButton>
                 </FillImage>
-            </Link>
+            </Link$>
 
             <div
                 className={`flex h-[480px] w-[420px] flex-col transition-all duration-1000 ease-in-out transform-gpu ${RCardMargin} ${
