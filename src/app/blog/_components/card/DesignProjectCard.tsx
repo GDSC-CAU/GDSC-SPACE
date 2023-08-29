@@ -1,7 +1,8 @@
 import { ThumbnailCard } from '~/src/components/common'
 import { BLOG_META } from '~/src/interfaces'
+import { BlogRoutingType } from '../../_data/blogRouteData'
 
-export const DesignProjectCard = ({ type, article }: { type: string; article: BLOG_META }) => {
+export const DesignProjectCard = ({ type, article }: { type: BlogRoutingType; article: BLOG_META }) => {
     return (
         <ThumbnailCard
             twClass="animate-rise duration-500"
