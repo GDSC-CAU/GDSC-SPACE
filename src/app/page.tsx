@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import type { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from 'src/interfaces/common'
+import type { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_RESPONSE } from '~/src/interfaces'
 import { Footer } from '../components/common'
 import { Fetcher } from '../utils'
 import { BenefitsSection, IntroductionSection, ProjectsSection, TimeLinesSection } from './_components/sections'

@@ -1,7 +1,7 @@
 'use client'
-import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
 import { FadeIn, FillImage, IconButton, Link$ } from '~/components/common'
 import { Arrow } from '~/src/components/icons'
+import type { MAIN_PROJECT_DATA } from '~/src/interfaces'
 
 interface ProjectCardMobileProps {
     projectData: MAIN_PROJECT_DATA
@@ -25,7 +25,7 @@ export const ProjectCardMobile = ({ projectData, fromLeft }: ProjectCardMobilePr
                 <h2 className="font-eng text-xl font-light text-white">{PROJECT_SUBTITLE}</h2>
             </div>
 
-            <Link$ href={`/blog/${PROJECT_ID}`} className="h-[400px] w-full">
+            <Link$ href={`/blog/Project/${PROJECT_ID}`} className="h-[400px] w-full">
                 <FillImage
                     src={PROJECT_IMAGE}
                     alt={PROJECT_TITLE}
