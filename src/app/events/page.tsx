@@ -20,7 +20,7 @@ const generateRandomEvent = (count: number): Array<EVENT_META> =>
 
 const bulkData = generateRandomEvent(50)
 
-export default function Events() {
+export default function EventsPage() {
     return (
         <>
             <div className="flex h-full w-full flex-col items-center gap-1.5">

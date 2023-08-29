@@ -7,7 +7,7 @@ import { DesignArticleView } from '../_components/DesignArticleView'
 import { DevelopArticleView } from '../_components/DevelopArticleView'
 import { ProjectView } from '../_components/ProjectView'
 
-export default function TypeView({ params }: { params: { type: string } }) {
+export default function BlogPage({ params }: { params: { type: string } }) {
     const blogType = params.type
     return (
         <main className="flex h-full w-full flex-col items-center justify-between gap-8 p-24">
