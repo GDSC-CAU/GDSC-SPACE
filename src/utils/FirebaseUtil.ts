@@ -11,7 +11,7 @@ const firebaseConfig = {
 let firebaseApp: FirebaseApp
 let firebaseDB: Firestore
 
-export const initFirebase = () => {
+const initFirebase = () => {
     firebaseApp = initializeApp(firebaseConfig)
     firebaseDB = getFirestore()
 }
