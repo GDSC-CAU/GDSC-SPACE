@@ -63,13 +63,13 @@ export const getMainTimelineDB = async () => {
         return TimelineList
     }
 
-    timelineDocData.data().list.forEach((projItem: MainTimelines) => {
+    timelineDocData.data().list.forEach((timelineItem: MainTimelines) => {
         TimelineList.MAIN_TIMELINE_CNT++
         TimelineList.MAIN_TIMELINE_LIST.push({
-            TIMELINE_CARD_TITLE: projItem.Card_title,
-            TIMELINE_DATE: projItem.Date,
-            TIMELINE_DESCRIPTION: projItem.Description,
-            TIMELINE_TITLE: projItem.Title,
+            TIMELINE_CARD_TITLE: timelineItem.Card_title,
+            TIMELINE_DATE: timelineItem.Date,
+            TIMELINE_DESCRIPTION: timelineItem.Description,
+            TIMELINE_TITLE: timelineItem.Title,
         })
     })
 
