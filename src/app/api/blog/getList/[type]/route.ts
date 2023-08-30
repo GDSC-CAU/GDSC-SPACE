@@ -23,6 +23,7 @@ export async function GET(request: NextRequest, { params }: BLOG_TYPE_PARAMS) {
             BLOG_DATE: '2023. 08. 23.',
             BLOG_DESCRIPTION: `This is Test Posting of ${params.type}`,
             BLOG_ID: `${i}`,
+            BLOG_NOTION_ID: '',
             BLOG_TAG: ['Application', 'Flutter'],
             BLOG_THUMBNAIL: 'https://cdn.pixabay.com/photo/2023/08/11/18/35/flowers-8184126_1280.jpg',
             BLOG_TITLE: `${params.type} ${i}`,

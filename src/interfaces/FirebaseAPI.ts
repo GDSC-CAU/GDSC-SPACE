@@ -1,3 +1,13 @@
+export interface BlogListItem {
+    Author: string
+    Date: string
+    Description: string
+    NotionID: string
+    Tag: Array<string>
+    Thumbnail: string
+    Title: string
+}
+
 export interface EventListItem {
     Date: string
     Description: string
