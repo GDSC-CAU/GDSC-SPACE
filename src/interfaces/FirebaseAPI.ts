@@ -1,5 +1,6 @@
 export interface MainProjects {
     Description: string
+    ID: string
     Image: string
     Image_sub: string
     Subtitle: string
