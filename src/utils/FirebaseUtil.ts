@@ -1,7 +1,7 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
 import { doc, Firestore, getDoc, getFirestore } from '@firebase/firestore'
-import { MainProjects, MainTimelines } from '~/interfaces/FirebaseAPI'
-import { API_MAIN_PROJECTS, API_MAIN_TIMELINES } from '~/src/interfaces'
+import { MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
+import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_MEMBER_LIST, MEMBER_DATA } from '~/src/interfaces'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FB_API_KEY,
@@ -74,4 +74,40 @@ export const getMainTimelineDB = async () => {
     })
 
     return TimelineList
+}
+
+export const getMemberDB = async (year: string) => {
+    if (firebaseApp === undefined || firebaseDB === undefined) {
+        initFirebase()
+    }
+
+    const MemberList: API_MEMBER_LIST = {
+        MEMBER_CNT: 0,
+        MEMBER_LIST: [],
+    }
+
+    const memberDocData = await getDoc(doc(firebaseDB, 'Members', year))
+    if (!memberDocData.exists()) {
+        return MemberList
+    }
+
+    memberDocData.data().list.forEach((memberItem: Members) => {
+        MemberList.MEMBER_CNT++
+        MemberList.MEMBER_LIST.push({
+            MEMBER_COMMENT: memberItem.Comment,
+            MEMBER_EMAIL: memberItem.Email,
+            MEMBER_GENDER: memberItem.Gender as MEMBER_DATA['MEMBER_GENDER'],
+            MEMBER_IMAGE: memberItem.Image,
+            MEMBER_INSTAGRAM: memberItem.Instagram,
+            MEMBER_LINK_BEHANCE: memberItem.Behance,
+            MEMBER_LINK_GITHUB: memberItem.Github,
+            MEMBER_NAME: memberItem.Name,
+            MEMBER_NICKNAME: memberItem.Nickname,
+            MEMBER_POSITION: memberItem.Position,
+            MEMBER_ROLE: memberItem.Role as MEMBER_DATA['MEMBER_ROLE'],
+            MEMBER_YEAR: `${year}기` as MEMBER_DATA['MEMBER_YEAR'],
+        })
+    })
+
+    return MemberList
 }
