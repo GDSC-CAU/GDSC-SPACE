@@ -1,3 +1,12 @@
+export interface EventListItem {
+    Date: string
+    Description: string
+    NotionID: string
+    Thumbnail: string
+    Title: string
+    Type: string
+}
+
 export interface MainProjects {
     Description: string
     ID: string
