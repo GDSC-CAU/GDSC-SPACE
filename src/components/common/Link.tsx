@@ -6,7 +6,13 @@ type UNIQUE_ID = string
 /**
  * Project link path
  */
-export type LinkPath = '/' | `/members` | BlogRoute | `${BlogRoute}/${UNIQUE_ID}` | '/events' | `/events/${UNIQUE_ID}`
+export type LinkPath =
+    | '/'
+    | `/members/${string}`
+    | BlogRoute
+    | `${BlogRoute}/${UNIQUE_ID}`
+    | '/events'
+    | `/events/${UNIQUE_ID}`
 
 interface Link$Props extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>, LinkProps {
     href: LinkPath

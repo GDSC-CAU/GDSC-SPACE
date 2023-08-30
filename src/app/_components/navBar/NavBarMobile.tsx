@@ -74,7 +74,7 @@ export const NavBarMobile = ({ iconSize = 45 }: NavBarProps) => {
                     <NavButton type="link" href="/events" onClick={close}>
                         Events
                     </NavButton>
-                    <NavButton type="link" href="/members" onClick={close}>
+                    <NavButton type="link" href="/members/3" onClick={close}>
                         Members
                     </NavButton>
                 </>
