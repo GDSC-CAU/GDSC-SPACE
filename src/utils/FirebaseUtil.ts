@@ -1,6 +1,6 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
 import { doc, Firestore, getDoc, getFirestore } from '@firebase/firestore'
-import { MainTimeline } from '~/interfaces/FirebaseAPI'
+import { MainTimelines } from '~/interfaces/FirebaseAPI'
 import { API_MAIN_PROJECTS, API_MAIN_TIMELINES } from '~/src/interfaces'
 
 const firebaseConfig = {
@@ -46,7 +46,7 @@ export const getMainTimelineDB = async () => {
         return TimelineList
     }
 
-    timelineDocData.data().list.forEach((projItem: MainTimeline) => {
+    timelineDocData.data().list.forEach((projItem: MainTimelines) => {
         TimelineList.MAIN_TIMELINE_CNT++
         TimelineList.MAIN_TIMELINE_LIST.push({
             TIMELINE_CARD_TITLE: projItem.Card_title,
