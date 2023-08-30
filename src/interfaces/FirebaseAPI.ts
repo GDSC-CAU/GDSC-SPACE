@@ -2,6 +2,7 @@ export interface BlogListItem {
     Author: string
     Date: string
     Description: string
+    ID: string
     NotionID: string
     Tag: Array<string>
     Thumbnail: string
