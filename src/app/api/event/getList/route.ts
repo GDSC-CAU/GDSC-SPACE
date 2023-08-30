@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_EVENT_LIST, API_RESPONSE } from '~/src/interfaces/common'
+import { API_EVENT_LIST, API_RESPONSE } from '~/interfaces/Common'
 
-export async function GET(request: NextRequest) {
+export async function GET(_: NextRequest) {
     const dummyEventList: API_EVENT_LIST = {
         EVENT_CNT: 10,
         EVENT_LIST: [],
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         })
     }
 
-    const apiResult: API_RESPONSE = {
+    const apiResult: API_RESPONSE<API_EVENT_LIST> = {
         RESULT_CODE: 200,
         RESULT_MSG: 'Success',
         RESULT_DATA: dummyEventList,

@@ -1,3 +1,3 @@
-export const test = () => {
-    return 'Hello World!'
-}
+export * from './fetcher'
+import * as stringUtil from './string'
+export const util = { ...stringUtil } as const

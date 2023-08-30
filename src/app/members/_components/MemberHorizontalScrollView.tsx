@@ -1,4 +1,4 @@
-import type { MEMBER_DATA } from 'src/interfaces/common'
+import type { MEMBER_DATA } from '~/interfaces/Common'
 import { MemberCard } from './MemberCard'
 
 function divideArrayIntoChunk<T>(arr: T[], chunkSize: number) {

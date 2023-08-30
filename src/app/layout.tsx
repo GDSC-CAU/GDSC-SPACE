@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className="relative h-fit min-h-screen overflow-x-hidden bg-theme-background font-kor text-theme-font">
                 <NavBar />
                 <div id="modal-root" />
-                <main className="mx-auto h-full w-full px-52">{children}</main>
+                <main className="mx-auto h-full w-full px-10 md:px-28 lg:px-52">{children}</main>
             </body>
         </html>
     )

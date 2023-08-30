@@ -1,15 +1,20 @@
 import { TailwindComponent } from './tailwind'
 
 export interface GradientHeaderProps extends TailwindComponent {
-    size?: 'text-3xl' | 'text-4xl' | 'text-5xl' | 'text-6xl' | 'text-7xl' | 'text-8xl'
+    desktopSize?: 'md:text-3xl' | 'md:text-4xl' | 'md:text-5xl' | 'md:text-6xl' | 'md:text-7xl' | 'md:text-8xl'
+    mobileSize?: 'text-xl' | 'text-2xl' | 'text-3xl' | 'text-4xl' | 'text-5xl'
+    id?: string
 }
 export const GradientHeader = ({
-    size = 'text-6xl',
+    desktopSize = 'md:text-6xl',
+    mobileSize = 'text-5xl',
     twClass,
     children,
+    id,
 }: React.PropsWithChildren<GradientHeaderProps>) => (
     <h1
-        className={`${size} ${twClass} z-10 bg-gradient-to-b from-primary-blue to-white bg-clip-text font-eng font-bold text-transparent`}
+        id={id}
+        className={` ${desktopSize} ${mobileSize} ${twClass} z-10 scroll-m-40 bg-gradient-to-b from-primary-blue to-white bg-clip-text font-eng font-bold text-transparent`}
     >
         {children}
     </h1>

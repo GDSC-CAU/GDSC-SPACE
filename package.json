@@ -25,6 +25,7 @@
     ],
     "dependencies": {
         "@builder.io/partytown": "^0.8.0",
+        "@notionhq/client": "^2.2.12",
         "next": "13.4.8",
         "react": "18.2.0",
         "react-dom": "18.2.0",

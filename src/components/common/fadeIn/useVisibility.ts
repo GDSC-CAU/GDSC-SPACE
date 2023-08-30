@@ -27,7 +27,11 @@ export const useVisibility = <TargetElement extends HTMLElement | SVGSVGElement>
             })
         }, observerOption)
 
-        if (observeTarget) {
+        if (!observeTarget) return
+
+        if (isVisible) {
+            observer.unobserve(observeTarget)
+        } else {
             observer.observe(observeTarget)
         }
 
@@ -36,7 +40,7 @@ export const useVisibility = <TargetElement extends HTMLElement | SVGSVGElement>
                 observer.unobserve(observeTarget)
             }
         }
-    }, [observerOption])
+    }, [isVisible, observerOption])
 
     return {
         setVisibilityRef: visibilityRef,

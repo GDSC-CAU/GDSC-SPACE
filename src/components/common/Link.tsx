@@ -1,9 +1,12 @@
 import Link, { type LinkProps } from 'next/link'
+import { type BlogRoutingType } from '~/src/app/blog/_data/blogRouteData'
 
+type BlogRoute = `/blog/${BlogRoutingType}`
+type UNIQUE_ID = string
 /**
  * Project link path
  */
-export type LinkPath = '/' | `/members` | '/blog' | `/blog/${string}` | '/events' | `/events/${string}`
+export type LinkPath = '/' | `/members` | BlogRoute | `${BlogRoute}/${UNIQUE_ID}` | '/events' | `/events/${UNIQUE_ID}`
 
 interface Link$Props extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>, LinkProps {
     href: LinkPath
