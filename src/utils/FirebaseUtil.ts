@@ -1,7 +1,7 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
-import { doc, Firestore, getDoc, getFirestore } from '@firebase/firestore'
-import { MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
-import { API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_MEMBER_LIST, MEMBER_DATA } from '~/src/interfaces'
+import { collection, doc, Firestore, getDoc, getDocs, getFirestore } from '@firebase/firestore'
+import { EventListItem, MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
+import { API_EVENT_LIST, API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_MEMBER_LIST, MEMBER_DATA } from '~/src/interfaces'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FB_API_KEY,
@@ -16,6 +16,37 @@ let firebaseDB: Firestore
 const initFirebase = () => {
     firebaseApp = initializeApp(firebaseConfig)
     firebaseDB = getFirestore()
+}
+
+export const getEventListDB = async () => {
+    if (firebaseApp === undefined || firebaseDB === undefined) {
+        initFirebase()
+    }
+
+    const EventList: API_EVENT_LIST = {
+        EVENT_CNT: 0,
+        EVENT_LIST: [],
+    }
+
+    const eventDocsData = await getDocs(collection(firebaseDB, 'Event'))
+    if (eventDocsData.empty) {
+        return EventList
+    }
+
+    eventDocsData.forEach((eventItem) => {
+        EventList.EVENT_CNT++
+        EventList.EVENT_LIST.push({
+            EVENT_DATE: eventItem.get('Date'),
+            EVENT_DESCRIPTION: eventItem.get('Description'),
+            EVENT_ID: eventItem.id,
+            EVENT_NOTION_ID: eventItem.get('NotionID'),
+            EVENT_THUMBNAIL: eventItem.get('Thumbnail'),
+            EVENT_TITLE: eventItem.get('Title'),
+            EVENT_TYPE: eventItem.get('Type'),
+        })
+    })
+
+    return EventList
 }
 
 export const getMainProjectDB = async () => {
