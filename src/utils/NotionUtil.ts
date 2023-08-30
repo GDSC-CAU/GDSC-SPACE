@@ -52,7 +52,7 @@ export const getMemberDB = async () => {
                 MEMBER_EMAIL: '',
                 MEMBER_GENDER: 'Male',
                 MEMBER_INSTAGRAM: '',
-                MEMBER_IMAGE: 'memberImageData.image.file.url',
+                MEMBER_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/13/00/43/blue-8186653_1280.jpg',
                 MEMBER_LINK_BEHANCE: '',
                 MEMBER_LINK_GITHUB: '',
                 MEMBER_NAME: memberDBRow.properties.Name.title[0].text.content,
@@ -126,8 +126,8 @@ export const getMainProjectDB = async () => {
             const ProjectItem: MAIN_PROJECT_DATA = {
                 PROJECT_DESCRIPTION: '',
                 PROJECT_ID: projectDBRow.properties.ID.rich_text[0].text.content,
-                PROJECT_IMAGE: 'IMAGE',
-                PROJECT_IMAGE_SUB: 'IMAGE_SUB',
+                PROJECT_IMAGE: 'https://cdn.pixabay.com/photo/2023/08/13/00/43/blue-8186653_1280.jpg',
+                PROJECT_IMAGE_SUB: 'https://cdn.pixabay.com/photo/2023/08/13/00/43/blue-8186653_1280.jpg',
                 PROJECT_SUBTITLE: '',
                 PROJECT_TITLE: projectDBRow.properties.Title.title[0].text.content,
             }
