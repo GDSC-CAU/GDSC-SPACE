@@ -6,7 +6,7 @@ export interface MainProjects {
     Title: string
 }
 
-export interface MainTimeline {
+export interface MainTimelines {
     Card_title: string
     Date: string
     Description: string
