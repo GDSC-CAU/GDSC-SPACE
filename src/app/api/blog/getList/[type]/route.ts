@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { API_BLOG_LIST, API_RESPONSE, BLOG_TYPE_PARAMS } from '~/src/interfaces'
 import { getBlogListDB } from '~/utils/FirebaseUtil'
 
-export async function GET(request: NextRequest, { params }: BLOG_TYPE_PARAMS) {
+export async function GET(_: NextRequest, { params }: BLOG_TYPE_PARAMS) {
     if (params.type !== 'Design' && params.type !== 'Development' && params.type !== 'Project') {
         const apiResultError: API_RESPONSE<undefined> = {
             RESULT_CODE: 100,
