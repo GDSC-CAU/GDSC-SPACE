@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_TIMELINES, API_RESPONSE, MAIN_TIMELINE_DATA } from '~/interfaces/Common'
+import { API_MAIN_TIMELINES, API_RESPONSE } from '~/interfaces/Common'
 import { getMainTimelineDB } from '~/utils/FirebaseUtil'
 
 export async function GET(_: NextRequest) {
