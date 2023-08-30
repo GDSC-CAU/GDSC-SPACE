@@ -1,6 +1,6 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
 import { doc, Firestore, getDoc, getFirestore } from '@firebase/firestore'
-import { MainTimelines } from '~/interfaces/FirebaseAPI'
+import { MainProjects, MainTimelines } from '~/interfaces/FirebaseAPI'
 import { API_MAIN_PROJECTS, API_MAIN_TIMELINES } from '~/src/interfaces'
 
 const firebaseConfig = {
@@ -27,6 +27,23 @@ export const getMainProjectDB = async () => {
         MAIN_PROJECT_CNT: 0,
         MAIN_PROJECT_LIST: [],
     }
+
+    const projectDocData = await getDoc(doc(firebaseDB, 'Main', 'Projects'))
+    if (!projectDocData.exists()) {
+        return ProjectList
+    }
+
+    projectDocData.data().list.forEach((projItem: MainProjects) => {
+        ProjectList.MAIN_PROJECT_CNT++
+        ProjectList.MAIN_PROJECT_LIST.push({
+            PROJECT_DESCRIPTION: projItem.Description,
+            PROJECT_ID: projItem.ID,
+            PROJECT_IMAGE: projItem.Image,
+            PROJECT_IMAGE_SUB: projItem.Image_sub,
+            PROJECT_SUBTITLE: projItem.Subtitle,
+            PROJECT_TITLE: projItem.Title,
+        })
+    })
 
     return ProjectList
 }
