@@ -1,6 +1,9 @@
 import { Divider } from '~/components/common'
-import { EVENT_META } from '~/src/interfaces/Common'
+import { EVENT_META } from '~/interfaces/Common'
 import { EventCard } from './_components'
+import { EventCardDesktop } from './_components/EventCardDesktop'
+
+import { EventCardMobile } from './_components/EventCardMobile'
 
 const generateRandomEvent = (count: number): Array<EVENT_META> =>
     Array.from(
@@ -15,7 +18,8 @@ const generateRandomEvent = (count: number): Array<EVENT_META> =>
             EVENT_DATE: 'Jul 15, 2023',
             EVENT_TYPE: 'Association',
             EVENT_THUMBNAIL: '/events/cardtest.png',
-            EVENT_NOTION_ID: '~~~',
+            EVENT_NOTION_ID: '',
+
         })
     )
 
@@ -32,9 +36,13 @@ export default function EventsPage() {
             <div className="flex w-fit flex-col items-center justify-center pt-4">
                 <Divider twClass="w-full" />
 
-                <div className="grid w-fit grid-cols-3 items-center justify-evenly gap-x-2 gap-y-8">
+                <div className="grid w-full items-center gap-y-8 md: lg:grid-cols-3 md:mx-0.5">
                     {bulkData.map((event) => (
-                        <EventCard event={event} key={event.EVENT_ID} />
+                        <EventCardDesktop event={event} key={event.EVENT_ID} />
+                    ))}
+
+                    {bulkData.map((event, i) => (
+                        <EventCardMobile event={event} key={event.EVENT_ID} />
                     ))}
                 </div>
             </div>
