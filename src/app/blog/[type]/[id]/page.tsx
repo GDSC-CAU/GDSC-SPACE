@@ -4,7 +4,7 @@ const ProjectDetailView = () => {
     return (
         <>
             <div className="relative flex w-full flex-col items-center justify-center gap-10">
-                <PageHeader heading="Project" twClass="sticky top-32 z-50 text-5xl" />
+                <PageHeader heading="Project" twClass="sticky top-32 z-50 text-5xl bg-theme-background pb-8" />
                 <div className="mt-12 flex w-full flex-col items-center justify-center gap-14">
                     <div className="flex w-full items-center justify-center p-4 text-7xl font-bold">Thanks Clip</div>
                     <div className="flex w-full flex-row items-center justify-between">
@@ -21,7 +21,7 @@ const DevDesignDetailView = ({ type }: { type: string }) => {
     return (
         <>
             <div className="relative flex w-full flex-col items-center justify-center gap-7">
-                <PageHeader heading={type} twClass="sticky top-32 z-50 text-5xl" />
+                <PageHeader heading={type} twClass="sticky top-32 z-50 text-5xl bg-theme-background pb-8" />
                 <div className="mt-12 flex w-full flex-col items-center justify-center">
                     <div className="flex w-full items-center justify-center border-[0.5px] border-white p-4 text-xl font-bold">
                         title
