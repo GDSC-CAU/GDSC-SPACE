@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Email, Gdsc, Instagram, Link as LinkIcon } from '~/components/icons'
-import { MEMBER_DATA } from '~/interfaces/Common'
+import { MEMBER_DATA } from '~/src/interfaces/Common'
 import { MemberAvatar } from './MemberAvatar'
 import { MemberContact, MemberContactProps } from './MemberContact'
 import { MemberRoleIcon } from './MemberRoleIcon'

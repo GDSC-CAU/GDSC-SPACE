@@ -35,7 +35,7 @@ const BlogDesktopTags = ({
 
 const getFilteredArticle = (allArticles: API_BLOG_LIST['BLOG_LIST'], tag: BlogTag) => {
     const filteredArticle =
-        tag === 'All' ? allArticles : allArticles.filter((article) => article.BLOG_TAG.includes(tag))
+        tag === 'All' ? allArticles : allArticles.filter((article) => article.BLOG_TAGS.includes(tag))
     return filteredArticle
 }
 
@@ -56,8 +56,12 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
                 />
                 <div className="flex w-full flex-col items-center justify-evenly gap-y-4 md:gap-y-7">
                     {filteredArticle.map((article) => (
-                        <Link$ href={`/blog/Development/${article.BLOG_ID}`} key={article.BLOG_ID} className="w-full">
-                            <DevelopCard article={article} key={article.BLOG_ID} />
+                        <Link$
+                            href={`/blog/Development/${article.BLOG_PAGE_ID}`}
+                            key={article.BLOG_PAGE_ID}
+                            className="w-full"
+                        >
+                            <DevelopCard article={article} key={article.BLOG_PAGE_ID} />
                         </Link$>
                     ))}
                 </div>
@@ -69,7 +73,7 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
         <>
             <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:w-fit md:grid-cols-3 md:gap-y-8">
                 {filteredArticle.map((article) => (
-                    <DesignProjectCard type={type} article={article} key={article.BLOG_ID} />
+                    <DesignProjectCard type={type} article={article} key={article.BLOG_PAGE_ID} />
                 ))}
             </div>
         </>

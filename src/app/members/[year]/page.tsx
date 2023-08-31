@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import type { API_MEMBER_LIST } from '~/interfaces/Common'
-import { MEMBER_PAGE_PARAMS } from '~/src/interfaces'
+import type { MEMBER_PAGE_PARAMS } from '~/src/interfaces'
+import type { API_MEMBER_LIST } from '~/src/interfaces/Common'
 import { Fetcher } from '~/src/utils'
 import { MemberHorizontalScrollView } from '../_components'
 

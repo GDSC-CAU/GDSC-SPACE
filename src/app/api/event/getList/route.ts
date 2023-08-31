@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_EVENT_LIST, API_RESPONSE } from '~/interfaces/Common'
+import { API_EVENT_LIST, API_RESPONSE } from '~/src/interfaces/Common'
 
 export async function GET(_: NextRequest) {
     const dummyEventList: API_EVENT_LIST = {

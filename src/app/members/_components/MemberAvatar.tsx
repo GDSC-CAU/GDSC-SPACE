@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useMemo } from 'react'
 import { Boy, Girl } from '~/components/icons'
-import { MEMBER_DATA } from '~/interfaces/Common'
+import { MEMBER_DATA } from '~/src/interfaces/Common'
 
 export const MemberAvatar = ({ MEMBER_GENDER, MEMBER_IMAGE }: Pick<MEMBER_DATA, 'MEMBER_GENDER' | 'MEMBER_IMAGE'>) => {
     const randomBackgroundColor = useMemo(() => {
