@@ -103,7 +103,7 @@ export const getMainProjectDB = async () => {
         return ProjectList
     }
 
-    projectDocData.data().list.forEach((projItem: MainProjects) => {
+    projectDocData.data().list?.forEach((projItem: MainProjects) => {
         ProjectList.MAIN_PROJECT_CNT++
         ProjectList.MAIN_PROJECT_LIST.push({
             PROJECT_DESCRIPTION: projItem.Description,
