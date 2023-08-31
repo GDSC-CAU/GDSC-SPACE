@@ -40,7 +40,7 @@ export const getBlogListDB = async (type: string) => {
         return BlogList
     }
 
-    blogDocData.data().list.forEach((blogItem: BlogListItem) => {
+    blogDocData.data().list?.forEach((blogItem: BlogListItem) => {
         BlogList.BLOG_CNT++
         BlogList.BLOG_LIST.push({
             BLOG_AUTHOR: blogItem.Author,
