@@ -16,7 +16,7 @@ const nextConfig = {
         nextScriptWorkers: true,
     },
     images: {
-        domains: ['cdn.pixabay.com'],
+        domains: ['cdn.pixabay.com', 'www.notion.so', 's3.us-west-2.amazonaws.com'],
     },
 }
 module.exports = nextConfig

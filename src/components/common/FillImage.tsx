@@ -10,12 +10,15 @@ interface FillImageProps extends Omit<ImageProps, 'style' | 'fill' | 'width' | '
      * class name for image
      */
     imageClass?: string
+
+    fit?: 'contain' | 'cover'
 }
 
 export const FillImage = ({
     children,
     containerClass,
     imageClass,
+    fit = 'cover',
     ...nextImageProps
 }: React.PropsWithChildren<FillImageProps>) => (
     <div className={`relative ${containerClass}`}>
@@ -23,7 +26,7 @@ export const FillImage = ({
             fill
             className={`${imageClass} h-full w-full`}
             style={{
-                objectFit: 'cover',
+                objectFit: fit,
             }}
             {...nextImageProps}
         />
