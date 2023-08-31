@@ -161,7 +161,7 @@ export const getMemberDB = async (year: string) => {
         return MemberList
     }
 
-    memberDocData.data().list.forEach((memberItem: Members) => {
+    memberDocData.data().list?.forEach((memberItem: Members) => {
         MemberList.MEMBER_CNT++
         MemberList.MEMBER_LIST.push({
             MEMBER_COMMENT: memberItem.Comment,
