@@ -38,7 +38,6 @@ export async function GET(request: NextRequest, { params: { type } }: BLOG_TYPE_
             BLOG_CNT: blogList.length,
             BLOG_LIST: blogList,
         },
-    }
 
     return NextResponse.json(apiResultSuccess, { status: 200 })
 }
