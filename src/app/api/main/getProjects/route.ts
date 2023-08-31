@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_PROJECTS, API_RESPONSE, MAIN_PROJECT_DATA } from '~/interfaces/Common'
-import { getMainProjectDB } from '~/utils/NotionUtil'
+import { API_MAIN_PROJECTS, API_RESPONSE } from '~/interfaces/Common'
+import { getMainProjectDB } from '~/utils/FirebaseUtil'
 
 export async function GET(_: NextRequest) {
     const apiResult: API_RESPONSE<API_MAIN_PROJECTS> = {

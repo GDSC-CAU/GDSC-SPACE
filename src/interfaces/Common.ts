@@ -38,6 +38,7 @@ export interface BLOG_META {
     BLOG_DATE: string
     BLOG_DESCRIPTION: string
     BLOG_ID: string
+    BLOG_NOTION_ID: string
     BLOG_TAG: Array<string>
     BLOG_THUMBNAIL: string
     BLOG_TITLE: string
@@ -66,6 +67,7 @@ export interface EVENT_META {
     EVENT_DATE: string
     EVENT_DESCRIPTION: string
     EVENT_ID: string
+    EVENT_NOTION_ID: string
     EVENT_THUMBNAIL: string
     EVENT_TITLE: string
     EVENT_TYPE: string
