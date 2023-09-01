@@ -12,8 +12,6 @@ export default async function MemberPage({ params: { year } }: MEMBER_PAGE_PARAM
     const members = await fetcher.get<API_RESPONSE<API_MEMBER_LIST>>(`/members/getList/${year}`)
     const isMemberExist = members.RESULT_DATA.MEMBER_LIST?.length !== 0
 
-    console.log(members)
-
     return (
         <>
             {isMemberExist ? (
