@@ -30,17 +30,30 @@ export interface BLOG_CONTENT_ITEM {
 
 export interface API_BLOG_LIST {
     BLOG_CNT: number
-    BLOG_LIST: Array<BLOG_META>
+    BLOG_LIST: Array<BLOG_POST_META>
 }
 
-export interface BLOG_META {
-    BLOG_AUTHOR: string
-    BLOG_DATE: string
-    BLOG_DESCRIPTION: string
-    BLOG_ID: string
-    BLOG_TAG: Array<string>
-    BLOG_THUMBNAIL: string
+export interface BLOG_POST_META {
+    BLOG_PAGE_ID: string
     BLOG_TITLE: string
+    BLOG_DESCRIPTION: string
+    BLOG_UPDATED_AT: string
+    BLOG_TAGS: Array<string>
+    BLOG_AUTHOR: string
+    BLOG_CATEGORY: string
+    BLOG_THUMBNAIL?: string
+}
+
+export interface DEV_POST_META extends BLOG_POST_META {
+    BLOG_CATEGORY: 'Front-end' | 'Back-end' | 'DS/ML/DL' | 'Application' | 'General' | 'Cloud'
+}
+
+export interface DESIGN_POST_META extends BLOG_POST_META {
+    BLOG_CATEGORY: 'Design' | 'General'
+}
+
+export interface PROJECT_POST_META extends BLOG_POST_META {
+    BLOG_CATEGORY: 'App' | 'Web'
 }
 
 export interface API_EVENT_DETAIL {
@@ -66,6 +79,7 @@ export interface EVENT_META {
     EVENT_DATE: string
     EVENT_DESCRIPTION: string
     EVENT_ID: string
+    EVENT_NOTION_ID: string
     EVENT_THUMBNAIL: string
     EVENT_TITLE: string
     EVENT_TYPE: string

@@ -1,7 +1,7 @@
 'use client'
 
-import { MAIN_TIMELINE_DATA } from 'src/interfaces/common'
 import { FadeIn } from '~/src/components/common'
+import { MAIN_TIMELINE_DATA } from '~/src/interfaces/Common'
 
 export const TimeLineCard = ({
     timeLine,

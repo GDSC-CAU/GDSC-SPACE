@@ -2,6 +2,8 @@ import '../styles/tailwind.css'
 import { Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import { NavBar } from './_components'
+import 'react-notion-x/src/styles.css'
+import '../styles/nord.css'
 
 const pretendard = localFont({
     src: [

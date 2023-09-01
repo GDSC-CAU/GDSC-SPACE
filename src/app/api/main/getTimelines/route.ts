@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_MAIN_TIMELINES, API_RESPONSE, MAIN_TIMELINE_DATA } from '~/interfaces/Common'
-import { getMainTimelineDB } from '~/utils/NotionUtil'
+import { API_MAIN_TIMELINES, API_RESPONSE } from '~/src/interfaces/Common'
+import { getMainTimelineDB } from '~/utils/FirebaseUtil'
 
 export async function GET(_: NextRequest) {
     const apiResult: API_RESPONSE<API_MAIN_TIMELINES> = {

@@ -1,7 +1,21 @@
+import { NotionAPI } from 'notion-client'
+import { Divider } from '~/src/components/common'
+import { BLOG_POST_PARAMS } from '~/src/interfaces'
+import { Notion } from './_components/NotionRenderer'
 import { IconButton, Link$, PageHeader } from '~/src/components/common'
 import { Arrow } from '~/src/components/icons'
 
 const ProjectDetailView = () => {
+    let recordMap: Awaited<ReturnType<typeof notion.getPage>> | null = null
+    try {
+        const res = await notion.getPage(id)
+        recordMap = res
+    } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e)
+        recordMap = null
+    }
+    
     return (
         <>
             <div className="relative flex w-full flex-col items-center justify-center gap-10">
@@ -14,13 +28,23 @@ const ProjectDetailView = () => {
                         <div className="flex w-full items-center justify-center p-2 text-lg md:text-xl">Date</div>
                     </div>
                 </div>
-                <div>content</div>
+                <div>{recordMap ? <Notion recordMap={recordMap} /> : <>404</>}</div>
             </div>
         </>
     )
 }
 
 const DevDesignDetailView = () => {
+    let recordMap: Awaited<ReturnType<typeof notion.getPage>> | null = null
+    try {
+        const res = await notion.getPage(id)
+        recordMap = res
+    } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e)
+        recordMap = null
+    }
+    
     return (
         <>
             <div className="relative flex w-full flex-col items-center justify-center gap-7">
@@ -40,7 +64,7 @@ const DevDesignDetailView = () => {
                         </div>
                     </div>
                 </div>
-                <div>content</div>
+                <div>{recordMap ? <Notion recordMap={recordMap} /> : <>404</>}</div>
             </div>
         </>
     )
