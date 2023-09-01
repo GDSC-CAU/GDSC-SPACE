@@ -1,14 +1,7 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
 import { collection, doc, Firestore, getDoc, getDocs, getFirestore } from '@firebase/firestore'
-import { BlogListItem, MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
-import {
-    API_BLOG_LIST,
-    API_EVENT_LIST,
-    API_MAIN_PROJECTS,
-    API_MAIN_TIMELINES,
-    API_MEMBER_LIST,
-    MEMBER_DATA,
-} from '~/src/interfaces'
+import { MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
+import { API_EVENT_LIST, API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_MEMBER_LIST, MEMBER_DATA } from '~/src/interfaces'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FB_API_KEY,
@@ -23,38 +16,6 @@ let firebaseDB: Firestore
 const initFirebase = () => {
     firebaseApp = initializeApp(firebaseConfig)
     firebaseDB = getFirestore()
-}
-
-export const getBlogListDB = async (type: string) => {
-    if (firebaseApp === undefined || firebaseDB === undefined) {
-        initFirebase()
-    }
-
-    const BlogList: API_BLOG_LIST = {
-        BLOG_CNT: 0,
-        BLOG_LIST: [],
-    }
-
-    const blogDocData = await getDoc(doc(firebaseDB, 'Blog', type))
-    if (!blogDocData.exists()) {
-        return BlogList
-    }
-
-    blogDocData.data().list?.forEach((blogItem: BlogListItem) => {
-        BlogList.BLOG_CNT++
-        BlogList.BLOG_LIST.push({
-            BLOG_AUTHOR: blogItem.Author,
-            BLOG_DATE: blogItem.Date,
-            BLOG_DESCRIPTION: blogItem.Description,
-            BLOG_ID: blogItem.ID,
-            BLOG_NOTION_ID: blogItem.NotionID,
-            BLOG_TAG: blogItem.Tag,
-            BLOG_THUMBNAIL: blogItem.Thumbnail,
-            BLOG_TITLE: blogItem.Title,
-        })
-    })
-
-    return BlogList
 }
 
 export const getEventListDB = async () => {
