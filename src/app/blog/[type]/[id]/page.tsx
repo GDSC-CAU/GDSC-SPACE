@@ -1,11 +1,13 @@
 import { NotionAPI } from 'notion-client'
 import { Divider } from '~/src/components/common'
-import { BLOG_POST_PARAMS } from '~/src/interfaces'
-import { Notion } from './_components/NotionRenderer'
 import { IconButton, Link$, PageHeader } from '~/src/components/common'
 import { Arrow } from '~/src/components/icons'
+import { BLOG_POST_PARAMS } from '~/src/interfaces'
+import { Notion } from './_components/NotionRenderer'
 
-const ProjectDetailView = () => {
+const notion = new NotionAPI()
+
+const ProjectDetailView = async (id: string) => {
     let recordMap: Awaited<ReturnType<typeof notion.getPage>> | null = null
     try {
         const res = await notion.getPage(id)
@@ -15,7 +17,7 @@ const ProjectDetailView = () => {
         console.log(e)
         recordMap = null
     }
-    
+
     return (
         <>
             <div className="relative flex w-full flex-col items-center justify-center gap-10">
@@ -34,7 +36,7 @@ const ProjectDetailView = () => {
     )
 }
 
-const DevDesignDetailView = () => {
+const DevDesignDetailView = async (id: string) => {
     let recordMap: Awaited<ReturnType<typeof notion.getPage>> | null = null
     try {
         const res = await notion.getPage(id)
@@ -44,7 +46,7 @@ const DevDesignDetailView = () => {
         console.log(e)
         recordMap = null
     }
-    
+
     return (
         <>
             <div className="relative flex w-full flex-col items-center justify-center gap-7">
@@ -100,7 +102,8 @@ export default function BlogDetailView({ params }: { params: { id: string; type:
                 heading={`${type}`}
                 twClass="w-full sticky top-14 text-5xl bg-theme-background py-8 md:top-20"
             />
-            {type === 'Project' ? <ProjectDetailView /> : <DevDesignDetailView />}
+            <Divider />
+            {type === 'Project' ? <ProjectDetailView id={params.id} /> : <DevDesignDetailView id={params.id} />}
             <PrevNextButton />
         </main>
     )
