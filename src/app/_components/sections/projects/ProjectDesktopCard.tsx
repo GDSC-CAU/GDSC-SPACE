@@ -1,5 +1,5 @@
 'use client'
-import { MAIN_PROJECT_DATA } from 'src/interfaces/common'
+import { MAIN_PROJECT_DATA } from 'src/interfaces/Common'
 import { FillImage, IconButton, Link$, useVisibility } from '~/components/common'
 import { Arrow } from '~/src/components/icons'
 

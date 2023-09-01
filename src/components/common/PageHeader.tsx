@@ -1,3 +1,4 @@
+import { Link$ } from '~/src/components/common'
 import { Divider } from './Divider'
 import { TailwindComponent } from './tailwind'
 
