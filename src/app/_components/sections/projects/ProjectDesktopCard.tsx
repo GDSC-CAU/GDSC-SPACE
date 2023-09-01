@@ -1,8 +1,4 @@
 'use client'
-<<<<<<< HEAD
-=======
-import { MAIN_PROJECT_DATA } from 'src/interfaces'
->>>>>>> d273ad4 (dev: project name error)
 import { FillImage, IconButton, Link$, useVisibility } from '~/components/common'
 import { Arrow } from '~/src/components/icons'
 import type { MAIN_PROJECT_DATA } from '~/src/interfaces/Common'
