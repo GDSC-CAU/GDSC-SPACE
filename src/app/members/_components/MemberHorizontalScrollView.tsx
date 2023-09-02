@@ -12,7 +12,7 @@ function divideArrayIntoChunk<T>(arr: T[], chunkSize: number) {
 
 const GradientBackground = ({ rowIndex }: { rowIndex: number }) => (
     <div
-        className={`absolute z-10 h-[20rem] w-[5rem] ${
+        className={`absolute z-10 h-[22rem] w-[5rem] ${
             rowIndex % 2 === 0
                 ? 'right-0 bg-gradient-to-l from-primary-darkgray to-transparent'
                 : 'left-0 bg-gradient-to-r from-primary-darkgray to-transparent'
