@@ -31,9 +31,8 @@ export default function EventsPage() {
 
             <div className="flex w-full max-w-[800px] flex-col items-center justify-center pt-4">
                 <Divider twClass="w-full" />
-                                
-                <div className="flex max-w-[800px] flex-wrap items-center justify-center gap-x-4 gap-y-8">
 
+                <div className="flex max-w-[800px] flex-wrap items-center justify-center gap-x-4 gap-y-8">
                     {bulkData.map((event) => (
                         <EventCard event={event} key={event.EVENT_ID} />
                     ))}
