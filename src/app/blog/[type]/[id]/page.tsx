@@ -1,110 +1,34 @@
-import { NotionAPI } from 'notion-client'
-import { Divider } from '~/src/components/common'
-import { IconButton, Link$, PageHeader } from '~/src/components/common'
-import { Arrow } from '~/src/components/icons'
-import { BLOG_POST_PARAMS } from '~/src/interfaces'
-import { Notion } from './_components/NotionRenderer'
+import { Divider, PageHeader } from '~/src/components/common'
+import type { API_BLOG_DETAIL, API_RESPONSE, BLOG_POST_PARAMS } from '~/src/interfaces'
+import { Fetcher } from '~/src/utils'
+import { BlogNavigationButtons, DevDesignPostDetailView, ProjectPostDetailView } from './_components'
 
-const notion = new NotionAPI()
+const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
 
-const ProjectDetailView = async (id: string) => {
-    let recordMap: Awaited<ReturnType<typeof notion.getPage>> | null = null
-    try {
-        const res = await notion.getPage(id)
-        recordMap = res
-    } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e)
-        recordMap = null
+export default async function BlogDetailView({ params: { id, type } }: BLOG_POST_PARAMS) {
+    const post = await fetcher.get<API_RESPONSE<API_BLOG_DETAIL>>(`blog/getDetail/${type}/${id}`)
+    const isValidRequest = post.RESULT_CODE === 200 && post.RESULT_DATA
+
+    if (isValidRequest === false) {
+        return (
+            <main className="flex h-full w-full flex-col items-center justify-between md:gap-5 md:pb-5">
+                <div className="h-full w-full">
+                    <h1 className="font-eng text-5xl font-semibold">404</h1>
+                </div>
+            </main>
+        )
     }
 
     return (
-        <>
-            <div className="relative flex w-full flex-col items-center justify-center gap-10">
-                <div className="flex w-full flex-col items-center justify-center gap-10">
-                    <div className="flex w-full items-center justify-center p-4 text-4xl font-bold md:text-7xl">
-                        Thanks Clip
-                    </div>
-                    <div className="flex w-full flex-row items-center justify-between">
-                        <div className="flex w-full items-center justify-center p-2 text-lg md:text-xl">People</div>
-                        <div className="flex w-full items-center justify-center p-2 text-lg md:text-xl">Date</div>
-                    </div>
-                </div>
-                <div>{recordMap ? <Notion recordMap={recordMap} /> : <>404</>}</div>
-            </div>
-        </>
-    )
-}
+        <main className="flex h-full w-full flex-col items-center justify-between md:gap-5 md:pb-5">
+            <PageHeader heading={`${type}`} twClass="w-full text-5xl bg-theme-background pt-8 md:top-10" />
 
-const DevDesignDetailView = async (id: string) => {
-    let recordMap: Awaited<ReturnType<typeof notion.getPage>> | null = null
-    try {
-        const res = await notion.getPage(id)
-        recordMap = res
-    } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e)
-        recordMap = null
-    }
+            <Divider disableMargin />
 
-    return (
-        <>
-            <div className="relative flex w-full flex-col items-center justify-center gap-7">
-                <div className="mt-10 flex w-full flex-col items-center justify-center md:mt-12">
-                    <div className="flex w-full items-center justify-center border-[0.5px] border-white p-4 text-lg font-bold md:text-xl">
-                        title
-                    </div>
-                    <div className="flex w-full flex-row items-center justify-center">
-                        <div className="flex w-full items-center justify-center border-[0.5px] border-white p-2">
-                            Tag
-                        </div>
-                        <div className="flex w-full items-center justify-center border-[0.5px] border-white p-2">
-                            name
-                        </div>
-                        <div className="flex w-full items-center justify-center border-[0.5px] border-white p-2">
-                            Date
-                        </div>
-                    </div>
-                </div>
-                <div>{recordMap ? <Notion recordMap={recordMap} /> : <>404</>}</div>
-            </div>
-        </>
-    )
-}
+            {type === 'Project' && <ProjectPostDetailView {...post.RESULT_DATA} />}
+            {type !== 'Project' && <DevDesignPostDetailView {...post.RESULT_DATA} />}
 
-const PrevNextButton = () => {
-    return (
-        <>
-            <div className="flex w-full flex-row items-center justify-between">
-                <div className="group flex flex-row items-center gap-3 rounded-2xl p-2 hover:border-[0.5px] hover:border-white">
-                    <IconButton twClass="rotate-180">
-                        <Arrow />
-                    </IconButton>
-                    <div>Previous post</div>
-                </div>
-                <div className="group flex flex-row items-center gap-3 rounded-2xl p-2 hover:border-[0.5px] hover:border-white">
-                    <div>Next post</div>
-                    <IconButton>
-                        <Arrow />
-                    </IconButton>
-                </div>
-            </div>
-        </>
-    )
-}
-
-export default function BlogDetailView({ params }: { params: { id: string; type: string } }) {
-    const blogID = params.id
-    const type = params.type
-    return (
-        <main className="flex h-full w-full flex-col items-center justify-between md:gap-5 md:px-24 md:pb-5">
-            <PageHeader
-                heading={`${type}`}
-                twClass="w-full sticky top-14 text-5xl bg-theme-background py-8 md:top-20"
-            />
-            <Divider />
-            {type === 'Project' ? <ProjectDetailView id={params.id} /> : <DevDesignDetailView id={params.id} />}
-            <PrevNextButton />
+            <BlogNavigationButtons {...post.RESULT_DATA} />
         </main>
     )
 }
