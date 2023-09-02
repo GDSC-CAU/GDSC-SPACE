@@ -49,7 +49,7 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
         >
             <Gdsc width={40} height={40} className="scale-125" />
             <h1 className="mt-3 font-kor text-lg text-black">{member.MEMBER_NAME}</h1>
-            <p className="font-eng text-xs font-light text-black">{member.MEMBER_POSITION}</p>
+            <p className="font-eng text-xxs font-light text-black">{member.MEMBER_POSITION}</p>
         </div>
     </section>
 )
