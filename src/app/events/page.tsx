@@ -1,5 +1,5 @@
 import { Divider } from '~/components/common'
-import { EVENT_META } from '~/src/interfaces/Common'
+import { EVENT_META } from '~/interfaces/Common'
 import { EventCard } from './_components'
 
 const generateRandomEvent = (count: number): Array<EVENT_META> =>
@@ -15,7 +15,7 @@ const generateRandomEvent = (count: number): Array<EVENT_META> =>
             EVENT_DATE: 'Jul 15, 2023',
             EVENT_TYPE: 'Association',
             EVENT_THUMBNAIL: '/events/cardtest.png',
-            EVENT_NOTION_ID: '~~~',
+            EVENT_NOTION_ID: '',
         })
     )
 
@@ -24,15 +24,15 @@ const bulkData = generateRandomEvent(50)
 export default function EventsPage() {
     return (
         <>
-            <div className="flex h-full w-full flex-col items-center gap-1.5">
+            <div className="flex h-full w-full min-w-[400px] flex-col items-center gap-1.5">
                 <h1 className="mt-20 font-eng text-5xl font-bold">Event</h1>
                 <span className="text-xs">GDSC CAU가 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
             </div>
 
-            <div className="flex w-fit flex-col items-center justify-center pt-4">
+            <div className="flex w-full max-w-[800px] flex-col items-center justify-center pt-4">
                 <Divider twClass="w-full" />
 
-                <div className="grid w-fit grid-cols-3 items-center justify-evenly gap-x-2 gap-y-8">
+                <div className="flex max-w-[800px] flex-wrap items-center justify-center gap-x-4 gap-y-8">
                     {bulkData.map((event) => (
                         <EventCard event={event} key={event.EVENT_ID} />
                     ))}
