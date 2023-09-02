@@ -2,7 +2,7 @@ interface NotionErrorOption {
     label?: string
     queryId: string
     error: unknown
-    type: 'DB' | 'BLOCK'
+    type: 'DB' | 'BLOCK' | 'PAGE'
 }
 class NotionError extends Error {
     public label?: string
@@ -42,6 +42,18 @@ export class NotionBlockError extends NotionError {
             ...option,
             type: 'BLOCK',
             label: 'Notion Block parsing Error Occurred',
+        })
+    }
+}
+
+type NotionPageErrorOption = Omit<NotionErrorOption, 'type' | 'label'>
+
+export class NotionPageError extends NotionError {
+    public constructor(message: string, option: NotionPageErrorOption) {
+        super(message, {
+            ...option,
+            type: 'PAGE',
+            label: 'Notion Page Error Occurred',
         })
     }
 }
