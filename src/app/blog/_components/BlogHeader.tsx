@@ -1,7 +1,7 @@
-export const BlogHeader = () => {
+export const BlogHeader = ({ type }: { type: string }) => {
     return (
         <div className="flex w-full flex-col items-center justify-center gap-7 text-center md:mt-10 md:flex-row md:gap-10 md:text-left">
-            <h1 className="font-eng text-5xl font-bold text-white md:text-6xl">Blog</h1>
+            <h1 className="font-eng text-5xl font-bold text-white md:text-6xl">{type} Blog</h1>
             <div className="flex flex-col gap-2">
                 <p className="text-base/normal">
                     GDSC CAU 개발자와 디자이너의 작업 과정과
