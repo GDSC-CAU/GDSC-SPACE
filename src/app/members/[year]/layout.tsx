@@ -39,7 +39,7 @@ const yearList = [
 export default function MembersLayout({ children, params: { year } }: React.PropsWithChildren<MEMBER_PAGE_PARAMS>) {
     return (
         <main className="flex h-full w-full flex-col items-start justify-between gap-10">
-            <div className="flex flex-row items-center justify-between gap-7 pb-10 pl-8">
+            <div className="flex flex-row items-center justify-between gap-7 pb-5 pl-8 pt-10">
                 {yearList.map(({ year: yearNumber, title }) => (
                     <YearButton key={yearNumber} year={yearNumber} isYearActive={yearNumber === year}>
                         {title}
