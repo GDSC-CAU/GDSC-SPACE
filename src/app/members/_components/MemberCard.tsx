@@ -21,7 +21,7 @@ const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
     return (
         <div
             onClick={toggleCardView}
-            className={`relative h-[18rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu hover:scale-105`}
+            className={`relative h-[12rem] w-[8rem] min-w-[8rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu md:h-[18rem] md:w-[12rem] md:min-w-[12rem] md:hover:scale-105`}
         >
             <MemberCardFront member={member} isFrontViewActive={isFrontViewActive} />
             {disableFlip === false && <MemberCardBack member={member} isFrontViewActive={isFrontViewActive} />}
