@@ -1,7 +1,7 @@
 'use client'
 
 import { Link$, Tag } from '~/src/components/common'
-import { API_BLOG_LIST } from '~/src/interfaces'
+import type { API_BLOG_LIST } from '~/src/interfaces'
 import { blogRoutingData, type BlogRoutingType, type BlogTag } from '../_data/blogRouteData'
 import { BlogCategory } from './BlogCategory'
 import { BlogModalView } from './blogModal'
@@ -55,28 +55,28 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
                     }}
                 />
                 <div className="flex w-full flex-col items-center justify-evenly gap-y-4 md:gap-y-7">
-                    {filteredArticle.map((article) => (
-                        <Link$
-                            href={`/blog/Development/${article.BLOG_PAGE_ID}`}
-                            key={article.BLOG_PAGE_ID}
-                            className="w-full"
-                        >
-                            <DevelopCard article={article} key={article.BLOG_PAGE_ID} />
-                        </Link$>
-                    ))}
+                    {filteredArticle.map((article) => {
+                        return (
+                            <Link$
+                                href={`/blog/Development/${article.BLOG_PAGE_ID}`}
+                                key={article.BLOG_PAGE_ID}
+                                className="w-full"
+                            >
+                                <DevelopCard article={article} key={article.BLOG_PAGE_ID} />
+                            </Link$>
+                        )
+                    })}
                 </div>
             </>
         )
     }
 
     return (
-        <>
-            <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:w-fit md:grid-cols-3 md:gap-y-8">
-                {filteredArticle.map((article) => (
-                    <DesignProjectCard type={type} article={article} key={article.BLOG_PAGE_ID} />
-                ))}
-            </div>
-        </>
+        <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:w-fit md:grid-cols-3 md:gap-y-8">
+            {filteredArticle.map((article) => (
+                <DesignProjectCard type={type} article={article} key={article.BLOG_PAGE_ID} />
+            ))}
+        </div>
     )
 }
 

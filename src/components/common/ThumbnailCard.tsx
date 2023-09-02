@@ -33,6 +33,9 @@ export function ThumbnailCard<ThumbnailMeta>({
                 imageClass="h-full w-full duration-300 scale-110 brightness-100 transition-all group-hover:brightness-110 ease-in-out group-hover:scale-105 transform-gpu"
                 src={thumbnailMeta.imageSrc}
                 alt={`${thumbnailMeta.title}-image`}
+                sizes="(max-width: 768px) 500px, (max-width: 1200px) 750px, 900px"
+                quality={75}
+                priority
             />
 
             <section className="flex h-44 w-full flex-col items-start justify-between overflow-y-hidden rounded-b-2xl bg-black p-5 md:rounded-b-lg">

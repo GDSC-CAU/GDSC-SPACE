@@ -15,6 +15,7 @@ const generateRandomEvent = (count: number): Array<EVENT_META> =>
             EVENT_DATE: 'Jul 15, 2023',
             EVENT_TYPE: 'Association',
             EVENT_THUMBNAIL: '/events/cardtest.png',
+            EVENT_NOTION_ID: '~~~',
         })
     )
 

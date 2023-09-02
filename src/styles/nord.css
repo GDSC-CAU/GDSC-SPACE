@@ -23,7 +23,6 @@ pre[class*='language-'] {
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    background: #2e3440;
 }
 
 /* Code blocks */

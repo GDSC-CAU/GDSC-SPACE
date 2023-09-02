@@ -38,7 +38,7 @@ module.exports = {
             },
             keyframes: {
                 rise: {
-                    '0%': { transform: 'translateY(5rem)', opacity: '0' },
+                    '0%': { transform: 'translateY(0.5rem)', opacity: '0.75' },
                     '100%': { transform: 'translateY(0)', opacity: '1' },
                 },
             },

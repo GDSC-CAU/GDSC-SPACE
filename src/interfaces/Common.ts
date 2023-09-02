@@ -1,3 +1,5 @@
+import type { NotionAPI } from 'notion-client'
+
 export interface API_RESPONSE<
     API_DATA extends
         | API_BLOG_DETAIL
@@ -14,23 +16,18 @@ export interface API_RESPONSE<
     RESULT_DATA: API_DATA
 }
 
-export interface API_BLOG_DETAIL {
-    BLOG_AUTHOR: string
-    BLOG_CONTENT: Array<BLOG_CONTENT_ITEM>
-    BLOG_DATE: string
-    BLOG_ID: string
-    BLOG_TAG: Array<string>
-    BLOG_TITLE: string
-}
-
-export interface BLOG_CONTENT_ITEM {
-    CONTENT_TYPE: 'codeblock' | 'h1' | 'h2' | 'h3' | 'image' | 'text'
-    CONTENT_DATA: string
+export interface API_BLOG_DETAIL extends BLOG_POST_META {
+    BLOG_CONTENT: Awaited<ReturnType<NotionAPI['getPage']>>
 }
 
 export interface API_BLOG_LIST {
     BLOG_CNT: number
     BLOG_LIST: Array<BLOG_POST_META>
+}
+
+interface BLOG_LINK {
+    LINK_ID: string
+    LINK_TEXT: string
 }
 
 export interface BLOG_POST_META {
@@ -42,17 +39,19 @@ export interface BLOG_POST_META {
     BLOG_AUTHOR: string
     BLOG_CATEGORY: string
     BLOG_THUMBNAIL?: string
+    BLOG_PREV_LINK?: BLOG_LINK
+    BLOG_NEXT_LINK?: BLOG_LINK
 }
 
-export interface DEV_POST_META extends BLOG_POST_META {
+export interface DEV_BLOG_POST_META extends BLOG_POST_META {
     BLOG_CATEGORY: 'Front-end' | 'Back-end' | 'DS/ML/DL' | 'Application' | 'General' | 'Cloud'
 }
 
-export interface DESIGN_POST_META extends BLOG_POST_META {
+export interface DESIGN_BLOG_POST_META extends BLOG_POST_META {
     BLOG_CATEGORY: 'Design' | 'General'
 }
 
-export interface PROJECT_POST_META extends BLOG_POST_META {
+export interface PROJECT_BLOG_POST_META extends BLOG_POST_META {
     BLOG_CATEGORY: 'App' | 'Web'
 }
 
