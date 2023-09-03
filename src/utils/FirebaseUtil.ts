@@ -1,7 +1,14 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
 import { collection, doc, Firestore, getDoc, getDocs, getFirestore } from '@firebase/firestore'
 import { MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
-import { API_EVENT_LIST, API_MAIN_PROJECTS, API_MAIN_TIMELINES, API_MEMBER_LIST, MEMBER_DATA } from '~/src/interfaces'
+import {
+    API_EVENT_DETAIL,
+    API_EVENT_LIST,
+    API_MAIN_PROJECTS,
+    API_MAIN_TIMELINES,
+    API_MEMBER_LIST,
+    MEMBER_DATA,
+} from '~/src/interfaces'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FB_API_KEY,
@@ -16,6 +23,38 @@ let firebaseDB: Firestore
 const initFirebase = () => {
     firebaseApp = initializeApp(firebaseConfig)
     firebaseDB = getFirestore()
+}
+
+export const getEventDetailDB = async (id: string) => {
+    if (firebaseApp === undefined || firebaseDB === undefined) {
+        initFirebase()
+    }
+
+    const EventData: API_EVENT_DETAIL = {
+        EVENT_CONTENT: undefined,
+        EVENT_DATE: '',
+        EVENT_DESCRIPTION: '',
+        EVENT_LINK: '',
+        EVENT_NOTION_ID: '',
+        EVENT_THUMBNAIL: '',
+        EVENT_TITLE: '',
+        EVENT_TYPE: '',
+    }
+
+    const eventDocData = await getDoc(doc(firebaseDB, 'Event', id))
+    if (!eventDocData.exists()) {
+        return EventData
+    }
+
+    EventData.EVENT_DATE = eventDocData.get('Date')
+    EventData.EVENT_DESCRIPTION = eventDocData.get('Description')
+    EventData.EVENT_LINK = eventDocData.get('Link')
+    EventData.EVENT_NOTION_ID = eventDocData.get('NotionID')
+    EventData.EVENT_THUMBNAIL = eventDocData.get('Thumbnail')
+    EventData.EVENT_TITLE = eventDocData.get('Title')
+    EventData.EVENT_TYPE = eventDocData.get('Type')
+
+    return EventData
 }
 
 export const getEventListDB = async () => {
