@@ -28,15 +28,18 @@ export default async function EventView({ params }: { params: { id: string } }) 
             <FillImage
                 containerClass="ml-[-13rem] h-[35rem] w-[calc(100%+26rem)]"
                 alt="pixabay picture1"
-                src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
+                src={postData.RESULT_DATA.EVENT_THUMBNAIL}
                 priority
             />
 
             <div className="my-12 flex flex-row items-center justify-between">
                 <div className="text-theme-background">이렇게 해도 되나 </div>
-                <button className="h-8 w-28 cursor-pointer rounded-full border-4 border-blue-600 bg-blue-600 duration-500 hover:border-blue-700 hover:bg-blue-700 ">
-                    Join
-                </button>
+                <Link href={postData.RESULT_DATA.EVENT_LINK}>
+                    <button className="h-8 w-28 cursor-pointer rounded-full border-4 border-blue-600 bg-blue-600 duration-500 hover:border-blue-700 hover:bg-blue-700 ">
+                        Join
+                    </button>
+                </Link>
+
                 <div className="flex flex-row gap-2">
                     <Link href={'/blog'}>
                         <LinkIcon />
