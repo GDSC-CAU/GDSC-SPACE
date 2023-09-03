@@ -6,7 +6,7 @@ export const EventCard = ({ event }: { event: EVENT_META }) => {
         <ThumbnailCard
             twClass="animate-rise duration-500 "
             meta={event}
-            href={`/events/${event.EVENT_NOTION_ID}`}
+            href={`/events/${event.EVENT_ID}`}
             transformer={(event) => ({
                 date: event.EVENT_DATE,
                 description: event.EVENT_DESCRIPTION,
