@@ -39,6 +39,7 @@ export const getEventListDB = async () => {
             EVENT_DATE: eventItem.get('Date'),
             EVENT_DESCRIPTION: eventItem.get('Description'),
             EVENT_ID: eventItem.id,
+            EVENT_LINK: eventItem.get('Link'),
             EVENT_NOTION_ID: eventItem.get('NotionID'),
             EVENT_THUMBNAIL: eventItem.get('Thumbnail'),
             EVENT_TITLE: eventItem.get('Title'),

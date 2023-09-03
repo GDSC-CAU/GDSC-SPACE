@@ -73,6 +73,7 @@ export interface EVENT_META {
     EVENT_DATE: string
     EVENT_DESCRIPTION: string
     EVENT_ID: string
+    EVENT_LINK: string
     EVENT_NOTION_ID: string
     EVENT_THUMBNAIL: string
     EVENT_TITLE: string
