@@ -56,12 +56,7 @@ export interface PROJECT_BLOG_POST_META extends BLOG_POST_META {
 }
 
 export interface API_EVENT_DETAIL {
-    EVENT_BANNER: string
-    EVENT_CONTENT: Array<EVENT_CONTENT_ITEM>
-    EVENT_DATE: string
-    EVENT_ID: string
-    EVENT_LINK: string
-    EVENT_TITLE: string
+    EVENT_CONTENT: Awaited<ReturnType<NotionAPI['getPage']>>
 }
 
 export interface EVENT_CONTENT_ITEM {
