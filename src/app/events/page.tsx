@@ -24,15 +24,14 @@ const bulkData = generateRandomEvent(50)
 export default function EventsPage() {
     return (
         <>
-            <div className="flex h-full w-full min-w-[400px] flex-col items-center gap-1.5">
+            <div className="flex h-full w-full flex-col items-center gap-1.5">
                 <h1 className="mt-20 font-eng text-5xl font-bold">Event</h1>
                 <span className="text-xs">GDSC CAU가 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
             </div>
+            <div className="relative flex h-full w-full max-w-[800px] flex-col items-center justify-center pt-4 md:min-w-[770px]">
+                <Divider twClass="w-[800px] md:w-full" />
 
-            <div className="flex w-full max-w-[800px] flex-col items-center justify-center pt-4">
-                <Divider twClass="w-full" />
-
-                <div className="flex max-w-[800px] flex-wrap items-center justify-center gap-x-4 gap-y-8">
+                <div className="relative flex h-full w-full flex-col items-center justify-evenly gap-4 md:grid md:grid-cols-3 ">
                     {bulkData.map((event) => (
                         <EventCard event={event} key={event.EVENT_ID} />
                     ))}
