@@ -4,8 +4,10 @@ import { MEMBER_PAGE_PARAMS } from '~/src/interfaces'
 interface YearButtonProps {
     year: string
     isYearActive: boolean
+    children: React.ReactNode
 }
-const YearButton = ({ year, isYearActive }: React.PropsWithChildren<YearButtonProps>) => {
+
+const YearButton = ({ year, isYearActive, children }: React.PropsWithChildren<YearButtonProps>) => {
     return (
         <Link$
             type="button"
@@ -17,10 +19,11 @@ const YearButton = ({ year, isYearActive }: React.PropsWithChildren<YearButtonPr
                     : 'border-primary-whitegray bg-transparent font-normal'
             }`}
         >
-            1st
+            {children}
         </Link$>
     )
 }
+
 const yearList = [
     {
         year: '1',
@@ -39,14 +42,13 @@ const yearList = [
 export default function MembersLayout({ children, params: { year } }: React.PropsWithChildren<MEMBER_PAGE_PARAMS>) {
     return (
         <main className="flex h-full w-full flex-col items-start justify-between gap-10">
-            <div className="flex flex-row items-center justify-between gap-7 pb-10 pl-8">
+            <div className="flex flex-row items-center justify-between gap-7 pb-5 pl-8 pt-10">
                 {yearList.map(({ year: yearNumber, title }) => (
                     <YearButton key={yearNumber} year={yearNumber} isYearActive={yearNumber === year}>
                         {title}
                     </YearButton>
                 ))}
             </div>
-
             {children}
         </main>
     )
