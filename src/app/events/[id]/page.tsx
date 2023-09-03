@@ -50,7 +50,7 @@ export default async function EventView({ params }: { params: { id: string } }) 
                 </div>
             </div>
 
-            <Notion recordMap={postData.RESULT_DATA.EVENT_CONTENT} />
+            <Notion recordMap={postData.RESULT_DATA.EVENT_CONTENT!} />
         </main>
     )
 }

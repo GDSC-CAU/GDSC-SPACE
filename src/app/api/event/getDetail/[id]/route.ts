@@ -6,10 +6,9 @@ import { blogApi } from '~/utils/notion'
 export async function GET(_: NextRequest, { params: { id } }: EVENT_PAGE_PARAMS) {
     const eventDetail: API_EVENT_DETAIL = await getEventDetailDB(id)
 
-    const postMeta = await blogApi.getSinglePostMeta(eventDetail.EVENT_NOTION_ID)
     const recordMap = await blogApi.getPostRecordMap(eventDetail.EVENT_NOTION_ID)
 
-    if (recordMap.success === false || postMeta.success === false) {
+    if (recordMap.success === false) {
         const apiResultError: API_RESPONSE<undefined> = {
             RESULT_CODE: 100,
             RESULT_MSG: 'Blog Not Found',
