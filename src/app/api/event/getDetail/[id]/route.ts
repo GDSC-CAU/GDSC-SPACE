@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { API_EVENT_DETAIL, API_RESPONSE, EVENT_PAGE_PARAMS } from '~/src/interfaces'
+import { getEventDetailDB } from '~/utils/FirebaseUtil'
 import { blogApi } from '~/utils/notion'
 
 export async function GET(_: NextRequest, { params: { id } }: EVENT_PAGE_PARAMS) {
-    const postMeta = await blogApi.getSinglePostMeta(id)
-    const recordMap = await blogApi.getPostRecordMap(id)
+    const eventDetail: API_EVENT_DETAIL = await getEventDetailDB(id)
+
+    const postMeta = await blogApi.getSinglePostMeta(eventDetail.EVENT_NOTION_ID)
+    const recordMap = await blogApi.getPostRecordMap(eventDetail.EVENT_NOTION_ID)
 
     if (recordMap.success === false || postMeta.success === false) {
         const apiResultError: API_RESPONSE<undefined> = {
@@ -16,10 +19,7 @@ export async function GET(_: NextRequest, { params: { id } }: EVENT_PAGE_PARAMS)
         return NextResponse.json(apiResultError, { status: 200 })
     }
 
-    const eventDetail: API_EVENT_DETAIL = {
-        EVENT_CONTENT: recordMap.response,
-        ...postMeta.response,
-    }
+    eventDetail.EVENT_CONTENT = recordMap.response
 
     const apiResult: API_RESPONSE<API_EVENT_DETAIL> = {
         RESULT_CODE: 200,
