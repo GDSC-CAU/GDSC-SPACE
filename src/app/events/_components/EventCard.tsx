@@ -4,7 +4,7 @@ import { EVENT_META } from '~/src/interfaces/Common'
 export const EventCard = ({ event }: { event: EVENT_META }) => {
     return (
         <ThumbnailCard
-            twClass="animate-rise duration-500"
+            twClass="animate-rise duration-500 "
             meta={event}
             href={`/events/${event.EVENT_ID}`}
             transformer={(event) => ({
