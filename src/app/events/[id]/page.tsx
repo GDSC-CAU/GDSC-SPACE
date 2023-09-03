@@ -1,12 +1,27 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { FillImage } from '~/components/common'
 import { Instagram } from '~/components/icons'
 import { Email } from '~/components/icons'
 import { Link as LinkIcon } from '~/components/icons'
-export default function EventView({ params }: { params: { id: string } }) {
-    const eventID = params.id //{evenID}
-    const title = 'PRO, GRAMMING' // 노션에서의 이벤트 글 제목
+import { API_EVENT_DETAIL, API_RESPONSE } from '~/src/interfaces'
+import { Fetcher } from '~/src/utils'
+import { Notion } from '~/utils/notion/NotionRenderer'
+
+const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
+
+export default async function EventView({ params }: { params: { id: string } }) {
+    const postData = await fetcher.get<API_RESPONSE<API_EVENT_DETAIL>>(`event/getDetail/${params.id}`)
+    const isValidRequest = postData.RESULT_CODE === 200 && postData.RESULT_DATA
+
+    if (isValidRequest === false) {
+        return (
+            <main className="flex h-full w-full flex-col items-center justify-between md:gap-5 md:pb-5">
+                <div className="h-full w-full">
+                    <h1 className="font-eng text-5xl font-semibold">404</h1>
+                </div>
+            </main>
+        )
+    }
 
     return (
         <main className="h-full w-full">
@@ -35,31 +50,7 @@ export default function EventView({ params }: { params: { id: string } }) {
                 </div>
             </div>
 
-            <div className="flex h-full w-full flex-col items-center justify-between">
-                <hr className="mx-auto  w-full bg-gray-100" />
-                <h1 className="p-16 text-5xl">{title}</h1>
-                <div className="flex w-full items-center justify-center bg-black">
-                    <Image
-                        src="https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg"
-                        alt="pixabay picture3"
-                        priority
-                        width={600}
-                        height={800}
-                    />
-                </div>
-
-                <div className="text-center">▴ GDSC 잡 페어 행사</div>
-                <p className="mb-28 mt-12"></p>
-                <div className="flex w-full items-center justify-center bg-black">
-                    <Image
-                        src="https://cdn.pixabay.com/photo/2023/07/19/04/56/european-shorthair-8136065_1280.jpg"
-                        alt="pixabay picture3"
-                        priority
-                        width={600}
-                        height={800}
-                    />
-                </div>
-            </div>
+            <Notion recordMap={postData.RESULT_DATA.EVENT_CONTENT} />
         </main>
     )
 }
