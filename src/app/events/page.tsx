@@ -1,28 +1,9 @@
 import { Divider } from '~/components/common'
-import { API_EVENT_LIST, API_RESPONSE, EVENT_META } from '~/interfaces/Common'
+import { API_EVENT_LIST, API_RESPONSE } from '~/interfaces/Common'
 import { Fetcher } from '~/src/utils'
 import { EventCard } from './_components'
 
 const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
-
-const generateRandomEvent = (count: number): Array<EVENT_META> =>
-    Array.from(
-        {
-            length: count,
-        },
-        (_, i) => ({
-            EVENT_ID: String(i),
-            EVENT_TITLE: 'GDSC Job Fair 2023 GDSC Job Fair 2023 GDSC Job Fair 2023',
-            EVENT_DESCRIPTION:
-                'by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023 2023 by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023 by 대한민국 인공지능위크 2023',
-            EVENT_DATE: 'Jul 15, 2023',
-            EVENT_TYPE: 'Association',
-            EVENT_THUMBNAIL: '/events/cardtest.png',
-            EVENT_NOTION_ID: '',
-        })
-    )
-
-const bulkData = generateRandomEvent(50)
 
 export default async function EventsPage() {
     const post = await fetcher.get<API_RESPONSE<API_EVENT_LIST>>(`/event/getList`)
