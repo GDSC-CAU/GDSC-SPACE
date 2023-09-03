@@ -1,6 +1,9 @@
 import { Divider } from '~/components/common'
-import { EVENT_META } from '~/interfaces/Common'
+import { API_EVENT_LIST, API_RESPONSE, EVENT_META } from '~/interfaces/Common'
+import { Fetcher } from '~/src/utils'
 import { EventCard } from './_components'
+
+const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
 
 const generateRandomEvent = (count: number): Array<EVENT_META> =>
     Array.from(
@@ -21,7 +24,13 @@ const generateRandomEvent = (count: number): Array<EVENT_META> =>
 
 const bulkData = generateRandomEvent(50)
 
-export default function EventsPage() {
+export default async function EventsPage() {
+    const post = await fetcher.get<API_RESPONSE<API_EVENT_LIST>>(`/event/getList`)
+
+    const isValidRequest = post.RESULT_CODE === 200 && post.RESULT_DATA
+
+    if (!isValidRequest) return <>404</>
+
     return (
         <>
             <div className="flex h-full w-full flex-col items-center gap-1.5">
@@ -32,7 +41,7 @@ export default function EventsPage() {
                 <Divider twClass="w-[800px] md:w-full" />
 
                 <div className="relative flex h-full w-full flex-col items-center justify-evenly gap-4 md:grid md:grid-cols-3 ">
-                    {bulkData.map((event) => (
+                    {post.RESULT_DATA.EVENT_LIST.map((event) => (
                         <EventCard event={event} key={event.EVENT_ID} />
                     ))}
                 </div>
