@@ -26,19 +26,35 @@ interface RenderMemberByYearProps {
 
 export const MemberHorizontalScrollView = ({ members }: RenderMemberByYearProps) => {
     const dividedMembers = divideArrayIntoChunk(members, 6)
+    const dividedMembers_Mobile = divideArrayIntoChunk(members, 2)
 
-    return dividedMembers.map((memberChunk, rowIndex) => (
-        <div key={rowIndex} className="relative">
-            <GradientBackground rowIndex={rowIndex} />
-            <div
-                className={`flex flex-row gap-8 overflow-x-auto overflow-y-hidden px-4 py-7 scrollbar-hide ${
-                    rowIndex % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                }`}
-            >
-                {memberChunk.map((member) => (
-                    <MemberCard key={`${member.MEMBER_NAME}-${member.MEMBER_POSITION}`} member={member} />
+    return (
+        <div>
+            <div className="hidden md:block">
+                {dividedMembers.map((memberChunk, rowIndex) => (
+                    <div key={rowIndex} className="relative">
+                        <GradientBackground rowIndex={rowIndex} />
+                        <div
+                            className={`flex flex-row gap-8 overflow-x-auto overflow-y-hidden px-4 py-7 scrollbar-hide ${
+                                rowIndex % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                            }`}
+                        >
+                            {memberChunk.map((member) => (
+                                <MemberCard key={`${member.MEMBER_NAME}-${member.MEMBER_POSITION}`} member={member} />
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="block md:hidden">
+                {dividedMembers_Mobile.map((memberChunk, rowIndex) => (
+                    <div key={rowIndex} className="relative flex flex-row gap-5 px-4 py-7">
+                        {memberChunk.map((member) => (
+                            <MemberCard key={`${member.MEMBER_NAME}-${member.MEMBER_POSITION}`} member={member} />
+                        ))}
+                    </div>
                 ))}
             </div>
         </div>
-    ))
+    )
 }
