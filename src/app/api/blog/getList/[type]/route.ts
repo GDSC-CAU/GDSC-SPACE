@@ -4,11 +4,11 @@ import { blogApi } from '~/src/utils/notion'
 
 const NOTION_KEY = {
     Development: '3de8e23c786e4385a6fcd0cf4cfba0db',
-    Design: '3de8e23c786e4385a6fcd0cf4cfba0db',
-    Project: '3de8e23c786e4385a6fcd0cf4cfba0db',
+    Design: 'b902d66cb27a48c0924959b0645abb63',
+    Project: 'f8ce4ee014504c23843594792b8c2901',
 } as const
 
-export async function GET(request: NextRequest, { params: { type } }: BLOG_TYPE_PARAMS) {
+export async function GET(_: NextRequest, { params: { type } }: BLOG_TYPE_PARAMS) {
     if (type !== 'Design' && type !== 'Development' && type !== 'Project') {
         const apiResultError: API_RESPONSE<undefined> = {
             RESULT_CODE: 100,
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest, { params: { type } }: BLOG_TYPE_
 
     const { response: blogList, success } = await blogApi.getAllPostMeta(NOTION_KEY[type])
 
-    if (success === false) {
+    if (!success) {
         const apiResultError: API_RESPONSE<undefined> = {
             RESULT_CODE: 100,
             RESULT_MSG: 'Blog Type Error',

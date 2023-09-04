@@ -1,5 +1,5 @@
 import { API_BLOG_DETAIL } from '~/src/interfaces'
-import { Notion } from './NotionRenderer'
+import { Notion } from '~/utils/notion/NotionRenderer'
 
 export const ProjectPostDetailView = async (props: API_BLOG_DETAIL) => {
     return (
