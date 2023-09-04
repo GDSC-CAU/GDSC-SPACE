@@ -21,7 +21,7 @@ const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
     return (
         <div
             onClick={toggleCardView}
-            className={`relative h-[18rem] w-[12rem] min-w-[12rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu hover:scale-105`}
+            className={`relative h-[12rem] w-[8rem] min-w-[8rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu md:h-[18rem] md:w-[12rem] md:min-w-[12rem] md:hover:scale-105`}
         >
             <MemberCardFront member={member} isFrontViewActive={isFrontViewActive} />
             {disableFlip === false && <MemberCardBack member={member} isFrontViewActive={isFrontViewActive} />}
@@ -42,14 +42,19 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
         <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
         <div
-            className="absolute bottom-0 left-0 flex h-28 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3.5"
+            className="absolute bottom-0 left-0 flex h-20 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3 md:h-28"
             style={{
                 boxShadow: '-1px -1px 10px rgba(32, 32, 32, 0.2)',
             }}
         >
-            <Gdsc width={40} height={40} className="scale-125" />
-            <h1 className="mt-3 font-kor text-lg text-black">{member.MEMBER_NAME}</h1>
-            <p className="font-eng text-xxs font-light text-black">{member.MEMBER_POSITION}</p>
+            <div className="block md:hidden">
+                <Gdsc width={20} height={20} className="scale-150" />
+            </div>
+            <div className="hidden md:block">
+                <Gdsc width={40} height={40} className="scale-125" />
+            </div>
+            <h1 className="mt-1 font-kor text-sm text-black md:text-lg">{member.MEMBER_NAME}</h1>
+            <p className="font-eng text-3xs font-light text-black md:text-xxs">{member.MEMBER_POSITION}</p>
         </div>
     </section>
 )
@@ -63,15 +68,15 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
 
     return (
         <section
-            className={`group absolute inset-0 z-0 flex h-full w-full flex-col items-start justify-between rounded-xl bg-[#EBEBEB] px-4 py-5 font-light transition duration-300 ease-in-out ${
+            className={`group absolute inset-0 z-0 flex h-full w-full flex-col items-start justify-between rounded-xl bg-[#EBEBEB] px-2 py-3 font-light transition duration-300 ease-in-out md:px-4 md:py-5 ${
                 isFrontViewActive === false ? 'opacity-0 rotate-y-180' : 'z-10 opacity-100 rotate-y-0'
             }`}
         >
             <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
             <section className="flex w-full flex-col items-start justify-between">
-                <h1 className="font-kor text-lg text-black">{member.MEMBER_NICKNAME}</h1>
-                <div className="font-eng text-xs text-primary-purple">{member.MEMBER_POSITION}</div>
+                <h1 className="font-kor text-base text-black md:text-lg">{member.MEMBER_NICKNAME}</h1>
+                <div className="font-eng text-xxs text-primary-purple md:text-xs">{member.MEMBER_POSITION}</div>
                 <hr className="mb-2 mt-1 h-1 w-full border-primary-whitegray" />
                 <div className="font-kor text-xs text-black">{member.MEMBER_COMMENT}</div>
             </section>
