@@ -48,7 +48,7 @@ export const MemberHorizontalScrollView = ({ members }: RenderMemberByYearProps)
             </div>
             <div className="block md:hidden">
                 {dividedMembers_Mobile.map((memberChunk, rowIndex) => (
-                    <div key={rowIndex} className="relative flex flex-row gap-5 px-4 py-7">
+                    <div key={rowIndex} className="relative flex flex-row gap-5 px-2 py-5">
                         {memberChunk.map((member) => (
                             <MemberCard key={`${member.MEMBER_NAME}-${member.MEMBER_POSITION}`} member={member} />
                         ))}
