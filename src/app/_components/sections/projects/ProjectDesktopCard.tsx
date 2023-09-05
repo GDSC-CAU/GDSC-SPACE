@@ -24,7 +24,7 @@ export const ProjectCardDesktop = ({ isReverse, projectData }: ProjectCardDeskto
 
     return (
         <div className="group hidden flex-row items-center lg:flex" ref={setVisibilityRef}>
-            <Link$ href={`/blog/Development/${projectData.PROJECT_ID}`}>
+            <Link$ href={`/blog/Project/${projectData.PROJECT_ID}`}>
                 <FillImage
                     src={projectData.PROJECT_IMAGE}
                     alt={projectData.PROJECT_TITLE}
