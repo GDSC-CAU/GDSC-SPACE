@@ -16,7 +16,7 @@ export async function GET(_: NextRequest, { params: { id, type } }: BLOG_POST_PA
     const postMeta = await blogApi.getSinglePostMeta(id)
     const recordMap = await blogApi.getPostRecordMap(id)
 
-    if (recordMap.success === false || postMeta.success === false) {
+    if (!recordMap.success || !postMeta.success) {
         const apiResultError: API_RESPONSE<undefined> = {
             RESULT_CODE: 100,
             RESULT_MSG: 'Blog Not Found',
