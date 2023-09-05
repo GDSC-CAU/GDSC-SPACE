@@ -24,15 +24,20 @@ interface RenderMemberByYearProps {
     members: MEMBER_DATA[]
 }
 
+const MEMBER_RENDER_INFO = {
+    MEMBER_PER_ROW_DESKTOP: 7,
+    MEMBER_PER_ROW_MOBILE: 2,
+} as const
+
 export const MemberHorizontalScrollView = ({ members }: RenderMemberByYearProps) => {
-    const dividedMembers = divideArrayIntoChunk(members, 6)
-    const dividedMembers_Mobile = divideArrayIntoChunk(members, 2)
+    const dividedMembers = divideArrayIntoChunk(members, MEMBER_RENDER_INFO.MEMBER_PER_ROW_DESKTOP)
+    const dividedMembers_Mobile = divideArrayIntoChunk(members, MEMBER_RENDER_INFO.MEMBER_PER_ROW_MOBILE)
 
     return (
-        <div>
-            <div className="hidden md:block">
+        <>
+            <div className="hidden w-full md:block">
                 {dividedMembers.map((memberChunk, rowIndex) => (
-                    <div key={rowIndex} className="relative">
+                    <div key={rowIndex} className="relative w-full">
                         <GradientBackground rowIndex={rowIndex} />
                         <div
                             className={`flex flex-row gap-8 overflow-x-auto overflow-y-hidden px-4 py-7 scrollbar-hide ${
@@ -46,6 +51,7 @@ export const MemberHorizontalScrollView = ({ members }: RenderMemberByYearProps)
                     </div>
                 ))}
             </div>
+
             <div className="block md:hidden">
                 {dividedMembers_Mobile.map((memberChunk, rowIndex) => (
                     <div key={rowIndex} className="relative flex flex-row gap-5 px-2 py-5">
@@ -55,6 +61,6 @@ export const MemberHorizontalScrollView = ({ members }: RenderMemberByYearProps)
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     )
 }
