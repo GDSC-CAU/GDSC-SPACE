@@ -138,20 +138,28 @@ export class NotionBlogPost {
     }
 
     public async getSinglePostMeta(postId: string): Promise<BlogPostApiResponse<BLOG_POST_META>> {
-        const fetchedPageData = await this.$page.retrievePage(postId)
-        const postMeta = this.getValidatedMeta(fetchedPageData)
+        try {
+            const fetchedPageData = await this.$page.retrievePage(postId)
+            const postMeta = this.getValidatedMeta(fetchedPageData)
 
-        if (postMeta === null) {
+            if (postMeta === null) {
+                return {
+                    success: false,
+                    response: null,
+                    error: `Can't fetch blog post meta data from ${postId}`,
+                }
+            }
+
+            return {
+                success: true,
+                response: postMeta,
+            }
+        } catch (e) {
             return {
                 success: false,
                 response: null,
                 error: `Can't fetch blog post meta data from ${postId}`,
             }
-        }
-
-        return {
-            success: true,
-            response: postMeta,
         }
     }
 
