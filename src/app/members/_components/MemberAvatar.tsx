@@ -31,8 +31,8 @@ export const MemberAvatar = ({ MEMBER_GENDER, MEMBER_IMAGE }: Pick<MEMBER_DATA, 
             suppressHydrationWarning
             className={`flex h-full w-full items-center justify-center ${randomBackgroundColor} rounded-xl`}
         >
-            {MEMBER_GENDER === 'Male' && <Boy className="mb-20 scale-[1.4]" />}
-            {MEMBER_GENDER === 'Female' && <Girl className="mb-20 scale-[1.4]" />}
+            {MEMBER_GENDER === 'Male' && <Boy className="mb-10 scale-[1.0] md:mb-20 md:scale-[1.4]" />}
+            {MEMBER_GENDER === 'Female' && <Girl className="mb-10 scale-[1.0] md:mb-20 md:scale-[1.4]" />}
         </div>
     )
 }
