@@ -12,8 +12,8 @@ export const IntroWhoAreWe = () => {
                 Who are we?
             </FadeInGradientHeader>
 
-            <div className="z-10 flex flex-col items-start justify-center gap-20 px-10 md:flex-row md:px-40 lg:px-80 2xl:px-[40rem]">
-                <div className="flex w-full flex-col items-center justify-center md:w-1/2 md:min-w-[50%] md:max-w-[50%] md:items-start">
+            <div className="z-10 flex flex-col items-start justify-center gap-20 px-10 md:flex-row md:px-40 lg:px-80">
+                <div className="flex w-full flex-col items-center justify-center md:w-1/3 md:min-w-[40%] md:max-w-[50%] md:items-start">
                     <p className="mb-5 font-eng text-xl font-normal">Developer/ Designer/ Leader</p>
                     <p className="text-center font-eng text-sm font-light leading-loose md:text-start">
                         Google Developer Student Clubs are university based community groups for students interested in
@@ -23,7 +23,7 @@ export const IntroWhoAreWe = () => {
                         and their community.
                     </p>
                 </div>
-                <div className="flex w-full flex-col items-center justify-center md:w-1/2 md:min-w-[50%] md:max-w-[50%] md:items-start">
+                <div className="flex w-full flex-col items-center justify-center md:w-1/3 md:min-w-[40%] md:max-w-[50%] md:items-start">
                     <p className="mb-5 font-kor text-xl font-normal">개발자/ 디자이너/ 리더</p>
                     <p className="text-center font-kor text-sm font-light leading-loose md:text-start">
                         Google Developer Student Clubs (GDSC) 프로그램은 학생들이 개발 ∙ 디자인 ∙ 리더십 능력을 키울 수
