@@ -15,11 +15,11 @@ export default async function MemberPage({ params: { year } }: MEMBER_PAGE_PARAM
     return (
         <>
             {isMemberExist ? (
-                <div className="flex w-full flex-col py-4">
+                <div className="flex w-full flex-col py-2">
                     <MemberHorizontalScrollView members={members.RESULT_DATA.MEMBER_LIST} />
                 </div>
             ) : (
-                <div className="flex flex-col py-4">
+                <div className="flex flex-col py-2">
                     <p className="font-eng text-3xl">Member {year} is not exists</p>
                 </div>
             )}
