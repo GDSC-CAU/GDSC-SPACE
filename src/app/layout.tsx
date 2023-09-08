@@ -35,6 +35,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="kr" className={`${poppins.variable} ${pretendard.variable}`}>
+            <head>
+                <link rel="icon" href="/favicon.svg" />
+            </head>
             <body className="relative h-fit min-h-screen overflow-x-hidden bg-theme-background font-kor text-theme-font">
                 <NavBar />
                 <div id="modal-root" />
