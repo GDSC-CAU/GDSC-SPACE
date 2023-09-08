@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use client'
 
 import { FadeIn } from '~/src/components/common'
@@ -17,11 +18,11 @@ export const TimeLineCard = ({
     return (
         <FadeIn
             observerOption={{
-                rootMargin: '100px 0px 0px 0px',
+                rootMargin: '100px 100% 100% 100px',
             }}
-            from="translate-x-full"
-            to="translate-x-0"
-            duration="700"
+            from="translate-x-1/2 skew-x-12 scale-75"
+            to="translate-x-0 skew-x-0 scale-100"
+            duration="1250"
             twClass="group relative inset-0 z-10 h-[13.5rem] w-full md:w-[24rem]"
         >
             <h1
