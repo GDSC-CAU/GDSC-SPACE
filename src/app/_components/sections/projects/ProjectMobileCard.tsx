@@ -12,7 +12,7 @@ export const ProjectCardMobile = ({ projectData, fromLeft }: ProjectCardMobilePr
 
     return (
         <FadeIn
-            twClass="w-full flex gap-4 flex-col items-center justify-center lg:hidden"
+            twClass="w-full flex gap-4 flex-col items-center justify-center md:hidden"
             from={`${fromLeft ? '-translate-x-full' : 'translate-x-full'}`}
             to="translate-x-0"
             duration="1000"

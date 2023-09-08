@@ -23,7 +23,7 @@ export const ProjectCardDesktop = ({ isReverse, projectData }: ProjectCardDeskto
     const { isVisible, setVisibilityRef } = useVisibility<HTMLDivElement>()
 
     return (
-        <div className="group hidden flex-row items-center lg:flex" ref={setVisibilityRef}>
+        <div className="group hidden flex-row items-center justify-center md:flex" ref={setVisibilityRef}>
             <Link$ href={`/blog/Project/${projectData.PROJECT_ID}`}>
                 <FillImage
                     src={projectData.PROJECT_IMAGE}
@@ -38,7 +38,6 @@ export const ProjectCardDesktop = ({ isReverse, projectData }: ProjectCardDeskto
                     </IconButton>
                 </FillImage>
             </Link$>
-
             <div
                 className={`flex h-[480px] w-[420px] flex-col transition-all duration-1000 ease-in-out transform-gpu ${RCardMargin} ${
                     isVisible ? RScrollTo : RScrollFrom
