@@ -37,6 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="kr" className={`${poppins.variable} ${pretendard.variable}`}>
             <head>
                 <link rel="icon" href="/favicon.svg" />
+                <link rel="apple-touch-icon" href="/favicon.svg" />
+                <title>GDSC CAU</title>
             </head>
             <body className="relative h-fit min-h-screen overflow-x-hidden bg-theme-background font-kor text-theme-font">
                 <NavBar />
