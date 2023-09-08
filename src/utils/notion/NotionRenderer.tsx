@@ -24,6 +24,7 @@ export const Notion = ({ recordMap }: { recordMap: API_BLOG_DETAIL['BLOG_CONTENT
                 ),
                 nextImage: Image,
                 nextLink: Link,
+                Collection: () => null,
                 Header: () => null,
             }}
             fullPage={true}
