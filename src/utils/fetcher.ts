@@ -4,11 +4,15 @@ export interface FetcherConstructorOption {
     baseUrl: string
 }
 export class Fetcher {
-    private baseUrl: string
+    private readonly baseUrl: string
     public static fetchPrefix = 'api' as const
 
     public constructor({ baseUrl }: FetcherConstructorOption) {
-        this.baseUrl = baseUrl
+        if (process.env.NODE_ENV && process.env.NODE_ENV === 'production' && process.env.PUB_URL) {
+            this.baseUrl = process.env.PUB_URL
+        } else {
+            this.baseUrl = baseUrl
+        }
     }
 
     public async get<APISchema>(
