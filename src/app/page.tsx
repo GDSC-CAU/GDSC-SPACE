@@ -4,6 +4,8 @@ import { Footer } from '../components/common'
 import { Fetcher } from '../utils'
 import { BenefitsSection, IntroductionSection, ProjectsSection, TimeLinesSection } from './_components/sections'
 
+export const dynamic = 'force-dynamic'
+
 const fetcher = new Fetcher({
     baseUrl: 'http://localhost:3000',
 })
