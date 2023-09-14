@@ -3,6 +3,8 @@ import { API_EVENT_LIST, API_RESPONSE } from '~/interfaces/Common'
 import { Fetcher } from '~/src/utils'
 import { EventCard } from './_components'
 
+export const dynamic = 'force-dynamic'
+
 const fetcher = new Fetcher({ baseUrl: 'http://localhost:3000' })
 
 export default async function EventsPage() {
