@@ -23,7 +23,7 @@ const footerData: Readonly<
             <>
                 Designed by Sohyun Kim, Serin Seong
                 <br />
-                Developed by Yeojin Kim, Jiwoo Park, Yujin Son, Yongmin You, Junesung Jang
+                Developed by Yeojin Kim, Jiwoo Park, Yujin Son, Yongmin Yoo, Junesung Jang
             </>
         ),
     },
