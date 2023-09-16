@@ -23,7 +23,7 @@ export default async function EventsPage() {
             <div className="relative flex h-full w-full max-w-[800px] flex-col items-center justify-center pt-4 md:min-w-[770px]">
                 <Divider twClass="w-[800px] md:w-full" />
 
-                <div className="relative flex h-full w-full flex-col items-center justify-evenly gap-4 md:grid md:grid-cols-3 ">
+                <div className="relative flex h-full w-full flex-col items-start justify-evenly gap-4 md:grid md:grid-cols-3 ">
                     {post.RESULT_DATA.EVENT_LIST.map((event) => (
                         <EventCard event={event} key={event.EVENT_ID} />
                     ))}
