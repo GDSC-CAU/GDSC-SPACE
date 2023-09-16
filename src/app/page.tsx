@@ -15,7 +15,7 @@ export default async function MainPage() {
     const mainProjects = await fetcher.get<API_RESPONSE<API_MAIN_PROJECTS>>('main/getProjects')
 
     return (
-        <div className="h-full w-full">
+        <>
             <IntroductionSection />
 
             <TimeLinesSection {...timelines.RESULT_DATA!} />
@@ -25,6 +25,6 @@ export default async function MainPage() {
             <ProjectsSection {...mainProjects.RESULT_DATA!} />
 
             <Footer main />
-        </div>
+        </>
     )
 }
