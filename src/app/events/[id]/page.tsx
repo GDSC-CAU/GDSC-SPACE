@@ -32,25 +32,12 @@ export default async function EventView({ params }: { params: { id: string } }) 
                 priority
             />
 
-            <div className="my-12 flex flex-row items-center justify-between">
-                <div className="text-theme-background">이렇게 해도 되나 </div>
+            <div className="my-12 flex flex-row items-center justify-center">
                 <Link href={postData.RESULT_DATA.EVENT_LINK}>
                     <button className="h-8 w-28 cursor-pointer rounded-full border-4 border-blue-600 bg-blue-600 duration-500 hover:border-blue-700 hover:bg-blue-700 ">
                         Join
                     </button>
                 </Link>
-
-                <div className="flex flex-row gap-2">
-                    <Link href={'/blog'}>
-                        <LinkIcon />
-                    </Link>
-                    <Link href={'/members'}>
-                        <Instagram />
-                    </Link>
-                    <Link href={'/projects'}>
-                        <Email />
-                    </Link>
-                </div>
             </div>
 
             <Notion recordMap={postData.RESULT_DATA.EVENT_CONTENT!} />
