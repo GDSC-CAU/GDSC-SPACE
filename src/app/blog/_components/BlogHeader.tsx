@@ -4,8 +4,7 @@ export const BlogHeader = ({ type }: { type: string }) => {
             <h1 className="font-eng text-5xl font-bold text-white md:text-6xl">{type} Blog</h1>
             <div className="flex flex-col gap-2">
                 <p className="text-base/normal">
-                    GDSC CAU 개발자와 디자이너의 작업 과정과
-                    <br className="md:hidden" />
+                    GDSC CAU 개발자와 디자이너의 작업 과정과 <br className="md:hidden" />
                     결과물을 공유하는 공간입니다.
                 </p>
                 <p className="text-base/normal">
