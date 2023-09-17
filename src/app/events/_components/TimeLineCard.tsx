@@ -37,7 +37,7 @@ export const TimeLineCard = ({
                 className={`${borderGroupColor} absolute inset-x-0 bottom-0 flex h-[10rem] w-full flex-col items-start justify-start rounded-t-3xl rounded-bl-lg rounded-br-3xl border border-transparent bg-black p-5 transition-all duration-300 group-hover:shadow-2xl group-hover:brightness-125 group-hover:skew-x-2 group-hover:scale-105`}
             >
                 <h1
-                    className={`${textColor} mb-10 select-none font-eng text-base md:max-w-[12rem] md:truncate md:text-lg lg:max-w-[18rem]`}
+                    className={`${textColor} mb-4 select-none font-eng text-base md:max-w-[12rem] md:truncate md:text-lg lg:max-w-[18rem]`}
                 >
                     {timeLine.TIMELINE_TITLE}
                 </h1>
