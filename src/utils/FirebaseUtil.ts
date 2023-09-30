@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from '@firebase/app'
-import { collection, doc, Firestore, getDoc, getDocs, getFirestore } from '@firebase/firestore'
+import { collection, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query } from '@firebase/firestore'
 import { MainProjects, MainTimelines, Members } from '~/interfaces/FirebaseAPI'
 import {
     API_EVENT_DETAIL,
@@ -11,10 +11,10 @@ import {
 } from '~/src/interfaces'
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FB_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FB_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FB_PROJECT_ID,
-    appId: process.env.NEXT_PUBLIC_FB_APP_ID,
+    apiKey: process.env.FB_API_KEY,
+    authDomain: process.env.FB_AUTH_DOMAIN,
+    projectId: process.env.FB_PROJECT_ID,
+    appId: process.env.FB_APP_ID,
 }
 
 let firebaseApp: FirebaseApp
@@ -67,7 +67,7 @@ export const getEventListDB = async () => {
         EVENT_LIST: [],
     }
 
-    const eventDocsData = await getDocs(collection(firebaseDB, 'Event'))
+    const eventDocsData = await getDocs(query(collection(firebaseDB, 'Event'), orderBy('Date', 'desc')))
     if (eventDocsData.empty) {
         return EventList
     }
