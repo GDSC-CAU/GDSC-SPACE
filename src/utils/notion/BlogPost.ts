@@ -63,13 +63,19 @@ export class NotionBlogPost {
 
     private getSortedPostMetaByDate(postList: Array<BLOG_POST_META>): Array<BLOG_POST_META> {
         postList.sort((a, b) => {
-            const aDate = new Date(a.BLOG_UPDATED_AT).getTime()
-            const bDate = new Date(b.BLOG_UPDATED_AT).getTime()
+            const aDate = new Date(a.BLOG_CREATED_AT).getTime()
+            const bDate = new Date(b.BLOG_CREATED_AT).getTime()
 
             return bDate - aDate
         })
 
         return postList
+    }
+
+    private getFormattedKRDate(date: string): string {
+        return new Date(date).toLocaleDateString('ko-KR', {
+            dateStyle: 'medium',
+        })
     }
 
     private getValidatedMeta(
@@ -81,10 +87,15 @@ export class NotionBlogPost {
         const isValidPost = rawNotionPostData.object === 'page' && isAllMetaIncluded
 
         if (isValidPost) {
-            const { id: postId, last_edited_time: updatedAt } = rawNotionPostData
+            const { id: postId, last_edited_time: updatedAt, created_time: createdAt } = rawNotionPostData
             const author =
                 rawNotionPostData.properties.author && rawNotionPostData.properties.author.type === 'rich_text'
                     ? rawNotionPostData.properties.author.rich_text[0]?.plain_text ?? 'ERROR'
+                    : 'ERROR'
+
+            const category =
+                rawNotionPostData.properties.category && 'select' in rawNotionPostData.properties.category
+                    ? rawNotionPostData.properties.category.select?.name ?? 'ERROR'
                     : 'ERROR'
 
             const title =
@@ -104,14 +115,8 @@ export class NotionBlogPost {
                       []
                     : []
 
-            const category =
-                rawNotionPostData.properties.category && 'select' in rawNotionPostData.properties.category
-                    ? rawNotionPostData.properties.category.select?.name ?? 'ERROR'
-                    : 'ERROR'
-
-            const formattedDate = new Date(updatedAt).toLocaleDateString('ko-KR', {
-                dateStyle: 'medium',
-            })
+            const formattedUpdatedAt: string = this.getFormattedKRDate(updatedAt)
+            const formattedCreatedAt: string = this.getFormattedKRDate(createdAt)
 
             const thumbnail =
                 rawNotionPostData.cover?.type === 'external'
@@ -126,7 +131,8 @@ export class NotionBlogPost {
                 BLOG_CATEGORY: category,
                 BLOG_TAGS: tags,
                 BLOG_THUMBNAIL: thumbnail,
-                BLOG_UPDATED_AT: formattedDate,
+                BLOG_UPDATED_AT: formattedUpdatedAt,
+                BLOG_CREATED_AT: formattedCreatedAt,
             }
 
             if (Object.values(postMeta).includes('ERROR')) return null
