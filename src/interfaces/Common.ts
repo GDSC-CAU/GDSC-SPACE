@@ -35,6 +35,7 @@ export interface BLOG_POST_META {
     BLOG_TITLE: string
     BLOG_DESCRIPTION: string
     BLOG_UPDATED_AT: string
+    BLOG_CREATED_AT: string
     BLOG_TAGS: Array<string>
     BLOG_AUTHOR: string
     BLOG_CATEGORY: string
