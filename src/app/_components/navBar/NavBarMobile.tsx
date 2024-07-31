@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Gdsc } from '~/components/icons'
-import { Link$ } from '~/src/components/common'
+import { Link$, LinkPath } from '~/src/components/common'
 import { NavButton } from './NavButton'
 
 const HamburgerIcon = ({ isOpened, onClick }: { isOpened: boolean; onClick: () => void }) => {
@@ -78,7 +78,7 @@ export const NavBarMobile = ({ iconSize = 45 }: NavBarProps) => {
                         Members
                     </NavButton>
 
-                    <NavButton type="link" href="/">
+                    <NavButton type="link" href={(process.env.RECRUIT_FORM_URL as LinkPath) ?? '/'}>
                         <div className="font-bold">Recruiting</div>
                     </NavButton>
                 </>
