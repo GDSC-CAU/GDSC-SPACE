@@ -79,7 +79,7 @@ export const NavBarMobile = ({ iconSize = 45 }: NavBarProps) => {
                     </NavButton>
 
                     <NavButton type="link" href="/">
-                        Recruiting
+                        <div className="font-bold">Recruiting</div>
                     </NavButton>
                 </>
             </div>
