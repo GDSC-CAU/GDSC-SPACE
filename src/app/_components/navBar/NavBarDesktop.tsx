@@ -29,7 +29,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
             </NavButton>
 
             <NavButton type="link" href="/">
-                Recruiting
+                <div className="rounded-lg bg-white px-3 py-1 text-black">Recruiting</div>
             </NavButton>
         </nav>
     )
