@@ -29,7 +29,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
                 Members
             </NavButton>
 
-            <NavButton type="link" href={process.env.RECRUIT_FORM_URL as LinkPath}>
+            <NavButton type="link" href={(process.env.RECRUIT_FORM_URL as LinkPath) ?? '/'}>
                 <div className="rounded-lg bg-white px-3 py-1 text-black">Recruiting</div>
             </NavButton>
         </nav>
