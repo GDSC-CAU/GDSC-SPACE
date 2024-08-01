@@ -78,7 +78,7 @@ export const NavBarMobile = ({ iconSize = 45 }: NavBarProps) => {
                         Members
                     </NavButton>
 
-                    <NavButton type="link" href={(process.env.RECRUIT_FORM_URL as LinkPath) ?? '/'}>
+                    <NavButton type="link" href={(process.env.NEXT_PUBLIC_RECRUIT_FORM_URL as LinkPath) ?? '/'}>
                         <div className="font-bold">Recruiting</div>
                     </NavButton>
                 </>
