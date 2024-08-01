@@ -34,7 +34,9 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
                 href={(process.env.NEXT_PUBLIC_RECRUIT_FORM_URL as LinkPath) ?? '/'}
                 disableUnderline
             >
-                <div className="rounded-lg bg-white px-3 py-1 text-black">Recruiting</div>
+                <div className="rounded-lg bg-white px-3 py-1 text-black transition-transform hover:scale-110">
+                    Recruiting
+                </div>
             </NavButton>
         </nav>
     )
