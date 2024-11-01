@@ -29,7 +29,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
                 Members
             </NavButton>
 
-            <NavButton
+            {/* <NavButton
                 type="link"
                 href={(process.env.NEXT_PUBLIC_RECRUIT_FORM_URL as LinkPath) ?? '/'}
                 disableUnderline
@@ -37,7 +37,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
                 <div className="rounded-lg bg-white px-3 py-1 text-black transition-transform hover:scale-110">
                     Recruiting
                 </div>
-            </NavButton>
+            </NavButton> */}
         </nav>
     )
 }
