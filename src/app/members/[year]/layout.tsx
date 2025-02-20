@@ -37,6 +37,10 @@ const yearList = [
         year: '3',
         title: '3rd',
     },
+    {
+        year: '4',
+        title: '4th',
+    },
 ] as const
 
 export default function MembersLayout({ children, params: { year } }: React.PropsWithChildren<MEMBER_PAGE_PARAMS>) {
