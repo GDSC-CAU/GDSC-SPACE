@@ -44,6 +44,10 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
     const filteredArticle = getFilteredArticle(BLOG_LIST, tag)
     const isDevelopmentArticle = type === 'Development'
 
+    if (filteredArticle.length === 0) {
+        return <p className="text-center text-lg">작성된 결과물이 없습니다.</p>
+    }
+
     if (isDevelopmentArticle) {
         return (
             <>
