@@ -82,8 +82,8 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
             </section>
 
             <section className="flex flex-col items-start justify-between gap-0.5">
-                {contacts.map((contactProps) => (
-                    <MemberContact {...contactProps} key={contactProps.contact}></MemberContact>
+                {contacts.map((contactProps, index) => (
+                    <MemberContact {...contactProps} key={contactProps.contact || index}></MemberContact>
                 ))}
             </section>
         </section>
