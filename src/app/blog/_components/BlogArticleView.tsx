@@ -72,7 +72,10 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
     }
 
     return (
-        <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:w-fit md:grid-cols-3 md:gap-y-8">
+        <div
+            className="grid w-fit grid-cols-1 gap-4 sm:grid-cols-2 
+        wide:grid-cols-3"
+        >
             {filteredArticle.map((article) => (
                 <DesignProjectCard type={type} article={article} key={article.BLOG_PAGE_ID} />
             ))}
