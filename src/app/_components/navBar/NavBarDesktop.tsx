@@ -25,7 +25,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
             <NavButton type="link" href="/events">
                 Events
             </NavButton>
-            <NavButton type="link" href="/members/3">
+            <NavButton type="link" href="/members">
                 Members
             </NavButton>
 
