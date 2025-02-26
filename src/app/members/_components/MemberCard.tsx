@@ -79,7 +79,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
                 <h1 className="font-kor text-sm text-black md:text-lg">{member.MEMBER_NICKNAME}</h1>
                 <div className="font-eng text-xxs text-primary-purple md:text-xs">{member.MEMBER_POSITION}</div>
                 <hr className="mb-2 mt-1 h-1 w-full border-primary-whitegray" />
-                <div className="mb-1 h-0 min-h-0 grow overflow-y-auto font-kor text-xxs text-black md:text-xs">
+                <div className="mb-1 h-0 min-h-0 grow overflow-y-auto font-kor text-xxs text-black scrollbar-hide md:text-xs">
                     {member.MEMBER_COMMENT}
                     <div className="visible mt-3 md:hidden">
                         {contacts.map((contactProps, index) => (
