@@ -3,7 +3,7 @@ export interface MemberContactProps {
     icon: React.ReactNode
 }
 export const MemberContact = ({ contact, icon }: MemberContactProps) => {
-    if (!contact) return
+    if (!contact || contact.trim() === '') return
 
     return (
         <div className="z-20 flex w-full flex-row gap-1">

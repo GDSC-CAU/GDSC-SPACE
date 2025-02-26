@@ -15,7 +15,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
             <NavButton type="scroll" href="/#about">
                 About us
             </NavButton>
-            <NavButton type="scroll" href="/#projects">
+            <NavButton type="link" href="/blog/Project">
                 Projects
             </NavButton>
 

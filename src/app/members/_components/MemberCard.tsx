@@ -63,6 +63,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
     const contacts: MemberContactProps[] = [
         { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5  stroke-black scale-75" /> },
         { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
+        { contact: member.MEMBER_LINK_BEHANCE, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
         { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 stroke-black scale-75" /> },
     ]
 
