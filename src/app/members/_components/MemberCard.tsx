@@ -75,10 +75,10 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
             <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
             <section className="flex h-full min-h-0 w-full flex-col items-start justify-between">
-                <h1 className="font-kor text-base text-black md:text-lg">{member.MEMBER_NICKNAME}</h1>
+                <h1 className="font-kor text-sm text-black md:text-lg">{member.MEMBER_NICKNAME}</h1>
                 <div className="font-eng text-xxs text-primary-purple md:text-xs">{member.MEMBER_POSITION}</div>
                 <hr className="mb-2 mt-1 h-1 w-full border-primary-whitegray" />
-                <div className="mb-1 h-0 min-h-0 grow overflow-y-auto font-kor text-xs text-black">
+                <div className="mb-1 h-0 min-h-0 grow overflow-y-auto font-kor text-xxs text-black md:text-xs">
                     {member.MEMBER_COMMENT}
                     <div className="visible mt-3 md:hidden">
                         {contacts.map((contactProps, index) => (
