@@ -1,4 +1,3 @@
-import { Core, Lead, Organizer, TeamMember } from '~/components/icons'
 import { MEMBER_DATA } from '~/src/interfaces/Common'
 import { SVGCore, SVGLead, SVGOrg, SVGTm } from '~/src/styles/icons'
 
