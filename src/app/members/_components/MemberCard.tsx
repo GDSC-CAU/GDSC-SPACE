@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Email, Gdsc, Instagram, Link as LinkIcon } from '~/components/icons'
 import { MEMBER_DATA } from '~/src/interfaces/Common'
+import { SVGGithub } from '~/src/styles/icons'
 import { MemberAvatar } from './MemberAvatar'
 import { MemberContact, MemberContactProps } from './MemberContact'
 import { MemberRoleIcon } from './MemberRoleIcon'
@@ -54,7 +55,7 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
                 <Gdsc width={40} height={40} className="scale-125" />
             </div>
             <h1 className="mt-1 font-kor text-sm text-black md:text-lg">{member.MEMBER_NAME}</h1>
-            <p className="font-eng text-3xs font-light text-black md:text-xxs">{member.MEMBER_POSITION}</p>
+            <p className="mb-2 font-eng text-3xs font-light text-black md:text-xxs">{member.MEMBER_POSITION}</p>
         </div>
     </section>
 )
@@ -62,8 +63,11 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
 const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => {
     const contacts: MemberContactProps[] = [
         { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5  stroke-black scale-75" /> },
-        { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
-        { contact: member.MEMBER_LINK_BEHANCE, icon: <Instagram className="-ml-0.5  stroke-black scale-75" /> },
+        {
+            contact: member.MEMBER_LINK_GITHUB ? member.MEMBER_LINK_GITHUB.split('/').filter(Boolean).pop() : '',
+            icon: <SVGGithub className="-ml-0.5 stroke-black scale-75" />,
+        },
+        { contact: member.MEMBER_LINK_BEHANCE, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
         { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 stroke-black scale-75" /> },
     ]
 
