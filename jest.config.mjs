@@ -11,6 +11,9 @@ const config = {
     modulePathIgnorePatterns: ['<rootDir>/dist/'],
     testPathIgnorePatterns: ['<rootDir>/e2e'],
     moduleDirectories: ['node_modules', '<rootDir>'],
+    moduleNameMapper: {
+        '\\.svg': '<rootDir>/__mocks__/svgrMock.tsx',
+    },
 }
 
 export default createJestConfig(config)
