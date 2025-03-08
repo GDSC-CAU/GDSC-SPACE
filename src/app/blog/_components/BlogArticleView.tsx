@@ -1,7 +1,7 @@
 'use client'
 
 import { Link$, Tag } from '~/src/components/common'
-import type { API_BLOG_LIST } from '~/src/interfaces'
+import type { API_BLOG_LIST, BLOG_POST_META } from '~/src/interfaces'
 import { blogRoutingData, type BlogRoutingType, type BlogTag } from '../_data/blogRouteData'
 import { BlogCategory } from './BlogCategory'
 import { BlogModalView } from './blogModal'
@@ -39,9 +39,17 @@ const getFilteredArticle = (allArticles: API_BLOG_LIST['BLOG_LIST'], tag: BlogTa
     return filteredArticle
 }
 
+const getSortedArticleByDate = (filteredArticles: API_BLOG_LIST['BLOG_LIST']) => {
+    const sortedArticle = filteredArticles.sort(
+        (a: BLOG_POST_META, b: BLOG_POST_META) => +new Date(b.BLOG_UPDATED_AT) - +new Date(a.BLOG_UPDATED_AT)
+    )
+    return sortedArticle
+}
+
 const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
     const { tag, setTag } = useBlogTag()
     const filteredArticle = getFilteredArticle(BLOG_LIST, tag)
+    const sortedArticle = getSortedArticleByDate(filteredArticle)
     const isDevelopmentArticle = type === 'Development'
 
     if (filteredArticle.length === 0) {
@@ -59,7 +67,7 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
                     }}
                 />
                 <div className="flex w-full flex-col items-center justify-evenly gap-y-4 md:gap-y-7">
-                    {filteredArticle.map((article) => {
+                    {sortedArticle.map((article) => {
                         return (
                             <Link$
                                 href={`/blog/Development/${article.BLOG_PAGE_ID}`}
@@ -76,7 +84,10 @@ const BlogArticleView = ({ BLOG_LIST, type }: BlogArticleViewProps) => {
     }
 
     return (
-        <div className="flex w-full flex-col items-center justify-evenly gap-x-2 gap-y-4 md:grid md:w-fit md:grid-cols-3 md:gap-y-8">
+        <div
+            className="grid w-fit grid-cols-1 gap-4 sm:grid-cols-2 
+        wide:grid-cols-3"
+        >
             {filteredArticle.map((article) => (
                 <DesignProjectCard type={type} article={article} key={article.BLOG_PAGE_ID} />
             ))}
