@@ -24,6 +24,8 @@ const footerData: Readonly<
                 Designed by Sohyun Kim, Serin Seong
                 <br />
                 Developed by Yeojin Kim, Jiwoo Park, Yujin Son, Yongmin Yoo, Junesung Jang
+                <br />
+                Refactored by Yujin Son, Taeyang Kim, Junghyun Song, Yewon Jeong, Heejung Kim, Sowon Kim
             </>
         ),
     },
