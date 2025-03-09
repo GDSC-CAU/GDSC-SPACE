@@ -83,7 +83,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
                     {member.MEMBER_COMMENT}
                     <div className="visible mt-3 md:hidden">
                         {contacts.map((contactProps, index) => (
-                            <MemberContact {...contactProps} key={contactProps.contact || index}></MemberContact>
+                            <MemberContact {...contactProps} key={`${contactProps.contact}-${index}`}></MemberContact>
                         ))}
                     </div>
                 </div>
@@ -91,7 +91,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
 
             <section className="hidden flex-col items-start justify-between gap-0.5 md:visible md:flex">
                 {contacts.map((contactProps, index) => (
-                    <MemberContact {...contactProps} key={contactProps.contact || index}></MemberContact>
+                    <MemberContact {...contactProps} key={`${contactProps.contact}-${index}`}></MemberContact>
                 ))}
             </section>
         </section>
