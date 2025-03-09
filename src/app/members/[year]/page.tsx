@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { Footer } from '~/src/components/common'
 import type { API_RESPONSE, MEMBER_PAGE_PARAMS } from '~/src/interfaces'
 import type { API_MEMBER_LIST } from '~/src/interfaces/Common'
 import { Fetcher } from '~/src/utils'
@@ -23,6 +24,7 @@ export default async function MemberPage({ params: { year } }: MEMBER_PAGE_PARAM
                     <p className="font-eng text-3xl">Member {year} is not exists</p>
                 </div>
             )}
+            <Footer />
         </>
     )
 }

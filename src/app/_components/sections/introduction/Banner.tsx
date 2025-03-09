@@ -31,8 +31,10 @@ export const IntroBanner = () => (
         <div className="absolute left-1/2 top-1/2 flex flex-col items-center justify-center gap-1 -translate-x-1/2 -translate-y-1/2 md:gap-8">
             <IntroHeader fromLeft>Google</IntroHeader>
             <IntroHeader fromLeft={false}>Developer</IntroHeader>
-            <IntroHeader fromLeft>Student</IntroHeader>
-            <IntroHeader fromLeft={false}>Club</IntroHeader>
+            <IntroHeader fromLeft>Groups</IntroHeader>
+            <IntroHeader fromLeft={false}>on Campus</IntroHeader>
+            {/* <IntroHeader fromLeft={false}>on</IntroHeader>
+            <IntroHeader fromLeft>Campus</IntroHeader> */}
 
             <FadeIn duration="1250">
                 <p className="pt-4 text-base font-light md:pt-10 md:text-xl">Chung-Ang University</p>

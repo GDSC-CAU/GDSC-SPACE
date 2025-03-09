@@ -16,7 +16,7 @@ export const BenefitSecondNetworking = () => {
                     You can get mentoring from field experts such as GDE, a Googleer, and a senior.
                 </BenefitCard.Description.Eng>
                 <BenefitCard.Description.Kor>
-                    GDSC에서 이루어지는 다양한 커뮤니티 이벤트를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고
+                    GDGoC에서 이루어지는 다양한 커뮤니티 이벤트를 통해 GDE, 구글러, 취업 동문 등 현업 전문가를 만나고
                     멘토링을 받을 수 있어요.
                 </BenefitCard.Description.Kor>
             </BenefitCard.Description>
