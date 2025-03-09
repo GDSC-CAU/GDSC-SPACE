@@ -18,7 +18,7 @@ export default async function EventsPage() {
         <>
             <div className="flex h-full w-full flex-col items-center gap-1.5">
                 <h1 className="mt-20 font-eng text-5xl font-bold">Event</h1>
-                <span className="text-xs">GDSC CAU가 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
+                <span className="text-xs">GDGoC CAU가 진행한 행사들과 다가올 이벤트들을 확인하세요!</span>
             </div>
             <div className="relative flex h-full w-full max-w-[800px] flex-col items-center justify-center pt-4 md:min-w-[770px]">
                 <Divider twClass="w-[800px] md:w-full" />

@@ -66,11 +66,11 @@ export const BenefitFirstEarth = () => {
                 <BenefitModal.ModalContent>
                     <BenefitCard.Description>
                         <BenefitCard.Description.Eng twClass="text-start md:text-start">
-                            In the GDSC community, We plan and execute events by our self. Develop your leadership,
+                            In the GDGoC community, We plan and execute events by our self. Develop your leadership,
                             cooperate with co-workers and show your gorgeous ideas.
                         </BenefitCard.Description.Eng>
                         <BenefitCard.Description.Kor twClass="text-start md:text-start">
-                            GDSC 커뮤니티에서는 학생들이 스스로 행사를 기획하고 실행합니다. 팀워크와 리더십을 키우고,
+                            GDGoC 커뮤니티에서는 학생들이 스스로 행사를 기획하고 실행합니다. 팀워크와 리더십을 키우고,
                             자신의 아이디어를 함께 실현해보세요.
                         </BenefitCard.Description.Kor>
                     </BenefitCard.Description>

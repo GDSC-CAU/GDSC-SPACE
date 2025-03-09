@@ -37,8 +37,8 @@ export const BenefitTenthOpportunity = () => {
                         great opportunities and gain various experiences.
                     </BenefitCard.Description.Eng>
                     <BenefitCard.Description.Kor twClass="text-start md:text-start">
-                        GDSC Job fair, Programming Contest와 같은 콜라보레이션 이벤트가 진행 될 수 있습니다. 멋진 기회를
-                        찾고 다양한 경험을 쌓아보세요.
+                        GDGoC Job fair, Programming Contest와 같은 콜라보레이션 이벤트가 진행 될 수 있습니다. 멋진
+                        기회를 찾고 다양한 경험을 쌓아보세요.
                     </BenefitCard.Description.Kor>
                 </BenefitCard.Description>
             </BenefitModal.ModalContent>
