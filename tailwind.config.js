@@ -52,6 +52,9 @@ module.exports = {
                 '4xl': '5rem',
                 '5xl': '6rem',
             },
+            screens: {
+                wide: '1180px',
+            },
         },
     },
     plugins: [require('tailwindcss-3d'), require('tailwind-scrollbar-hide')],

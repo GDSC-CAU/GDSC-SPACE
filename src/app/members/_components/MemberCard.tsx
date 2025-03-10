@@ -21,7 +21,7 @@ const MemberCard = ({ member, disableFlip = false }: MemberCardProps) => {
     return (
         <div
             onClick={toggleCardView}
-            className={`relative h-[12rem] w-[8rem] min-w-[8rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu md:h-[18rem] md:w-[12rem] md:min-w-[12rem] md:hover:scale-105`}
+            className={`relative h-48 w-32 min-w-[8rem] cursor-pointer transition-transform duration-300 perspective-500 transform-style-3d transform-gpu md:h-72 md:w-48 md:min-w-[12rem] md:hover:scale-105`}
         >
             <MemberCardFront member={member} isFrontViewActive={isFrontViewActive} />
             {disableFlip === false && <MemberCardBack member={member} isFrontViewActive={isFrontViewActive} />}
@@ -63,7 +63,7 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
     const contacts: MemberContactProps[] = [
         { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5  stroke-black scale-75" /> },
         { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
-        { contact: member.MEMBER_LINK_BEHANCE, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
+        { contact: member.MEMBER_LINK_BEHANCE, icon: <Instagram className="-ml-0.5  stroke-black scale-75" /> },
         { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 stroke-black scale-75" /> },
     ]
 
@@ -75,14 +75,21 @@ const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewPr
         >
             <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
-            <section className="flex w-full flex-col items-start justify-between">
-                <h1 className="font-kor text-base text-black md:text-lg">{member.MEMBER_NICKNAME}</h1>
+            <section className="flex h-full min-h-0 w-full flex-col items-start justify-between">
+                <h1 className="font-kor text-sm text-black md:text-lg">{member.MEMBER_NICKNAME}</h1>
                 <div className="font-eng text-xxs text-primary-purple md:text-xs">{member.MEMBER_POSITION}</div>
                 <hr className="mb-2 mt-1 h-1 w-full border-primary-whitegray" />
-                <div className="font-kor text-xs text-black">{member.MEMBER_COMMENT}</div>
+                <div className="mb-1 h-0 min-h-0 grow overflow-y-auto font-kor text-xxs text-black scrollbar-hide md:text-xs">
+                    {member.MEMBER_COMMENT}
+                    <div className="visible mt-3 md:hidden">
+                        {contacts.map((contactProps, index) => (
+                            <MemberContact {...contactProps} key={contactProps.contact || index}></MemberContact>
+                        ))}
+                    </div>
+                </div>
             </section>
 
-            <section className="flex flex-col items-start justify-between gap-0.5">
+            <section className="hidden flex-col items-start justify-between gap-0.5 md:visible md:flex">
                 {contacts.map((contactProps, index) => (
                     <MemberContact {...contactProps} key={contactProps.contact || index}></MemberContact>
                 ))}

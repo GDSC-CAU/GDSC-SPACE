@@ -10,6 +10,7 @@ type UNIQUE_ID = string
  */
 export type LinkPath =
     | '/'
+    | '/members'
     | `/members/${string}`
     | BlogRoute
     | `${BlogRoute}/${UNIQUE_ID}`
