@@ -53,22 +53,20 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
 
             <ul className={`${main ? 'items-center' : 'items-start'} mt-4 flex flex-col gap-3`}>
                 {footerData.map(({ content, type }, order) => {
-                    if (main === false && type === 'copyright') return null
+                    if (!main && type === 'copyright') return null
 
                     const shouldRenderDivider = order !== 0 && main
                     return (
-                        <div key={type}>
+                        <li key={type} className="flex max-w-4xl flex-col items-center">
                             {shouldRenderDivider && <Divider disableMargin darkGray twClass="w-2.5" />}
-                            <li key={type} className="max-w-4xl">
-                                <p
-                                    className={`${
-                                        main ? 'text-center' : 'text-left'
-                                    } font-eng text-sm font-light text-primary-logo`}
-                                >
-                                    {content}
-                                </p>
-                            </li>
-                        </div>
+                            <p
+                                className={`${
+                                    main ? 'text-center' : 'text-left'
+                                } font-eng text-xs font-light text-primary-logo md:text-sm`}
+                            >
+                                {content}
+                            </p>
+                        </li>
                     )
                 })}
             </ul>
