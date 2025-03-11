@@ -47,6 +47,7 @@ export const NavBarMobile = ({ iconSize = 45 }: NavBarProps) => {
                         height={iconSize}
                         className={`${isOpened ? 'opacity-100' : 'opacity-0'} ml-2.5 transition-opacity scale-75`}
                         onClick={close}
+                        aria-label="go to homepage"
                     />
                 </Link$>
                 <HamburgerIcon isOpened={isOpened} onClick={() => setIsOpened((prev) => !prev)} />
