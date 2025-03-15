@@ -1,5 +1,5 @@
 import { LinkPath } from '~/components/common'
-import { Gdsc } from '~/components/icons'
+import { GDGoC } from '~/components/icons'
 import { NavButton } from './NavButton'
 
 interface NavBarProps {
@@ -9,7 +9,7 @@ export const NavBarDesktop = ({ iconSize = 55 }: NavBarProps) => {
     return (
         <nav className="sticky top-0 z-50 hidden h-20 flex-row items-center justify-center gap-2 bg-theme-background/5 py-4 backdrop-blur-lg md:flex md:gap-16">
             <NavButton type="link" href="/" disableUnderline>
-                <Gdsc width={iconSize} height={iconSize} className="scale-75 md:scale-100" />
+                <GDGoC width={iconSize} height={iconSize} className="scale-75 md:scale-100" />
             </NavButton>
 
             <NavButton type="scroll" href="/#about">

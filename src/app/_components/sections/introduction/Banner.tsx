@@ -19,7 +19,7 @@ export const IntroBanner = () => (
         <Image
             src="/banner.png"
             className="scale-[4] sm:scale-[2] md:scale-[2] lg:scale-125"
-            alt="GDSC CAU banner"
+            alt="GDGoC CAU banner"
             width={1920}
             height={1070}
             quality={100}

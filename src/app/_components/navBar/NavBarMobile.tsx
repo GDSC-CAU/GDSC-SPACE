@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Gdsc } from '~/components/icons'
+import { GDGoC } from '~/components/icons'
 import { Link$, LinkPath } from '~/src/components/common'
 import { NavButton } from './NavButton'
 
@@ -42,7 +42,7 @@ export const NavBarMobile = ({ iconSize = 45 }: NavBarProps) => {
         <>
             <nav className="sticky top-0 z-50 flex h-14 flex-row items-center justify-between gap-2 bg-theme-background/5 px-2.5 py-4 backdrop-blur-lg md:hidden md:gap-16">
                 <Link$ href="/">
-                    <Gdsc
+                    <GDGoC
                         width={iconSize}
                         height={iconSize}
                         className={`${isOpened ? 'opacity-100' : 'opacity-0'} ml-2.5 transition-opacity scale-75`}

@@ -1,6 +1,6 @@
 import { tw } from '~/src/styles/util'
 import { Divider } from './Divider'
-import { GdGLogo } from './GdgLogo'
+import { GDGoCLogo } from './GDGoCLogo'
 import { TailwindComponent } from './tailwind'
 
 interface FooterProps extends TailwindComponent {
@@ -51,7 +51,7 @@ export const Footer = ({ main = false, twClass }: FooterProps) => {
     return (
         <footer className={`${twClass} ${mainFooterStyle} flex w-full flex-col justify-center py-20`}>
             <Divider darkGray twClass="w-full" />
-            <GdGLogo twClass={`${main ? 'mt-4 mb-5' : 'mt-6 mb-7'}`} />
+            <GDGoCLogo twClass={`${main ? 'mt-4 mb-5' : 'mt-6 mb-7'}`} />
 
             <ul className={`${main ? 'items-center' : 'items-start'} mt-4 flex flex-col gap-3`}>
                 {footerData.map(({ content, type }, order) => {

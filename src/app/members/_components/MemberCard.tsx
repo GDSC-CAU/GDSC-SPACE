@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Email, Gdsc, Instagram, Link as LinkIcon } from '~/components/icons'
+import { Email, GDGoC, Instagram, Link as LinkIcon } from '~/components/icons'
 import { MEMBER_DATA } from '~/src/interfaces/Common'
 import { MemberAvatar } from './MemberAvatar'
 import { MemberContact, MemberContactProps } from './MemberContact'
@@ -48,10 +48,10 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
             }}
         >
             <div className="block md:hidden">
-                <Gdsc width={20} height={20} className="scale-150" />
+                <GDGoC width={20} height={20} className="scale-150" />
             </div>
             <div className="hidden md:block">
-                <Gdsc width={40} height={40} className="scale-125" />
+                <GDGoC width={40} height={40} className="scale-125" />
             </div>
             <h1 className="mt-1 font-kor text-sm text-black md:text-lg">{member.MEMBER_NAME}</h1>
             <p className="font-eng text-3xs font-light text-black md:text-xxs">{member.MEMBER_POSITION}</p>

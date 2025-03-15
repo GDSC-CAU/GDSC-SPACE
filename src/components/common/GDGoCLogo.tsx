@@ -4,7 +4,7 @@ import { TailwindComponent } from './tailwind'
 interface GdsLogoProps extends TailwindComponent {
     scale?: number
 }
-export const GdGLogo = ({ twClass, scale = 0.75 }: GdsLogoProps) => {
+export const GDGoCLogo = ({ twClass, scale = 0.75 }: GdsLogoProps) => {
     return (
         <Image
             className={`${twClass} select-none`}

@@ -5,7 +5,7 @@ describe('Test Home is here', () => {
     it('renders a heading', () => {
         render(<MainPage />)
 
-        const headers = 'GDSC' as const
+        const headers = 'GDGoC' as const
         const testHeadings = [...headers].map((e) =>
             screen.getByRole('heading', {
                 name: e,

@@ -18,7 +18,7 @@ export const IntroWhoAreWe = () => {
                     <p className="text-center font-eng text-sm font-light leading-loose md:text-start">
                         Google Developer Groups on Campus are university based community groups for students interested
                         in Google developer technologies. Students from all undergraduate or graduate programs with an
-                        interest in growing as a developer or designer are welcome. By joining a GDSC, students grow
+                        interest in growing as a developer or designer are welcome. By joining a GDGoC, students grow
                         their knowledge in a peer-to-peer learning environment and build solutions for local businesses
                         and their community.
                     </p>

@@ -1,4 +1,4 @@
-# GDSC CAU Space 🏡
+# GDGoC CAU Space 🏡
 
 ## Rules 🤝
 

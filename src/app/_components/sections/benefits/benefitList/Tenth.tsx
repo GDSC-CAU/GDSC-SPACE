@@ -33,7 +33,7 @@ export const BenefitTenthOpportunity = () => {
             <BenefitModal.ModalContent>
                 <BenefitCard.Description>
                     <BenefitCard.Description.Eng twClass="text-start md:text-start">
-                        You will participate collaboration events such as GDSC Job fair and Programming Contest. Find
+                        You will participate collaboration events such as GDGoC Job fair and Programming Contest. Find
                         great opportunities and gain various experiences.
                     </BenefitCard.Description.Eng>
                     <BenefitCard.Description.Kor twClass="text-start md:text-start">
