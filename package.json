@@ -1,5 +1,5 @@
 {
-    "name": "gdsc-space",
+    "name": "gdgoc-space",
     "version": "0.0.1",
     "private": true,
     "scripts": {
@@ -18,9 +18,9 @@
         "pre-commit": "lint-staged",
         "prepare": "husky install"
     },
-    "description": "GDSC CAU Space",
+    "description": "GDGoC CAU Space",
     "keywords": [
-        "GDSC",
+        "GDGoC",
         "CAU"
     ],
     "dependencies": {

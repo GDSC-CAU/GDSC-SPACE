@@ -16,9 +16,9 @@ export const IntroWhoAreWe = () => {
                 <div className="flex w-full flex-col items-center justify-center md:w-1/3 md:min-w-[40%] md:max-w-[50%] md:items-start">
                     <p className="mb-5 font-eng text-xl font-normal">Developer/ Designer/ Leader</p>
                     <p className="text-center font-eng text-sm font-light leading-loose md:text-start">
-                        Google Developer Student Clubs are university based community groups for students interested in
-                        Google developer technologies. Students from all undergraduate or graduate programs with an
-                        interest in growing as a developer or designer are welcome. By joining a GDSC, students grow
+                        Google Developer Groups on Campus are university based community groups for students interested
+                        in Google developer technologies. Students from all undergraduate or graduate programs with an
+                        interest in growing as a developer or designer are welcome. By joining a GDGoC, students grow
                         their knowledge in a peer-to-peer learning environment and build solutions for local businesses
                         and their community.
                     </p>
@@ -26,11 +26,11 @@ export const IntroWhoAreWe = () => {
                 <div className="flex w-full flex-col items-center justify-center md:w-1/3 md:min-w-[40%] md:max-w-[50%] md:items-start">
                     <p className="mb-5 font-kor text-xl font-normal">개발자/ 디자이너/ 리더</p>
                     <p className="text-center font-kor text-sm font-light leading-loose md:text-start">
-                        Google Developer Student Clubs (GDSC) 프로그램은 학생들이 개발 ∙ 디자인 ∙ 리더십 능력을 키울 수
-                        있도록 지원하는 프로그램입니다. 기술적 성장을 위한 교육자료를 제공하고 리더십 개발을 위한 다양한
-                        활동들을 지원합니다. 학생이 성장할 수 있도록 전세계의 학생 Lead들과의 교류 기회, Google의 이벤트
-                        참여, 현업 엔지니어와의 만남 등 다양한 기회를 제공하고 쇼케이스와 워크샵을 통해 역량을 높일 수
-                        있도록 돕습니다.
+                        Google Developer Groups on Campus (GDGoC) 프로그램은 학생들이 개발 ∙ 디자인 ∙ 리더십 능력을 키울
+                        수 있도록 지원하는 프로그램입니다. 기술적 성장을 위한 교육자료를 제공하고 리더십 개발을 위한
+                        다양한 활동들을 지원합니다. 학생이 성장할 수 있도록 전세계의 학생 Lead들과의 교류 기회, Google의
+                        이벤트 참여, 현업 엔지니어와의 만남 등 다양한 기회를 제공하고 쇼케이스와 워크샵을 통해 역량을
+                        높일 수 있도록 돕습니다.
                     </p>
                 </div>
             </div>

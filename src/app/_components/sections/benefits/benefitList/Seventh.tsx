@@ -19,11 +19,11 @@ export const BenefitSeventh36University = () => {
             <BenefitCard.Description>
                 <BenefitCard.Description.Eng twClass="text-start md:text-center">
                     Become a better developer by interacting with 36 universities in Korea through the Google Developer
-                    Student Clubs network.
+                    Groups on Campus network.
                 </BenefitCard.Description.Eng>
 
                 <BenefitCard.Description.Kor twClass="text-start md:text-center">
-                    국내 36개 대학의 Google Developer Student Clubs 네트워크를 통해 서로 교류하며 더욱 멋진 개발자로
+                    국내 36개 대학의 Google Developer Groups on Campus 네트워크를 통해 서로 교류하며 더욱 멋진 개발자로
                     성장해보세요.
                 </BenefitCard.Description.Kor>
             </BenefitCard.Description>

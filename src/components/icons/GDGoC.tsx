@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 
-const SvgGdsc = (props: SVGProps<SVGSVGElement>) => (
+const SvgGDGoC = (props: SVGProps<SVGSVGElement>) => (
     <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,4 +36,4 @@ const SvgGdsc = (props: SVGProps<SVGSVGElement>) => (
         />
     </svg>
 )
-export default SvgGdsc
+export default SvgGDGoC
