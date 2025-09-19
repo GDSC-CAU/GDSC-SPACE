@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Email, GDGoC, Instagram, Link as LinkIcon } from '~/components/icons'
 import { MEMBER_DATA } from '~/src/interfaces/Common'
+import { SVGGithub } from '~/src/styles/icons'
 import { MemberAvatar } from './MemberAvatar'
 import { MemberContact, MemberContactProps } from './MemberContact'
 import { MemberRoleIcon } from './MemberRoleIcon'
@@ -42,7 +43,7 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
         <MemberRoleIcon MEMBER_ROLE={member.MEMBER_ROLE} />
 
         <div
-            className="absolute bottom-0 left-0 flex h-20 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3 md:h-28"
+            className="absolute bottom-0 left-0 flex h-20 w-full flex-col items-end justify-between rounded-b-xl rounded-tl-[3.5rem] rounded-tr-none bg-white p-3 pt-2.5 md:h-28"
             style={{
                 boxShadow: '-1px -1px 10px rgba(32, 32, 32, 0.2)',
             }}
@@ -53,8 +54,8 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
             <div className="hidden md:block">
                 <GDGoC width={40} height={40} className="scale-125" />
             </div>
-            <h1 className="mt-1 font-kor text-sm text-black md:text-lg">{member.MEMBER_NAME}</h1>
-            <p className="font-eng text-3xs font-light text-black md:text-xxs">{member.MEMBER_POSITION}</p>
+            <h1 className="mt-0.5 font-kor text-sm text-black md:text-lg">{member.MEMBER_NAME}</h1>
+            <p className="mb-2 font-eng text-3xs font-light text-black md:text-xxs">{member.MEMBER_POSITION}</p>
         </div>
     </section>
 )
@@ -62,8 +63,11 @@ const MemberCardFront = ({ member, isFrontViewActive }: MemberCardFrontBackViewP
 const MemberCardBack = ({ member, isFrontViewActive }: MemberCardFrontBackViewProps) => {
     const contacts: MemberContactProps[] = [
         { contact: member.MEMBER_EMAIL, icon: <Email className="-ml-0.5  stroke-black scale-75" /> },
-        { contact: member.MEMBER_LINK_GITHUB, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
-        { contact: member.MEMBER_LINK_BEHANCE, icon: <Instagram className="-ml-0.5  stroke-black scale-75" /> },
+        {
+            contact: member.MEMBER_LINK_GITHUB ? member.MEMBER_LINK_GITHUB.split('/').filter(Boolean).pop() : '',
+            icon: <SVGGithub className="-ml-0.5 stroke-black scale-75" />,
+        },
+        { contact: member.MEMBER_LINK_BEHANCE, icon: <LinkIcon className="-ml-0.5  stroke-black scale-75" /> },
         { contact: member.MEMBER_INSTAGRAM, icon: <Instagram className="-ml-0.5 stroke-black scale-75" /> },
     ]
 
