@@ -1,4 +1,5 @@
 import type { NotionAPI } from 'notion-client'
+import { MEMBER_YEAR } from '../utils/generateYearList'
 
 export interface API_RESPONSE<
     API_DATA extends
@@ -131,5 +132,5 @@ export interface MEMBER_DATA {
     MEMBER_NICKNAME: string
     MEMBER_POSITION: string
     MEMBER_ROLE: 'Lead' | 'Organizer' | 'Core' | 'Team Member' | 'Member'
-    MEMBER_YEAR: '1기' | '2기' | '3기' | '4기'
+    MEMBER_YEAR: MEMBER_YEAR
 }

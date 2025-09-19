@@ -1,5 +1,6 @@
 import { Link$ } from '~/src/components/common'
 import { MEMBER_PAGE_PARAMS } from '~/src/interfaces'
+import { generateYearList } from '~/src/utils/generateYearList'
 
 interface YearButtonProps {
     year: string
@@ -24,26 +25,8 @@ const YearButton = ({ year, isYearActive, children }: React.PropsWithChildren<Ye
     )
 }
 
-const yearList = [
-    {
-        year: '1',
-        title: '1st',
-    },
-    {
-        year: '2',
-        title: '2nd',
-    },
-    {
-        year: '3',
-        title: '3rd',
-    },
-    {
-        year: '4',
-        title: '4th',
-    },
-] as const
-
 export default function MembersLayout({ children, params: { year } }: React.PropsWithChildren<MEMBER_PAGE_PARAMS>) {
+    const yearList = generateYearList()
     return (
         <main className="my-10 flex h-full w-full flex-col items-center md:items-start md:gap-5 2xl:px-[200px]">
             <div className="flex flex-row items-center justify-between gap-3 pl-1.5 md:gap-7 md:pb-5 md:pt-10">
