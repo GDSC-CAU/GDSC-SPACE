@@ -30,5 +30,5 @@ const yearList = generateYearList()
 //   '1기' | '2기' | '3기' | '4기'
 export type MEMBER_YEAR = (typeof yearList)[number]['year_kor']
 export function getLatestYear() {
-    return yearList.at(-1)?.year ?? yearList[yearList.length - 1].year
+    return yearList.at(-1)?.year ?? 1
 }
