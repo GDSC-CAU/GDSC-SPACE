@@ -21,7 +21,7 @@ export default async function MemberPage({ params: { year } }: MEMBER_PAGE_PARAM
                 </div>
             ) : (
                 <div className="flex flex-col py-2">
-                    <p className="font-eng text-3xl">Member {year} is not exists</p>
+                    <p className="font-eng text-3xl">No members added yet.</p>
                 </div>
             )}
             <Footer />
